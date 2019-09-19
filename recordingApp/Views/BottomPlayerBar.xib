@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="451" height="107"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E70-tC-QGE">
+                    <rect key="frame" x="0.0" y="0.0" width="451" height="107"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="190511_미적분학_1200_1300" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qE5-01-5P5">
+                            <rect key="frame" x="35" y="44" width="207" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="G1z-XG-vCR">
+                            <rect key="frame" x="334" y="36" width="93" height="36"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WX3-aA-Oy6">
+                                    <rect key="frame" x="0.0" y="0.0" width="38" height="36"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="37" id="Q5t-PV-C72"/>
+                                        <constraint firstAttribute="height" constant="36" id="g5G-GU-vPg"/>
+                                        <constraint firstAttribute="width" secondItem="WX3-aA-Oy6" secondAttribute="height" multiplier="539:512" id="wk8-qb-5qv"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="stop"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIl-kW-hOs">
+                                    <rect key="frame" x="55" y="0.0" width="38" height="36"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="37" id="FV5-y5-pEc"/>
+                                        <constraint firstAttribute="width" secondItem="oIl-kW-hOs" secondAttribute="height" multiplier="539:512" id="hZD-ag-P9D"/>
+                                        <constraint firstAttribute="height" constant="36" id="kmX-20-RwJ"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="fastPlay"/>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="WX3-aA-Oy6" firstAttribute="width" secondItem="WX3-aA-Oy6" secondAttribute="height" multiplier="539:512" id="A0S-jj-kaT"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="158.69565217391306" y="417.52232142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="fastPlay" width="1024" height="1024"/>
+        <image name="stop" width="1024" height="1024"/>
+    </resources>
+</document>

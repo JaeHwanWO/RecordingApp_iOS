@@ -41,10 +41,12 @@ class RoundedBorderButton: UIButton {
     super.init(coder: aDecoder)
     _init()
   }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     _init()
   }
+  
   func _init() {
     clipsToBounds = true
     layer.borderColor = titleColor(for: .normal)?.cgColor

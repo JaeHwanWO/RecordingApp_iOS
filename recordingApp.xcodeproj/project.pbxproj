@@ -11,6 +11,7 @@
 		DD69FA7C23338BBF006310B6 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69FA7B23338BBF006310B6 /* Lecture.swift */; };
 		DD69FA7E233397E9006310B6 /* AudioPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69FA7D233397E9006310B6 /* AudioPlayViewController.swift */; };
 		DD69FA802333986E006310B6 /* AudioPlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD69FA7F2333986E006310B6 /* AudioPlay.xib */; };
+		DD69FA822333A97F006310B6 /* BottomPlayerBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD69FA812333A97F006310B6 /* BottomPlayerBar.xib */; };
 		DD6F1FD7227C6BCE0016FF74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6F1FD5227C6BCE0016FF74 /* Main.storyboard */; };
 		DD6F1FDC227C6BCF0016FF74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD6F1FDB227C6BCF0016FF74 /* Assets.xcassets */; };
 		DD6F1FDF227C6BCF0016FF74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6F1FDD227C6BCF0016FF74 /* LaunchScreen.storyboard */; };
@@ -35,6 +36,7 @@
 		DD69FA7B23338BBF006310B6 /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		DD69FA7D233397E9006310B6 /* AudioPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayViewController.swift; sourceTree = "<group>"; };
 		DD69FA7F2333986E006310B6 /* AudioPlay.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioPlay.xib; sourceTree = "<group>"; };
+		DD69FA812333A97F006310B6 /* BottomPlayerBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomPlayerBar.xib; sourceTree = "<group>"; };
 		DD6AA55E228062F200BBD3A7 /* AddTimeTableVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeTableVCViewController.swift; sourceTree = "<group>"; };
 		DD6F1FCE227C6BCE0016FF74 /* recordingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6F1FD1227C6BCE0016FF74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				DDF25304227F712400E78A22 /* RoundedBorderButton.swift */,
 				DD6F200F227DF0E00016FF74 /* CollectionViewCell.swift */,
 				DD69FA7F2333986E006310B6 /* AudioPlay.xib */,
+				DD69FA812333A97F006310B6 /* BottomPlayerBar.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD69FA822333A97F006310B6 /* BottomPlayerBar.xib in Resources */,
 				DD6F1FDF227C6BCF0016FF74 /* LaunchScreen.storyboard in Resources */,
 				DD6F1FDC227C6BCF0016FF74 /* Assets.xcassets in Resources */,
 				DD69FA802333986E006310B6 /* AudioPlay.xib in Resources */,
