@@ -10,14 +10,7 @@ import UIKit
 
 class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
   
-  struct classRoom{
-    var name:String?
-    var time:String?
-    var professor:String?
-    var room:String?
-  }
-  
-  var classArr: [classRoom] = []
+  var lectureArray = [Lecture]()
   var days = ["월", "화", "수", "목", "금"]
   
   @IBOutlet weak var upButton: UIButton!
@@ -41,14 +34,14 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    print(classArr.count)
-    return classArr.count
+    print(lectureArray.count)
+    return lectureArray.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
     
-    cell.displayContent(className: classArr[indexPath.row].name, classTime: classArr[indexPath.row].time, classProfessor: classArr[indexPath.row].professor, classRoom: classArr[indexPath.row].room)
+    cell.displayContent(className: lectureArray[indexPath.row].className, classTime: lectureArray[indexPath.row].startTime as! String, classProfessor: lectureArray[indexPath.row].professor, classRoom: lectureArray[indexPath.row].room)
     
     cell.backgroundColor = UIColor.gray
     cell.layer.cornerRadius = 6.0
@@ -70,12 +63,12 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
     
     var 미적분학: classRoom = classRoom(name: "미적분학", time: "11:00~1:00", professor: "박성민", room: "310관 728호")
     
-    classArr.append(mon)
-    classArr.append(tue)
-    classArr.append(wed)
-    classArr.append(thu)
-    classArr.append(fri)
-    classArr.append(미적분학)
+    lectureArray.append(mon)
+    lectureArray.append(tue)
+    lectureArray.append(wed)
+    lectureArray.append(thu)
+    lectureArray.append(fri)
+    lectureArray.append(미적분학)
     
     let cellWidth : CGFloat = (timeTable.frame.size.width / 5.0) - 5
     let cellheight : CGFloat = timeTable.frame.size.height/5 - 5

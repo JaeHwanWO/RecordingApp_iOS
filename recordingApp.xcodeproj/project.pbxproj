@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD69FA7C23338BBF006310B6 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69FA7B23338BBF006310B6 /* Lecture.swift */; };
 		DD6F1FD7227C6BCE0016FF74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6F1FD5227C6BCE0016FF74 /* Main.storyboard */; };
 		DD6F1FDC227C6BCF0016FF74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD6F1FDB227C6BCF0016FF74 /* Assets.xcassets */; };
 		DD6F1FDF227C6BCF0016FF74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6F1FDD227C6BCF0016FF74 /* LaunchScreen.storyboard */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD69FA7B23338BBF006310B6 /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		DD6AA55E228062F200BBD3A7 /* AddTimeTableVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeTableVCViewController.swift; sourceTree = "<group>"; };
 		DD6F1FCE227C6BCE0016FF74 /* recordingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6F1FD1227C6BCE0016FF74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		DD813656233366D80012692D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DD69FA7B23338BBF006310B6 /* Lecture.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				DD81368F23336C280012692D /* SettingViewController.swift in Sources */,
 				DD81369023336C280012692D /* RecordListViewController.swift in Sources */,
 				DD81369123336C280012692D /* ScheduleViewController.swift in Sources */,
+				DD69FA7C23338BBF006310B6 /* Lecture.swift in Sources */,
 				DD81369223336C280012692D /* SettingViewTableControllerTableViewController.swift in Sources */,
 				DD81368A23336C230012692D /* CollectionViewCell.swift in Sources */,
 				DD81368923336C1E0012692D /* RoundedBorderButton.swift in Sources */,
