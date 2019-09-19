@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9AC5795B1DDEE416A5B57C50 /* Pods_recordingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DBD23617819D4E494D4BEF /* Pods_recordingApp.framework */; };
 		DD69FA7C23338BBF006310B6 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69FA7B23338BBF006310B6 /* Lecture.swift */; };
 		DD6F1FD7227C6BCE0016FF74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6F1FD5227C6BCE0016FF74 /* Main.storyboard */; };
 		DD6F1FDC227C6BCF0016FF74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD6F1FDB227C6BCF0016FF74 /* Assets.xcassets */; };
@@ -26,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26B19E915752BBDE1AB3C8EB /* Pods-recordingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordingApp.release.xcconfig"; path = "Target Support Files/Pods-recordingApp/Pods-recordingApp.release.xcconfig"; sourceTree = "<group>"; };
+		94FE09A537989EC2EA455407 /* Pods-recordingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordingApp.debug.xcconfig"; path = "Target Support Files/Pods-recordingApp/Pods-recordingApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A0DBD23617819D4E494D4BEF /* Pods_recordingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_recordingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD69FA7B23338BBF006310B6 /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		DD6AA55E228062F200BBD3A7 /* AddTimeTableVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeTableVCViewController.swift; sourceTree = "<group>"; };
 		DD6F1FCE227C6BCE0016FF74 /* recordingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,17 +55,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AC5795B1DDEE416A5B57C50 /* Pods_recordingApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		014FF19E9AEB134AB3C5E168 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0DBD23617819D4E494D4BEF /* Pods_recordingApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3AB1AA651F128B13FAC81D77 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94FE09A537989EC2EA455407 /* Pods-recordingApp.debug.xcconfig */,
+				26B19E915752BBDE1AB3C8EB /* Pods-recordingApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DD6F1FC5227C6BCE0016FF74 = {
 			isa = PBXGroup;
 			children = (
 				DD6F1FD0227C6BCE0016FF74 /* recordingApp */,
 				DD6F1FCF227C6BCE0016FF74 /* Products */,
+				3AB1AA651F128B13FAC81D77 /* Pods */,
+				014FF19E9AEB134AB3C5E168 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,9 +161,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD6F1FE3227C6BCF0016FF74 /* Build configuration list for PBXNativeTarget "recordingApp" */;
 			buildPhases = (
+				3CB52448E31FDF5740D321F7 /* [CP] Check Pods Manifest.lock */,
 				DD6F1FCA227C6BCE0016FF74 /* Sources */,
 				DD6F1FCB227C6BCE0016FF74 /* Frameworks */,
 				DD6F1FCC227C6BCE0016FF74 /* Resources */,
+				E0E5F8C675777C319DEC4336 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -194,6 +221,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3CB52448E31FDF5740D321F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-recordingApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0E5F8C675777C319DEC4336 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-recordingApp/Pods-recordingApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-recordingApp/Pods-recordingApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-recordingApp/Pods-recordingApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DD6F1FCA227C6BCE0016FF74 /* Sources */ = {
@@ -356,6 +425,7 @@
 		};
 		DD6F1FE4227C6BCF0016FF74 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94FE09A537989EC2EA455407 /* Pods-recordingApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -374,6 +444,7 @@
 		};
 		DD6F1FE5227C6BCF0016FF74 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26B19E915752BBDE1AB3C8EB /* Pods-recordingApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

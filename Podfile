@@ -6,5 +6,6 @@ target 'recordingApp' do
   use_frameworks!
 
   # Pods for recordingApp
+pod 'MGSwipeTableCell'
 
 end

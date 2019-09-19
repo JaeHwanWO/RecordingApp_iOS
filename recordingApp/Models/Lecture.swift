@@ -10,13 +10,13 @@ import Foundation
 
 struct Lecture {
   var name: String
-  var time: [Times]
+  var time: [LectureTime]
   var professor: String?
   var room: String?
   var memo: String?
 }
 
-struct Times{
+struct LectureTime{
   var startTime: Date
   var endTime: Date
 }
