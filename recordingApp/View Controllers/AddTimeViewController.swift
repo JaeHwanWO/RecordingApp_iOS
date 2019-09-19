@@ -73,7 +73,6 @@ class AddTimeViewController: UITableViewController {
     tableView.deselectRow(at: indexPath, animated: true)
   }
   
-  
   @objc func handleDatePicker(_ datePicker: UIDatePicker){
     if (datePicker == datePickerForStartTime){
       startTimeLabel.text  = (datePicker.date.formatted)

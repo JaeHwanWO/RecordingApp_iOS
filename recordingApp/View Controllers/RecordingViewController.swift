@@ -72,16 +72,16 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
       print(didAllow)
     })
     
-    settingBtn.setImage(UIImage(named: "nut-icon 사본"), for: .normal)
-    //image 크기 수정 필요!
-    swipeButton.setImage(UIImage(named: "downarrow_black.png"), for: .normal)
-    swipeButton.setBackgroundImage(UIImage(named: "downarrow_black.png"), for: .normal)
+//    settingBtn.setImage(UIImage(named: "nut-icon 사본"), for: .normal)
+//    //image 크기 수정 필요!
+//    swipeButton.setImage(UIImage(named: "downarrow_black.png"), for: .normal)
+//    swipeButton.setBackgroundImage(UIImage(named: "downarrow_black.png"), for: .normal)
     checkRecordPermission()
     
     // 녹음 버튼에 사진 넣기
     if (isRecordingOn == false){
       //처음 앱을 켰을 때, 녹음중이 아니라면
-      recordingBtn.setImage(UIImage(named: "RecordingBtnPic"), for: .normal)
+//      recordingBtn.setImage(UIImage(named: "RecordingBtnPic"), for: .normal)
       recordingTimeLabel.text = "지금 바로 녹음을 시작하세요!"
       recordingTimeLabel.font = UIFont.boldSystemFont(ofSize: 20)
       recordingTimeLabel.textAlignment = .center
@@ -97,8 +97,8 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     //설정 아이콘 색깔 흰색으로 바꾸기
     //아래로 스와이프! 이거랑 화살표 끄기
     view.backgroundColor = UIColor.red
-    recordingBtn.setImage(UIImage(named: "recordingBtn_recording"), for: .normal)
-    swipeButton.setBackgroundImage(UIImage(named: "downarrow_white.png"), for: .normal)
+//    recordingBtn.setImage(UIImage(named: "recordingBtn_recording"), for: .normal)
+//    swipeButton.setBackgroundImage(UIImage(named: "downarrow_white.png"), for: .normal)
     swipeButton.isHidden = true
     swipeMeLabel.isHidden = true
     setup_recorder()
@@ -114,9 +114,9 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     //설정 아이콘 색깔 검은색으로 바꾸기
     //아래로 스와이프! 이거랑 화살표 보이게
     view.backgroundColor = UIColor.white
-    recordingBtn.setBackgroundImage(UIImage(named: "RecordingBtnPic"), for: .normal)
+//    recordingBtn.setBackgroundImage(UIImage(named: "RecordingBtnPic"), for: .normal)
     //        swipeButton.setImage(UIImage(named: "downarrow_black.png"), for: .normal)
-    swipeButton.setBackgroundImage(UIImage(named: "downarrow_black.png"), for: .normal)
+//    swipeButton.setBackgroundImage(UIImage(named: "downarrow_black.png"), for: .normal)
     recordingTimeLabel.text = "지금 바로 녹음을 시작하세요!"
     recordingTimeLabel.font = UIFont.boldSystemFont(ofSize: 20)
     recordingTimeLabel.textAlignment = .center

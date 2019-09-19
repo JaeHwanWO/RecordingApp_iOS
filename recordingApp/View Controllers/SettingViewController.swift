@@ -13,4 +13,8 @@ class SettingViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
   }
+  
+  @IBAction func didTapBackButton(_ sender: Any) {
+    navigationController?.popViewController(animated: true)
+  }
 }
