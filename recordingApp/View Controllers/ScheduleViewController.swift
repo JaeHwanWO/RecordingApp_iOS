@@ -41,7 +41,7 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
     
-    cell.displayContent(className: lectureArray[indexPath.row].className, classTime: lectureArray[indexPath.row].startTime as! String, classProfessor: lectureArray[indexPath.row].professor, classRoom: lectureArray[indexPath.row].room)
+    cell.displayContent(className: lectureArray[indexPath.row].name, classTime: lectureArray[indexPath.row].time as? String, classProfessor: lectureArray[indexPath.row].professor, classRoom: lectureArray[indexPath.row].room)
     
     cell.backgroundColor = UIColor.gray
     cell.layer.cornerRadius = 6.0
@@ -55,13 +55,13 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
     downButton.setImage(UIImage(named: "downarrow_black"), for: .normal)
     
     //월,화,수,목,금을 collectionView에 할당해주기
-    var mon: classRoom = classRoom(name: "월", time: nil, professor: nil, room: nil)
-    var tue: classRoom = classRoom(name: "화", time: nil, professor: nil, room: nil)
-    var wed: classRoom = classRoom(name: "수", time: nil, professor: nil, room: nil)
-    var thu: classRoom = classRoom(name: "목", time: nil, professor: nil, room: nil)
-    var fri: classRoom = classRoom(name: "금", time: nil, professor: nil, room: nil)
+    var mon: Lecture = Lecture(name: "월", time: nil, professor: nil, room: nil, memo: nil)
+    var tue: Lecture = Lecture(name: "화", time: nil, professor: nil, room: nil, memo: nil)
+    var wed: Lecture = Lecture(name: "수", time: nil, professor: nil, room: nil, memo: nil)
+    var thu: Lecture = Lecture(name: "목", time: nil, professor: nil, room: nil, memo: nil)
+    var fri: Lecture = Lecture(name: "금", time: nil, professor: nil, room: nil, memo: nil)
     
-    var 미적분학: classRoom = classRoom(name: "미적분학", time: "11:00~1:00", professor: "박성민", room: "310관 728호")
+    var 미적분학: Lecture = Lecture(name: "미적분학", time: nil, professor: "박성민", room: "310관 728호", memo: nil)
     
     lectureArray.append(mon)
     lectureArray.append(tue)

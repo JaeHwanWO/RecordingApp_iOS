@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
 class RecordListViewController: UIViewController {
   

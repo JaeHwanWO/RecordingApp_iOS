@@ -9,8 +9,8 @@
 import Foundation
 
 struct Lecture {
-  var name: String
-  var time: [LectureTime]
+  var name: String?
+  var time: [LectureTime]?
   var professor: String?
   var room: String?
   var memo: String?

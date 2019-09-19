@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		9AC5795B1DDEE416A5B57C50 /* Pods_recordingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DBD23617819D4E494D4BEF /* Pods_recordingApp.framework */; };
 		DD69FA7C23338BBF006310B6 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69FA7B23338BBF006310B6 /* Lecture.swift */; };
+		DD69FA7E233397E9006310B6 /* AudioPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69FA7D233397E9006310B6 /* AudioPlayViewController.swift */; };
+		DD69FA802333986E006310B6 /* AudioPlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD69FA7F2333986E006310B6 /* AudioPlay.xib */; };
 		DD6F1FD7227C6BCE0016FF74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6F1FD5227C6BCE0016FF74 /* Main.storyboard */; };
 		DD6F1FDC227C6BCF0016FF74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD6F1FDB227C6BCF0016FF74 /* Assets.xcassets */; };
 		DD6F1FDF227C6BCF0016FF74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6F1FDD227C6BCF0016FF74 /* LaunchScreen.storyboard */; };
@@ -31,6 +33,8 @@
 		94FE09A537989EC2EA455407 /* Pods-recordingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordingApp.debug.xcconfig"; path = "Target Support Files/Pods-recordingApp/Pods-recordingApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A0DBD23617819D4E494D4BEF /* Pods_recordingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_recordingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD69FA7B23338BBF006310B6 /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
+		DD69FA7D233397E9006310B6 /* AudioPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayViewController.swift; sourceTree = "<group>"; };
+		DD69FA7F2333986E006310B6 /* AudioPlay.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioPlay.xib; sourceTree = "<group>"; };
 		DD6AA55E228062F200BBD3A7 /* AddTimeTableVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeTableVCViewController.swift; sourceTree = "<group>"; };
 		DD6F1FCE227C6BCE0016FF74 /* recordingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6F1FD1227C6BCE0016FF74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,7 +80,6 @@
 				94FE09A537989EC2EA455407 /* Pods-recordingApp.debug.xcconfig */,
 				26B19E915752BBDE1AB3C8EB /* Pods-recordingApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -133,6 +136,7 @@
 				DD6F1FEA227C8D600016FF74 /* RecordListViewController.swift */,
 				DD6F1FE8227C8D2B0016FF74 /* ScheduleViewController.swift */,
 				DDF25302227F543E00E78A22 /* SettingViewTableControllerTableViewController.swift */,
+				DD69FA7D233397E9006310B6 /* AudioPlayViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -142,6 +146,7 @@
 			children = (
 				DDF25304227F712400E78A22 /* RoundedBorderButton.swift */,
 				DD6F200F227DF0E00016FF74 /* CollectionViewCell.swift */,
+				DD69FA7F2333986E006310B6 /* AudioPlay.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 			files = (
 				DD6F1FDF227C6BCF0016FF74 /* LaunchScreen.storyboard in Resources */,
 				DD6F1FDC227C6BCF0016FF74 /* Assets.xcassets in Resources */,
+				DD69FA802333986E006310B6 /* AudioPlay.xib in Resources */,
 				DD6F1FD7227C6BCE0016FF74 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +288,7 @@
 				DD81369223336C280012692D /* SettingViewTableControllerTableViewController.swift in Sources */,
 				DD81368A23336C230012692D /* CollectionViewCell.swift in Sources */,
 				DD81368923336C1E0012692D /* RoundedBorderButton.swift in Sources */,
+				DD69FA7E233397E9006310B6 /* AudioPlayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
