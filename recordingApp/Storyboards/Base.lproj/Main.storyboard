@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAk-kr-drf">
-                                <rect key="frame" x="289" y="72" width="58" height="58"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAk-kr-drf">
+                                <rect key="frame" x="307" y="72" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="58" id="o9G-ck-mCp"/>
-                                    <constraint firstAttribute="height" constant="58" id="tcm-A6-DjG"/>
+                                    <constraint firstAttribute="width" constant="40" id="o9G-ck-mCp"/>
+                                    <constraint firstAttribute="height" constant="40" id="tcm-A6-DjG"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="3" minY="3" maxX="3" maxY="3"/>
-                                <state key="normal" title="Setting">
+                                <state key="normal" image="setting">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -33,44 +33,57 @@
                                     <segue destination="t1S-dG-iJl" kind="show" id="9PV-b7-xuO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caM-Ve-evA">
-                                <rect key="frame" x="80" y="307" width="214" height="199"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caM-Ve-evA">
+                                <rect key="frame" x="83.666666666666671" y="319.66666666666669" width="207.66666666666663" height="173"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="173" id="Dab-nR-Uce"/>
+                                    <constraint firstAttribute="width" secondItem="caM-Ve-evA" secondAttribute="height" multiplier="787:655" id="YFp-0r-9gv"/>
+                                </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button" image="recordingButton_red"/>
                                 <connections>
                                     <action selector="recordingOnAndOff:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ypt-Tl-59I"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PxO-Bo-kHM">
-                                <rect key="frame" x="63" y="558" width="249" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PxO-Bo-kHM">
+                                <rect key="frame" x="166.66666666666666" y="552.66666666666663" width="41.666666666666657" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="아래로 스와이프 해보세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ox-8N-QVC">
-                                <rect key="frame" x="99" y="719" width="176" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zgg-pc-EXo">
-                                <rect key="frame" x="165" y="758" width="45" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zgg-pc-EXo">
+                                <rect key="frame" x="144.66666666666666" y="746" width="86" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="86" id="Y6h-SF-dQS"/>
+                                    <constraint firstAttribute="height" constant="46" id="cew-J9-ysN"/>
+                                </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="down"/>
+                                <state key="normal" title="down" image="downarrow_black"/>
                                 <connections>
                                     <action selector="swipeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8bn-W3-mI8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아래로 스와이프 해보세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ox-8N-QVC">
+                                <rect key="frame" x="99.666666666666686" y="702" width="176" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Zgg-pc-EXo" secondAttribute="bottom" constant="20" id="2Hi-AK-q22"/>
+                            <constraint firstItem="PxO-Bo-kHM" firstAttribute="top" secondItem="caM-Ve-evA" secondAttribute="bottom" constant="60" id="36Q-x2-wRy"/>
+                            <constraint firstItem="5ox-8N-QVC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9i7-LR-aUx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hAk-kr-drf" secondAttribute="trailing" constant="28" id="Aax-k1-5H5"/>
+                            <constraint firstItem="Zgg-pc-EXo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DKN-Qx-1A6"/>
+                            <constraint firstItem="PxO-Bo-kHM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FDc-0c-T9l"/>
+                            <constraint firstItem="5ox-8N-QVC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xd4-5d-wHo"/>
                             <constraint firstItem="hAk-kr-drf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="28" id="ZQA-KM-XKg"/>
+                            <constraint firstItem="Zgg-pc-EXo" firstAttribute="top" secondItem="5ox-8N-QVC" secondAttribute="bottom" constant="23" id="aSC-rk-ygQ"/>
+                            <constraint firstItem="caM-Ve-evA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ac3-Ye-A4O"/>
+                            <constraint firstItem="caM-Ve-evA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kt5-ro-YSz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
@@ -803,7 +816,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5aB-Qb-Cfk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1513" y="1534"/>
+            <point key="canvasLocation" x="1142" y="1500"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="Wz9-ld-nOZ">
@@ -1018,4 +1031,9 @@
             <point key="canvasLocation" x="1143" y="21"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="downarrow_black" width="1297" height="720"/>
+        <image name="recordingButton_red" width="733" height="655"/>
+        <image name="setting" width="512" height="512"/>
+    </resources>
 </document>
