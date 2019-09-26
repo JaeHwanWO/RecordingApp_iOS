@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9AC5795B1DDEE416A5B57C50 /* Pods_recordingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DBD23617819D4E494D4BEF /* Pods_recordingApp.framework */; };
+		DD482C96233CA16D00251AE1 /* StateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD482C95233CA16D00251AE1 /* StateStore.swift */; };
 		DD69FA7C23338BBF006310B6 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69FA7B23338BBF006310B6 /* Lecture.swift */; };
 		DD69FA7E233397E9006310B6 /* AudioPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69FA7D233397E9006310B6 /* AudioPlayViewController.swift */; };
 		DD69FA802333986E006310B6 /* AudioPlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD69FA7F2333986E006310B6 /* AudioPlay.xib */; };
@@ -33,6 +34,7 @@
 		26B19E915752BBDE1AB3C8EB /* Pods-recordingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordingApp.release.xcconfig"; path = "Target Support Files/Pods-recordingApp/Pods-recordingApp.release.xcconfig"; sourceTree = "<group>"; };
 		94FE09A537989EC2EA455407 /* Pods-recordingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordingApp.debug.xcconfig"; path = "Target Support Files/Pods-recordingApp/Pods-recordingApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A0DBD23617819D4E494D4BEF /* Pods_recordingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_recordingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD482C95233CA16D00251AE1 /* StateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateStore.swift; sourceTree = "<group>"; };
 		DD69FA7B23338BBF006310B6 /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		DD69FA7D233397E9006310B6 /* AudioPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayViewController.swift; sourceTree = "<group>"; };
 		DD69FA7F2333986E006310B6 /* AudioPlay.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioPlay.xib; sourceTree = "<group>"; };
@@ -106,12 +108,13 @@
 		DD6F1FD0227C6BCE0016FF74 /* recordingApp */ = {
 			isa = PBXGroup;
 			children = (
+				DDF382852285CD2700B6172F /* Notification.swift */,
+				DD482C95233CA16D00251AE1 /* StateStore.swift */,
 				DD813656233366D80012692D /* Models */,
 				DD813655233366AE0012692D /* Views */,
 				DD8136542333667A0012692D /* View Controllers */,
 				DD813653233366500012692D /* Storyboards */,
 				DD6F1FD1227C6BCE0016FF74 /* AppDelegate.swift */,
-				DDF382852285CD2700B6172F /* Notification.swift */,
 				DD6F1FE0227C6BCF0016FF74 /* Info.plist */,
 				DD6F1FDB227C6BCF0016FF74 /* Assets.xcassets */,
 			);
@@ -290,6 +293,7 @@
 				DD81369123336C280012692D /* ScheduleViewController.swift in Sources */,
 				DD69FA7C23338BBF006310B6 /* Lecture.swift in Sources */,
 				DD81369223336C280012692D /* SettingViewTableControllerTableViewController.swift in Sources */,
+				DD482C96233CA16D00251AE1 /* StateStore.swift in Sources */,
 				DD81368A23336C230012692D /* CollectionViewCell.swift in Sources */,
 				DD81368923336C1E0012692D /* RoundedBorderButton.swift in Sources */,
 				DD69FA7E233397E9006310B6 /* AudioPlayViewController.swift in Sources */,

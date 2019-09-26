@@ -15,6 +15,6 @@ class SettingViewController: UIViewController {
   }
   
   @IBAction func didTapBackButton(_ sender: Any) {
-    navigationController?.popViewController(animated: true)
+    self.dismiss(animated: true, completion: nil)
   }
 }

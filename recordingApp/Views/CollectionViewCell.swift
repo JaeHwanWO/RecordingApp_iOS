@@ -15,18 +15,26 @@ class CollectionViewCell: UICollectionViewCell {
   @IBOutlet var classProfessorLabel: UILabel?
   @IBOutlet var classRoomLabel: UILabel?
 
-  func displayContent(className: String?, classTime: String?, classProfessor:String?, classRoom:String?){
+  func displayContent(className: String?, classTime: LectureTime?, classProfessor:String?, classRoom:String?){
+    
+    self.backgroundColor = .blue
+    self.layer.cornerRadius = self.frame.width / 8
     
     classNameLabel?.text = className
-    classTimeLabel?.text = classTime
+//    classTimeLabel?.text = classTime
+    classTimeLabel?.text =
+      String(describing: classTime?.startTime?.hour ?? 0)
+      + ":"
+      + String(describing: classTime?.startTime?.min ?? 0)
+      + "~"
+      + String(describing: classTime?.endTime?.hour ?? 0)
+      + ":"
+      + String(describing: classTime?.endTime?.min ?? 0)
+    
+    print(String(describing: classTime?.startTime?.hour ?? 0))
     classProfessorLabel?.text = classProfessor
     classRoomLabel?.text = classRoom
-    
-    classNameLabel?.font = UIFont.boldSystemFont(ofSize: 15)
-    classTimeLabel?.font = UIFont.boldSystemFont(ofSize: 10)
-    classProfessorLabel?.font = UIFont.systemFont(ofSize: 10)
-    classRoomLabel?.font = UIFont.systemFont(ofSize: 10)
-    
+
     classNameLabel?.textColor = UIColor.white
     classTimeLabel?.textColor = UIColor.white
     classProfessorLabel?.textColor = UIColor.white

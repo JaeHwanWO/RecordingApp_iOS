@@ -11,7 +11,6 @@ import UIKit
 class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
   
   var lectureArray = [Lecture]()
-  var days = ["월", "화", "수", "목", "금"]
   
   @IBOutlet weak var upButton: UIButton!
   @IBOutlet weak var downButton: UIButton!
@@ -41,47 +40,43 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
     
-    cell.displayContent(className: lectureArray[indexPath.row].name, classTime: lectureArray[indexPath.row].time as? String, classProfessor: lectureArray[indexPath.row].professor, classRoom: lectureArray[indexPath.row].room)
-    
-    cell.backgroundColor = UIColor.gray
-    cell.layer.cornerRadius = 6.0
+    cell.displayContent(className: lectureArray[indexPath.row].name,
+                        classTime: lectureArray[indexPath.row].time,
+                        classProfessor: lectureArray[indexPath.row].professor,
+                        classRoom: lectureArray[indexPath.row].room)
     return cell
   }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+  }
+  
+  @IBOutlet weak var monLabel: UILabel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     //reloadSections같은 함수
-    upButton.setImage(UIImage(named: "uparrow_black"), for: .normal)
-    downButton.setImage(UIImage(named: "downarrow_black"), for: .normal)
-    
-    //월,화,수,목,금을 collectionView에 할당해주기
-    var mon: Lecture = Lecture(name: "월", time: nil, professor: nil, room: nil, memo: nil)
-    var tue: Lecture = Lecture(name: "화", time: nil, professor: nil, room: nil, memo: nil)
-    var wed: Lecture = Lecture(name: "수", time: nil, professor: nil, room: nil, memo: nil)
-    var thu: Lecture = Lecture(name: "목", time: nil, professor: nil, room: nil, memo: nil)
-    var fri: Lecture = Lecture(name: "금", time: nil, professor: nil, room: nil, memo: nil)
-    
-    var 미적분학: Lecture = Lecture(name: "미적분학", time: nil, professor: "박성민", room: "310관 728호", memo: nil)
-    
-    lectureArray.append(mon)
-    lectureArray.append(tue)
-    lectureArray.append(wed)
-    lectureArray.append(thu)
-    lectureArray.append(fri)
+    let 미적분학: Lecture = Lecture(name: "미적분학",
+                                  time: LectureTime(day: .mon,
+                                                    startTime: OrdinaryTime(hour: 9, min: 0),
+                                                    endTime: OrdinaryTime(hour: 11, min: 0)),
+                                  professor: "박성민",
+                                  room: "310관 728호",
+                                  memo: nil)
+    let 미적분학2: Lecture = Lecture(name: "미적분학", time: nil, professor: "박성민", room: "310관 728호", memo: nil)
     lectureArray.append(미적분학)
+    lectureArray.append(미적분학2)
     
-    let cellWidth : CGFloat = (timeTable.frame.size.width / 5.0) - 5
+    let cellWidth : CGFloat = monLabel.bounds.width
     let cellheight : CGFloat = timeTable.frame.size.height/5 - 5
     let cellSize = CGSize(width: cellWidth , height:cellheight)
     
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .vertical //.horizontal
     layout.itemSize = cellSize
-    layout.sectionInset = UIEdgeInsets(top: 3, left: 3, bottom: 10, right: 3)
-    layout.minimumLineSpacing = 8.0
-    //셀끼리 세로로
-    layout.minimumInteritemSpacing = 3.0
-    //셀끼리 가로로
+//    layout.sectionInset = UIEdgeInsets(top: 3, left: 3, bottom: 10, right: 3)
+//    layout.minimumLineSpacing = 8.0
+//    layout.minimumInteritemSpacing = 3.0
     timeTable.setCollectionViewLayout(layout, animated: true)
     timeTable.reloadData()
   }

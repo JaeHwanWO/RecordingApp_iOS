@@ -37,6 +37,16 @@ class RoundedBorderButton: UIButton {
     }
   }
   
+  @IBInspectable dynamic var isSelectable: Bool = false {
+    didSet {
+      if isSelectable{
+        // 토글하면 색깔 바뀌는 기능 추가
+        self.backgroundColor = .black
+        self.titleLabel?.textColor = .white
+      }
+    }
+  }
+  
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     _init()
