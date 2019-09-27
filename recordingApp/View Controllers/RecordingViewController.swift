@@ -102,7 +102,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
 //    swipeButton.setBackgroundImage(UIImage(named: "downarrow_white.png"), for: .normal)
     swipeButton.isHidden = true
     swipeMeLabel.isHidden = true
-    setup_recorder()
+    setupRecorder()
     audioRecorder.record()
     meterTimer = Timer.scheduledTimer(timeInterval: 0.1, target:self, selector: #selector(updateAudioMeter(_:)), userInfo:nil, repeats:true)
     recordingTimeLabel.textColor = UIColor.white
@@ -144,10 +144,10 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
       audioRecorder.stop()
       audioRecorder = nil
       meterTimer.invalidate()
-      print("recorded successfully.")
+      // TODO: save
     }
     else {
-      display_alert(msg_title: "Error", msg_desc: "Recording failed.", action_title: "OK")
+      displayAlert(msg_title: "에러!", msg_desc: "녹음 저장에 실패했습니다😭😭 왜지...", action_title: "확인이염")
     }
   }
   
@@ -173,38 +173,34 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     }
   }
   
-  
-  //녹음할 파일을 저장할 디렉토리
-  func getDocumentsDirectory() -> URL {
-    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-    let documentsDirectory = paths[0]
-    return documentsDirectory
-    //TODO: 여기 파일구조 어케 되었는지 봐야함!
-  }
-  
-  
   func getFileUrl() -> URL {
-    let filename = "test.m4a"
-    //**고칠 사항 : 지금 시간 받아와서 파일명에 append
-    let filePath = getDocumentsDirectory().appendingPathComponent(filename)
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    var newStr: String = ""
+    let documentsDirectory = paths[0]
+    let filename = "190927_티스토리_0900_1100"
+    let filePath = documentsDirectory.appendingPathComponent(filename)
+    print(filePath)
+    do{
+      try newStr = filePath.pathExtension.removingPercentEncoding!
+      print(newStr)
+    } catch {
+      print("error")
+      // TODO : 파일명 고치기
+      
+    }
+    
     return filePath
   }
   
-  
-  func display_alert(msg_title : String, msg_desc : String, action_title : String) {
+  func displayAlert(msg_title : String, msg_desc : String, action_title : String) {
     let ac = UIAlertController(title: msg_title, message: msg_desc, preferredStyle: .alert)
-    ac.addAction(UIAlertAction(title: action_title, style: .default)
-    {
-      (result : UIAlertAction) -> Void in
+    ac.addAction(UIAlertAction(title: action_title, style: .default) { (result : UIAlertAction) -> Void in
       _ = self.navigationController?.popViewController(animated: true)
     })
     present(ac, animated: true)
-    
-    //아마 이렇게 하면 alert view로 보이는듯???????
-    //코드를 잘 읽어보자!!
   }
   
-  func setup_recorder() {
+  func setupRecorder() {
     if isAudioRecordingGranted
     {
       let session = AVAudioSession.sharedInstance()
@@ -224,11 +220,11 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder.prepareToRecord()
       }
       catch let error {
-        display_alert(msg_title: "Error", msg_desc: error.localizedDescription, action_title: "OK")
+        displayAlert(msg_title: "Error", msg_desc: error.localizedDescription, action_title: "OK")
       }
     }
     else {
-      display_alert(msg_title: "Error", msg_desc: "Don't have access to use your microphone.", action_title: "OK")
+      displayAlert(msg_title: "Error", msg_desc: "Don't have access to use your microphone.", action_title: "OK")
     }
   }
   
