@@ -54,4 +54,10 @@ class RecordListViewController: UIViewController, UITableViewDelegate, UITableVi
     self.dismiss(animated: true, completion: nil)
   }
   
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    // 오디오를 선택하면 플레이하는 뷰가 init되고, 음악이 재생된다(추후 기능 추가)
+    let audioPlayScene = AudioPlayViewController(nibName: "AudioPlay", bundle: nil)
+    self.present(audioPlayScene, animated: true, completion: nil)
+  }
+  
 }

@@ -7,24 +7,43 @@
 //
 
 import UIKit
+import AVFoundation
+// AVAudioPlayer을 쓰기 위해서!
 
 class AudioPlayViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+  
+  @IBOutlet weak var progreeBar: UIProgressView!
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    // todo: 앨범 아트 세팅하기
+    //
+  }
+  
+  @IBAction func didPressDismissButton(_ sender: Any) {
+    self.dismiss(animated: true, completion: nil)
+  }
+  
+  func play(){
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  }
+  func pause(){
+    
+  }
+  func goForward(){
+    // 다음곡으로 간다
+  }
+  func goBackward(){
+    // 이 음악의 처음으로 간다, 이미 처음이면 이전곡으로 간다.
+  }
+  
+  @IBAction func didTapPlayOrPauseButton(_ sender: Any) {
+  }
+  @IBAction func didTapGoBackwardButton(_ sender: Any) {
+  }
+  @IBAction func didTapGoForwardButton(_ sender: Any) {
+  }
+  @IBAction func didTapModifyButton(_ sender: Any) {
+  }
+  @IBAction func didTapShareButton(_ sender: Any) {
+  }
 }

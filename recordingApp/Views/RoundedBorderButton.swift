@@ -42,7 +42,11 @@ class RoundedBorderButton: UIButton {
       if isSelectable{
         // 토글하면 색깔 바뀌는 기능 추가
         self.backgroundColor = .black
-        self.titleLabel?.textColor = .white
+        self.titleLabel!.textColor = .white
+      }
+      else{
+        self.backgroundColor = .white
+        self.titleLabel!.textColor = .black
       }
     }
   }
@@ -58,9 +62,12 @@ class RoundedBorderButton: UIButton {
   }
   
   func _init() {
+    self.addTarget(self, action: Selector(("buttonPress:")), for: .touchUpInside)
+    self.titleLabel?.textColor = .black
+    
     clipsToBounds = true
     layer.borderColor = titleColor(for: .normal)?.cgColor
-    setTitleColor(titleColor(for: .normal)?.withAlphaComponent(highlightedAlpha), for: .highlighted)
+//    setTitleColor(titleColor(for: .normal)?.withAlphaComponent(highlightedAlpha), for: .highlighted)
     
     // repeat all didSets so that defaults are applied
     layer.cornerRadius = cornerRadius
@@ -83,6 +90,10 @@ class RoundedBorderButton: UIButton {
         layer.borderColor = UIColor(cgColor: borderColor).withAlphaComponent(CGFloat(newAlpha)).cgColor
       }
     }
+  }
+
+  @IBAction func buttonPress(button: RoundedBorderButton) {
+    self.isSelectable = !self.isSelectable
   }
   
   override func layoutSubviews() {
