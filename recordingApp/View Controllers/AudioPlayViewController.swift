@@ -10,13 +10,28 @@ import UIKit
 import AVFoundation
 // AVAudioPlayer을 쓰기 위해서!
 
-class AudioPlayViewController: UIViewController {
+class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
+  var isPlaying: Bool = false
+  var player: AVAudioPlayer!
+  var updater: CADisplayLink! = nil
+  @IBOutlet weak var progressBar: UIProgressView!
   
-  @IBOutlet weak var progreeBar: UIProgressView!
   override func viewDidLoad() {
     super.viewDidLoad()
     // todo: 앨범 아트 세팅하기
-    //
+    guard let path = Bundle.main.path(forResource:"Boogie On & On", ofType: "mp3") else { return }
+    let url = URL(fileURLWithPath : path)
+    do {
+      player = try AVAudioPlayer(contentsOf: url)
+      updater = CADisplayLink(target: self, selector: #selector(self.trackAudio))
+      updater.preferredFramesPerSecond = 1
+      updater.add(to: RunLoop.current, forMode: RunLoop.Mode.common)
+      player.prepareToPlay()
+      player.delegate = self
+    }
+    catch {
+      print(error)
+    }
   }
   
   @IBAction func didPressDismissButton(_ sender: Any) {
@@ -24,10 +39,15 @@ class AudioPlayViewController: UIViewController {
   }
   
   func play(){
-    
+    player.play()
   }
+  
+  @objc func trackAudio() {
+    progressBar.setProgress(Float(player.currentTime), animated: true)
+  }
+  
   func pause(){
-    
+    player.stop()
   }
   func goForward(){
     // 다음곡으로 간다
@@ -37,6 +57,12 @@ class AudioPlayViewController: UIViewController {
   }
   
   @IBAction func didTapPlayOrPauseButton(_ sender: Any) {
+    isPlaying = !isPlaying
+    if isPlaying{
+      play()
+    } else{
+      pause()
+    }
   }
   @IBAction func didTapGoBackwardButton(_ sender: Any) {
   }

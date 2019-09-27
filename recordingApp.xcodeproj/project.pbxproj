@@ -28,6 +28,7 @@
 		DD81369223336C280012692D /* SettingViewTableControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF25302227F543E00E78A22 /* SettingViewTableControllerTableViewController.swift */; };
 		DD81369323336C2F0012692D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1FD1227C6BCE0016FF74 /* AppDelegate.swift */; };
 		DD81369423336C2F0012692D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF382852285CD2700B6172F /* Notification.swift */; };
+		DD89FF30233DB74A002FB5E7 /* Boogie On & On.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD89FF2F233DB74A002FB5E7 /* Boogie On & On.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		DD6F1FEC227C91130016FF74 /* RecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
 		DD6F200F227DF0E00016FF74 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		DD6F2018227E22170016FF74 /* AddScheduleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleController.swift; sourceTree = "<group>"; };
+		DD89FF2F233DB74A002FB5E7 /* Boogie On & On.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Boogie On & On.mp3"; sourceTree = "<group>"; };
 		DDC568C6227EA59D003245D9 /* AddTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeViewController.swift; sourceTree = "<group>"; };
 		DDF25302227F543E00E78A22 /* SettingViewTableControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewTableControllerTableViewController.swift; sourceTree = "<group>"; };
 		DDF25304227F712400E78A22 /* RoundedBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderButton.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		DD813656233366D80012692D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DD89FF2F233DB74A002FB5E7 /* Boogie On & On.mp3 */,
 				DD69FA7B23338BBF006310B6 /* Lecture.swift */,
 			);
 			path = Models;
@@ -228,6 +231,7 @@
 				DD69FA822333A97F006310B6 /* BottomPlayerBar.xib in Resources */,
 				DD6F1FDF227C6BCF0016FF74 /* LaunchScreen.storyboard in Resources */,
 				DD6F1FDC227C6BCF0016FF74 /* Assets.xcassets in Resources */,
+				DD89FF30233DB74A002FB5E7 /* Boogie On & On.mp3 in Resources */,
 				DD69FA802333986E006310B6 /* AudioPlay.xib in Resources */,
 				DD6F1FD7227C6BCE0016FF74 /* Main.storyboard in Resources */,
 			);
