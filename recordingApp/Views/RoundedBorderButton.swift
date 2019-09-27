@@ -10,6 +10,9 @@ import UIKit
 @IBDesignable
 class RoundedBorderButton: UIButton {
   
+  var isSelectableToggleValue: Bool = false
+  
+  
   @IBInspectable dynamic var cornerRadius: CGFloat = 20.0 {
     didSet {
       layer.cornerRadius = cornerRadius
@@ -40,13 +43,17 @@ class RoundedBorderButton: UIButton {
   @IBInspectable dynamic var isSelectable: Bool = false {
     didSet {
       if isSelectable{
-        // 토글하면 색깔 바뀌는 기능 추가
-        self.backgroundColor = .black
-        self.titleLabel!.textColor = .white
+        // 토글시 색상반전
+        if isSelectableToggleValue{
+          self.backgroundColor = .black
+          self.titleLabel!.textColor = .white
+        } else {
+          self.backgroundColor = .white
+          self.titleLabel!.textColor = .black
+        }
       }
       else{
-        self.backgroundColor = .white
-        self.titleLabel!.textColor = .black
+        // 일반 버튼
       }
     }
   }
@@ -67,7 +74,7 @@ class RoundedBorderButton: UIButton {
     
     clipsToBounds = true
     layer.borderColor = titleColor(for: .normal)?.cgColor
-//    setTitleColor(titleColor(for: .normal)?.withAlphaComponent(highlightedAlpha), for: .highlighted)
+    //    setTitleColor(titleColor(for: .normal)?.withAlphaComponent(highlightedAlpha), for: .highlighted)
     
     // repeat all didSets so that defaults are applied
     layer.cornerRadius = cornerRadius
@@ -91,7 +98,7 @@ class RoundedBorderButton: UIButton {
       }
     }
   }
-
+  
   @IBAction func buttonPress(button: RoundedBorderButton) {
     self.isSelectable = !self.isSelectable
   }

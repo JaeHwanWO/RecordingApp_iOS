@@ -14,7 +14,7 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
   var isPlaying: Bool = false
   var player: AVAudioPlayer!
   var updater: CADisplayLink! = nil
-  @IBOutlet weak var progressBar: UIProgressView!
+  @IBOutlet weak var progressBar: UISlider!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -22,16 +22,23 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
     guard let path = Bundle.main.path(forResource:"Boogie On & On", ofType: "mp3") else { return }
     let url = URL(fileURLWithPath : path)
     do {
+      
       player = try AVAudioPlayer(contentsOf: url)
       updater = CADisplayLink(target: self, selector: #selector(self.trackAudio))
       updater.preferredFramesPerSecond = 1
       updater.add(to: RunLoop.current, forMode: RunLoop.Mode.common)
       player.prepareToPlay()
       player.delegate = self
+      progressBar.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
     }
     catch {
       print(error)
     }
+  }
+  
+  @IBAction func sliderValueChanged(_ sender: UISlider) {
+    if sender.isTracking { return }
+    self.player.currentTime = TimeInterval(sender.value) * self.player.duration
   }
   
   @IBAction func didPressDismissButton(_ sender: Any) {
@@ -43,7 +50,7 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
   }
   
   @objc func trackAudio() {
-    progressBar.setProgress(Float(player.currentTime), animated: true)
+    progressBar.value = Float(player.currentTime / player.duration)
   }
   
   func pause(){

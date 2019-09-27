@@ -66,6 +66,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     goPushAlarm()
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound], completionHandler: {didAllow,Error in
       //User가 Notification을 Allow하는지 물어보는 곳

@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AudioPlayViewController" customModule="recordingApp" customModuleProvider="target">
             <connections>
-                <outlet property="progressBar" destination="giQ-Om-MQh" id="veh-1B-f92"/>
+                <outlet property="progressBar" destination="sWw-Ah-GlB" id="Abp-0l-j3B"/>
                 <outlet property="view" destination="iN0-l3-epB" id="yiB-SC-SIs"/>
             </connections>
         </placeholder>
@@ -19,24 +19,20 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="giQ-Om-MQh">
-                    <rect key="frame" x="20" y="621.5" width="374" height="2"/>
-                    <color key="progressTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </progressView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="190511_미적분학_1200_1300" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ys-CJ-zh1">
-                    <rect key="frame" x="65" y="575" width="284" height="26.5"/>
+                    <rect key="frame" x="65" y="504" width="284" height="26.5"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HVh-UZ-cnZ">
-                    <rect key="frame" x="0.0" y="82" width="414" height="485"/>
+                    <rect key="frame" x="0.0" y="82" width="414" height="414"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="HVh-UZ-cnZ" secondAttribute="height" multiplier="414:485" id="WAu-p1-6vB"/>
+                        <constraint firstAttribute="width" secondItem="HVh-UZ-cnZ" secondAttribute="height" multiplier="414:414" id="WAu-p1-6vB"/>
                     </constraints>
                 </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="eMs-Xh-TY3">
-                    <rect key="frame" x="181" y="738" width="52" height="98"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eMs-Xh-TY3">
+                    <rect key="frame" x="181" y="668" width="52" height="70"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuT-CH-V2s" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="52" height="30"/>
@@ -51,13 +47,14 @@
                                 <userDefinedRuntimeAttribute type="number" keyPath="verticalInset">
                                     <real key="value" value="0.0"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSelectable" value="NO"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="didTapModifyButton:" destination="-1" eventType="touchUpInside" id="sDx-dM-Ab4"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULb-8C-q5v" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="68" width="52" height="30"/>
+                            <rect key="frame" x="0.0" y="40" width="52" height="30"/>
                             <state key="normal" title="공유하기"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -72,6 +69,7 @@
                                 <userDefinedRuntimeAttribute type="number" keyPath="horizontalInset">
                                     <real key="value" value="0.0"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSelectable" value="NO"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="didTapShareButton:" destination="-1" eventType="touchUpInside" id="Nok-6X-xzp"/>
@@ -87,7 +85,7 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="8jq-SQ-QqH">
-                    <rect key="frame" x="74.5" y="683.5" width="265" height="33"/>
+                    <rect key="frame" x="74.5" y="613.5" width="265" height="33"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JX4-ud-9ul">
                             <rect key="frame" x="0.0" y="0.0" width="35" height="33"/>
@@ -124,24 +122,29 @@
                         </button>
                     </subviews>
                 </stackView>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sWw-Ah-GlB">
+                    <rect key="frame" x="8" y="560" width="398" height="31"/>
+                    <connections>
+                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="rCW-UI-ZGL"/>
+                    </connections>
+                </slider>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="giQ-Om-MQh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="0no-mo-3th"/>
-                <constraint firstItem="8jq-SQ-QqH" firstAttribute="top" secondItem="giQ-Om-MQh" secondAttribute="bottom" constant="60" id="3ah-41-RET"/>
                 <constraint firstItem="3ys-CJ-zh1" firstAttribute="top" secondItem="HVh-UZ-cnZ" secondAttribute="bottom" constant="8" id="662-Ze-3wk"/>
-                <constraint firstAttribute="trailing" secondItem="giQ-Om-MQh" secondAttribute="trailing" constant="20" id="B7D-sN-z7h"/>
+                <constraint firstItem="sWw-Ah-GlB" firstAttribute="top" secondItem="3ys-CJ-zh1" secondAttribute="bottom" constant="29.5" id="6KT-X0-fQ0"/>
                 <constraint firstItem="HVh-UZ-cnZ" firstAttribute="top" secondItem="yGQ-aK-XnH" secondAttribute="bottom" constant="8" id="Lwy-Ax-NCi"/>
                 <constraint firstItem="8jq-SQ-QqH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MUd-wH-fIa"/>
                 <constraint firstItem="eMs-Xh-TY3" firstAttribute="top" secondItem="8jq-SQ-QqH" secondAttribute="bottom" constant="21.5" id="Mmv-hE-GMT"/>
                 <constraint firstItem="yGQ-aK-XnH" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="POT-QN-Nc7"/>
                 <constraint firstItem="eMs-Xh-TY3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="XTd-Q5-CSj"/>
-                <constraint firstItem="giQ-Om-MQh" firstAttribute="top" secondItem="3ys-CJ-zh1" secondAttribute="bottom" constant="20" id="dny-yy-qiC"/>
+                <constraint firstItem="8jq-SQ-QqH" firstAttribute="top" secondItem="sWw-Ah-GlB" secondAttribute="bottom" constant="23.5" id="dXr-oh-yNF"/>
                 <constraint firstItem="3ys-CJ-zh1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="e9I-hN-bUF"/>
+                <constraint firstItem="sWw-Ah-GlB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="fT2-0k-wpb"/>
                 <constraint firstItem="HVh-UZ-cnZ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="mF8-jE-HQi"/>
-                <constraint firstItem="giQ-Om-MQh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ohG-47-0G5"/>
                 <constraint firstItem="yGQ-aK-XnH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="28" id="qw5-35-W8B"/>
                 <constraint firstItem="HVh-UZ-cnZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="uIC-bg-31W"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="sWw-Ah-GlB" secondAttribute="trailing" constant="10" id="xNZ-Ro-hil"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="53.623188405797109" y="148.66071428571428"/>
