@@ -69,7 +69,7 @@ class RoundedBorderButton: UIButton {
   }
   
   func _init() {
-    self.addTarget(self, action: Selector(("buttonPress:")), for: .touchUpInside)
+    self.addTarget(self, action: #selector(buttonPress(button:)), for: .touchUpInside)
     self.titleLabel?.textColor = .black
     
     clipsToBounds = true
@@ -99,7 +99,7 @@ class RoundedBorderButton: UIButton {
     }
   }
   
-  @IBAction func buttonPress(button: RoundedBorderButton) {
+  @objc func buttonPress(button: RoundedBorderButton) {
     self.isSelectable = !self.isSelectable
   }
   

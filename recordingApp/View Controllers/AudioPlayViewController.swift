@@ -78,5 +78,11 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
   @IBAction func didTapModifyButton(_ sender: Any) {
   }
   @IBAction func didTapShareButton(_ sender: Any) {
+    // todo: UIActivityViewController 이용해서 공유하는 기능 만들기.
+    let text = "내가 공유할 텍스트⭐️"
+    let textToShare = [text]
+    let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+    activityViewController.popoverPresentationController?.sourceView = self.view
+    self.present(activityViewController, animated: true, completion: nil)
   }
 }
