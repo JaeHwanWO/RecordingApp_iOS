@@ -16,7 +16,20 @@ class AddTimeTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+  
+  @IBAction func didTapRegister(_ sender: Any) {
+    // 만든 시간표 객체를 StateStore에 추가해주기.
+    // AddTimeVC에서 받아오기
+//    var lecture = Lecture(name: <#T##String#>,
+//                          time: <#T##LectureTime?#>,
+//                          professor: <#T##String?#>,
+//                          room: <#T##String?#>,
+//                          memo: <#T##String?#>)
+//    StateStore.shared.classArray.append(<#Lecture#>)
     
+    AddTimeViewController.didTapRegister(self)
+  }
+  
     @IBAction func returnBtnClicked(_ sender: Any) {
         let transition = CATransition()
         transition.duration = 0.5

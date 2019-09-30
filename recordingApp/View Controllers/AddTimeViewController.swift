@@ -15,15 +15,28 @@ class AddTimeViewController: UITableViewController {
   @IBOutlet weak var datePickerForEndTime: UIDatePicker!
   @IBOutlet weak var cell_startTime: UITableViewCell!
   @IBOutlet weak var cell_endTime: UITableViewCell!
+  
+  @IBOutlet weak var classNameLabel: UITextField!
   @IBOutlet weak var dayLabel: UILabel!
   @IBOutlet weak var startTimeLabel: UILabel!
   @IBOutlet weak var endTimeLabel: UILabel!
+  @IBOutlet weak var professorNameLabel: UITextField!
+  @IBOutlet weak var placeLabel: UITextField!
+  @IBOutlet weak var memoLabel: UITextField!
   
+  @IBOutlet weak var mon: UIButton!
+  @IBOutlet weak var tue: UIButton!
+  @IBOutlet weak var wed: UIButton!
+  @IBOutlet weak var thu: UIButton!
+  @IBOutlet weak var fri: UIButton!
+  @IBOutlet weak var sat: UIButton!
+  @IBOutlet weak var sun: UIButton!
+  
+  lazy var daysArray: [UIButton] = [mon, tue, wed, thu, fri, sat, sun]
   var isDatePicker1Clicked:Bool = false
   var isDatePicker2Clicked:Bool = false
   
   override func viewDidLoad() {
-    print("print is working...")
     self.tableView.delegate = self
     self.tableView.dataSource = self
     datePickerForStartTime.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
@@ -51,7 +64,6 @@ class AddTimeViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if (indexPath.row == 1){
-      print("cell 1 selected")
       if (isDatePicker1Clicked == true){
         isDatePicker1Clicked = false
       }
@@ -60,7 +72,6 @@ class AddTimeViewController: UITableViewController {
       }
     }
     else if (indexPath.row == 3){
-      print("cell 2 selected")
       if (isDatePicker2Clicked == true){
         isDatePicker2Clicked = false
       }
@@ -81,13 +92,57 @@ class AddTimeViewController: UITableViewController {
       endTimeLabel.text  = (datePicker.date.formatted)
     }
   }
+  func returnDay() -> UIButton{
+    var button2: UIButton
+    daysArray.forEach { (button) in
+      if button.isSelected{
+        button2 = button
+      }}
+    return button2
+  }
   
+  // TODO: 월요일 버튼을 받으면 OrdinaryTime의 월요일 리턴해주기.
+  func ButtonToLectureDay(button: UIButton) -> LectureTime.LectureDay{
+    if button.titleLabel?.text == "월"{
+      return .mon
+    }
+    else if button.titleLabel?.text == "화"{
+      return .tue
+    }
+    else if button.titleLabel?.text == "수"{
+      return .wed
+    }
+    else if button.titleLabel?.text == "목"{
+      return .thu
+    }
+    else if  button.titleLabel?.text == "금"{
+      return .fri
+    }
+  }
+  func dateToOrdinaryTime(_ date:Date) -> OrdinaryTime {
+    var new = OrdinaryTime(hour: Calendar.current.component(.hour, from: date),
+                           min: Calendar.current.component(.minute, from: date))
+    return new
+  }
   
+  func didTapRegister(){
+    let returnedDay = returnDay()
+    var lectureTime = LectureTime(day: ButtonToLectureDay(button: returnedDay),
+                                  startTime: dateToOrdinaryTime(datePickerForStartTime!.date),
+                                  endTime: dateToOrdinaryTime(datePickerForEndTime!.date))
+    var lecture = Lecture(name: classNameLabel.text!,
+                          time: lectureTime,
+                          professor:professorNameLabel.text,
+                          room: placeLabel.text,
+                          memo: memoLabel.text)
+    StateStore.shared.classArray.append(lecture)
+  }
 }
+
 extension Date {
   static let formatter: DateFormatter = {
     let formatter = DateFormatter()
-    formatter.dateFormat = "EEEE, dd MMM yyyy HH:mm:ss Z"
+    formatter.dateFormat = "HH:mm:ss Z"
     return formatter
   }()
   var formatted: String {
