@@ -25,6 +25,26 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
     self.dismiss(animated: true, completion: nil)
   }
   
+  @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
+//    // swipe up은 세그가 없으므로, dismiss해준다!
+//    let transition = CATransition()
+//    transition.duration = 0.5
+//    transition.type = CATransitionType.push
+//    transition.subtype = CATransitionSubtype.fromBottom
+//    view.window!.layer.add(transition, forKey: kCATransition)
+//    self.dismiss(animated: true, completion: nil)
+    print("swipe up")
+  }
+  
+  @IBAction func swipeRight(_ sender: UISwipeGestureRecognizer) {
+    print("swipe right")
+    self.performSegue(withIdentifier: "swipeRight", sender: self)
+  }
+  @IBAction func swipeDown(_ sender: UISwipeGestureRecognizer) {
+    print("swipe down")
+    self.performSegue(withIdentifier: "swipeDown", sender: self)
+  }
+  
   @IBAction func downButtonPressed(_ sender: Any) {
   }
   
@@ -57,12 +77,12 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
     super.viewDidLoad()
     //reloadSections같은 함수
     let 미적분학: Lecture = Lecture(name: "미적분학",
-                                  time: LectureTime(day: .mon,
-                                                    startTime: OrdinaryTime(hour: 9, min: 0),
-                                                    endTime: OrdinaryTime(hour: 11, min: 0)),
-                                  professor: "박성민",
-                                  room: "310관 728호",
-                                  memo: nil)
+                                        time: LectureTime(day: .mon,
+                                                          startTime: OrdinaryTime(hour: 9, min: 0),
+                                                          endTime: OrdinaryTime(hour: 11, min: 0)),
+                                        professor: "박성민",
+                                        room: "310관 728호",
+                                        memo: nil)
     let 미적분학2: Lecture = Lecture(name: "미적분학", time: nil, professor: "박성민", room: "310관 728호", memo: nil)
     lectureArray.append(미적분학)
     lectureArray.append(미적분학2)
@@ -74,9 +94,9 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .vertical //.horizontal
     layout.itemSize = cellSize
-//    layout.sectionInset = UIEdgeInsets(top: 3, left: 3, bottom: 10, right: 3)
-//    layout.minimumLineSpacing = 8.0
-//    layout.minimumInteritemSpacing = 3.0
+    //    layout.sectionInset = UIEdgeInsets(top: 3, left: 3, bottom: 10, right: 3)
+    //    layout.minimumLineSpacing = 8.0
+    //    layout.minimumInteritemSpacing = 3.0
     timeTable.setCollectionViewLayout(layout, animated: true)
     timeTable.reloadData()
   }

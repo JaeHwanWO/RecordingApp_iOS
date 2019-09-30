@@ -19,13 +19,11 @@
 		DD81368923336C1E0012692D /* RoundedBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF25304227F712400E78A22 /* RoundedBorderButton.swift */; };
 		DD81368A23336C230012692D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F200F227DF0E00016FF74 /* CollectionViewCell.swift */; };
 		DD81368B23336C280012692D /* RecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1FEC227C91130016FF74 /* RecordingViewController.swift */; };
-		DD81368C23336C280012692D /* AddScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F2018227E22170016FF74 /* AddScheduleController.swift */; };
 		DD81368D23336C280012692D /* AddTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC568C6227EA59D003245D9 /* AddTimeViewController.swift */; };
-		DD81368E23336C280012692D /* AddTimeTableVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6AA55E228062F200BBD3A7 /* AddTimeTableVCViewController.swift */; };
+		DD81368E23336C280012692D /* AddTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6AA55E228062F200BBD3A7 /* AddTimeTableViewController.swift */; };
 		DD81368F23336C280012692D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1FE6227C741D0016FF74 /* SettingViewController.swift */; };
 		DD81369023336C280012692D /* RecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1FEA227C8D600016FF74 /* RecordListViewController.swift */; };
 		DD81369123336C280012692D /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1FE8227C8D2B0016FF74 /* ScheduleViewController.swift */; };
-		DD81369223336C280012692D /* SettingViewTableControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF25302227F543E00E78A22 /* SettingViewTableControllerTableViewController.swift */; };
 		DD81369323336C2F0012692D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1FD1227C6BCE0016FF74 /* AppDelegate.swift */; };
 		DD81369423336C2F0012692D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF382852285CD2700B6172F /* Notification.swift */; };
 		DD89FF30233DB74A002FB5E7 /* Boogie On & On.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD89FF2F233DB74A002FB5E7 /* Boogie On & On.mp3 */; };
@@ -40,7 +38,7 @@
 		DD69FA7D233397E9006310B6 /* AudioPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayViewController.swift; sourceTree = "<group>"; };
 		DD69FA7F2333986E006310B6 /* AudioPlay.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioPlay.xib; sourceTree = "<group>"; };
 		DD69FA812333A97F006310B6 /* BottomPlayerBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomPlayerBar.xib; sourceTree = "<group>"; };
-		DD6AA55E228062F200BBD3A7 /* AddTimeTableVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeTableVCViewController.swift; sourceTree = "<group>"; };
+		DD6AA55E228062F200BBD3A7 /* AddTimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeTableViewController.swift; sourceTree = "<group>"; };
 		DD6F1FCE227C6BCE0016FF74 /* recordingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6F1FD1227C6BCE0016FF74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD6F1FD6227C6BCE0016FF74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,10 +50,8 @@
 		DD6F1FEA227C8D600016FF74 /* RecordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewController.swift; sourceTree = "<group>"; };
 		DD6F1FEC227C91130016FF74 /* RecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
 		DD6F200F227DF0E00016FF74 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		DD6F2018227E22170016FF74 /* AddScheduleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleController.swift; sourceTree = "<group>"; };
 		DD89FF2F233DB74A002FB5E7 /* Boogie On & On.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Boogie On & On.mp3"; sourceTree = "<group>"; };
 		DDC568C6227EA59D003245D9 /* AddTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeViewController.swift; sourceTree = "<group>"; };
-		DDF25302227F543E00E78A22 /* SettingViewTableControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewTableControllerTableViewController.swift; sourceTree = "<group>"; };
 		DDF25304227F712400E78A22 /* RoundedBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderButton.swift; sourceTree = "<group>"; };
 		DDF382852285CD2700B6172F /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,13 +132,11 @@
 			isa = PBXGroup;
 			children = (
 				DD6F1FEC227C91130016FF74 /* RecordingViewController.swift */,
-				DD6F2018227E22170016FF74 /* AddScheduleController.swift */,
 				DDC568C6227EA59D003245D9 /* AddTimeViewController.swift */,
-				DD6AA55E228062F200BBD3A7 /* AddTimeTableVCViewController.swift */,
+				DD6AA55E228062F200BBD3A7 /* AddTimeTableViewController.swift */,
 				DD6F1FE6227C741D0016FF74 /* SettingViewController.swift */,
 				DD6F1FEA227C8D600016FF74 /* RecordListViewController.swift */,
 				DD6F1FE8227C8D2B0016FF74 /* ScheduleViewController.swift */,
-				DDF25302227F543E00E78A22 /* SettingViewTableControllerTableViewController.swift */,
 				DD69FA7D233397E9006310B6 /* AudioPlayViewController.swift */,
 			);
 			path = "View Controllers";
@@ -289,14 +283,12 @@
 				DD81369323336C2F0012692D /* AppDelegate.swift in Sources */,
 				DD81369423336C2F0012692D /* Notification.swift in Sources */,
 				DD81368B23336C280012692D /* RecordingViewController.swift in Sources */,
-				DD81368C23336C280012692D /* AddScheduleController.swift in Sources */,
 				DD81368D23336C280012692D /* AddTimeViewController.swift in Sources */,
-				DD81368E23336C280012692D /* AddTimeTableVCViewController.swift in Sources */,
+				DD81368E23336C280012692D /* AddTimeTableViewController.swift in Sources */,
 				DD81368F23336C280012692D /* SettingViewController.swift in Sources */,
 				DD81369023336C280012692D /* RecordListViewController.swift in Sources */,
 				DD81369123336C280012692D /* ScheduleViewController.swift in Sources */,
 				DD69FA7C23338BBF006310B6 /* Lecture.swift in Sources */,
-				DD81369223336C280012692D /* SettingViewTableControllerTableViewController.swift in Sources */,
 				DD482C96233CA16D00251AE1 /* StateStore.swift in Sources */,
 				DD81368A23336C230012692D /* CollectionViewCell.swift in Sources */,
 				DD81368923336C1E0012692D /* RoundedBorderButton.swift in Sources */,

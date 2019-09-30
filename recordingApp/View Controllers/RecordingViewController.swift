@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import UserNotifications
 
 class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
   
@@ -39,50 +38,24 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
   
   @IBAction func recordingOnAndOff(_ sender: Any) {
     if (isRecordingOn == false){
-      //녹음을 킨다
-      //turnRecordingOn
       turnRecordingOn()
     }
     else{
-      //녹음을 끈다
-      //turnRecordingOff
       turnRecordingOff()
     }
   }
   
-  func goPushAlarm(){
-    let content = UNMutableNotificationContent()
-    content.title = "🎙✨강의 녹음할 시간이에요🎙✨"
-    content.subtitle = "지금은 미적분학 수업을 녹음할 시간입니다! 시험기간을 위해서 미리 녹음해주세요😚"
-    content.body = "11:00 AM ~ 1:00 PM 미적분학"
-    
-    var date = DateComponents()
-    date.hour = 00
-    date.minute = 40
-    let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
-    let request = UNNotificationRequest(identifier: "timerdone", content: content, trigger: trigger)
-    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    goPushAlarm()
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound], completionHandler: {didAllow,Error in
       //User가 Notification을 Allow하는지 물어보는 곳
       print(didAllow)
     })
-    
-//    settingBtn.setImage(UIImage(named: "nut-icon 사본"), for: .normal)
-//    //image 크기 수정 필요!
-//    swipeButton.setImage(UIImage(named: "downarrow_black.png"), for: .normal)
-//    swipeButton.setBackgroundImage(UIImage(named: "downarrow_black.png"), for: .normal)
+
     checkRecordPermission()
     
     // 녹음 버튼에 사진 넣기
     if (isRecordingOn == false){
-      //처음 앱을 켰을 때, 녹음중이 아니라면
-//      recordingBtn.setImage(UIImage(named: "RecordingBtnPic"), for: .normal)
       recordingTimeLabel.text = "지금 바로 녹음을 시작하세요!"
       recordingTimeLabel.font = UIFont.boldSystemFont(ofSize: 20)
       recordingTimeLabel.textAlignment = .center
@@ -98,8 +71,6 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     //설정 아이콘 색깔 흰색으로 바꾸기
     //아래로 스와이프! 이거랑 화살표 끄기
     view.backgroundColor = UIColor.red
-//    recordingBtn.setImage(UIImage(named: "recordingBtn_recording"), for: .normal)
-//    swipeButton.setBackgroundImage(UIImage(named: "downarrow_white.png"), for: .normal)
     swipeButton.isHidden = true
     swipeMeLabel.isHidden = true
     setupRecorder()
@@ -115,9 +86,6 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     //설정 아이콘 색깔 검은색으로 바꾸기
     //아래로 스와이프! 이거랑 화살표 보이게
     view.backgroundColor = UIColor.white
-//    recordingBtn.setBackgroundImage(UIImage(named: "RecordingBtnPic"), for: .normal)
-    //        swipeButton.setImage(UIImage(named: "downarrow_black.png"), for: .normal)
-//    swipeButton.setBackgroundImage(UIImage(named: "downarrow_black.png"), for: .normal)
     recordingTimeLabel.text = "지금 바로 녹음을 시작하세요!"
     recordingTimeLabel.font = UIFont.boldSystemFont(ofSize: 20)
     recordingTimeLabel.textAlignment = .center
@@ -179,16 +147,10 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     let documentsDirectory = paths[0]
     let filename = "190927_티스토리_0900_1100"
     let filePath = documentsDirectory.appendingPathComponent(filename)
-    print(filePath)
-    do{
-      try newStr = filePath.pathExtension.removingPercentEncoding!
-      print(newStr)
-    } catch {
-      print("error")
-      // TODO : 파일명 고치기
-      
-    }
+    //print(filePath)
     
+    newStr = NSString(string: filePath.lastPathComponent).removingPercentEncoding!
+    print(newStr)
     return filePath
   }
   
@@ -236,7 +198,6 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
   
   //swipe gesture을 감지하는 코드를 짜 보자!
   @IBAction func swipe(_ sender: UISwipeGestureRecognizer) {
-    print("swipe")
     //performSegueWithIdentifier로 처리하면 될 듯!
     performSegue(withIdentifier: "SetScheduleVC", sender: sender)
   }

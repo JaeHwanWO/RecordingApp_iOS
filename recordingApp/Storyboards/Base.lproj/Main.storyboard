@@ -174,7 +174,7 @@
                                 <rect key="frame" x="322.33333333333331" y="28" width="24.666666666666686" height="24"/>
                                 <connections>
                                     <action selector="addSchedule:" destination="VKW-HN-j78" eventType="touchUpInside" id="ufv-Xu-zBu"/>
-                                    <segue destination="mcl-kB-9Ca" kind="show" id="Ba6-OY-XMi"/>
+                                    <segue destination="mcl-kB-9Ca" kind="show" identifier="swipeRight" id="Ba6-OY-XMi"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="goE-cn-rXQ" userLabel="요일스택">
@@ -314,7 +314,7 @@
                                 </state>
                                 <connections>
                                     <action selector="downButtonPressed:" destination="VKW-HN-j78" eventType="touchUpInside" id="EhB-FK-QMi"/>
-                                    <segue destination="M2m-Bu-Hz0" kind="presentation" id="0fm-qN-ieQ"/>
+                                    <segue destination="M2m-Bu-Hz0" kind="presentation" identifier="swipeDown" id="0fm-qN-ieQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -355,14 +355,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iuL-gE-732" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="mV2-LW-dws"/>
+                <swipeGestureRecognizer direction="up" id="mV2-LW-dws">
+                    <connections>
+                        <action selector="swipeUp:" destination="VKW-HN-j78" id="oSR-1S-D97"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="47.200000000000003" y="735.96059113300498"/>
         </scene>
-        <!--Add Time TableVC View Controller-->
+        <!--Add Time Table View Controller-->
         <scene sceneID="Z8K-E3-IvG">
             <objects>
-                <viewController id="mcl-kB-9Ca" customClass="AddTimeTableVCViewController" customModule="recordingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mcl-kB-9Ca" customClass="AddTimeTableViewController" customModule="recordingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gj0-rh-tdO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -526,7 +530,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VHe-gN-Htb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="162.33333333333334"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="568" height="162.33333333333334"/>
                                                     <connections>
                                                         <action selector="datePickerforStartTime:" destination="YIK-94-zX6" eventType="valueChanged" id="D9Q-TO-bgJ"/>
                                                     </connections>
@@ -698,7 +702,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4NY-gP-g8z">
-                                <rect key="frame" x="0.0" y="209.66666666666669" width="375" height="514.33333333333326"/>
+                                <rect key="frame" x="0.0" y="221.66666666666666" width="375" height="502.33333333333337"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="programmaticCell" id="bbp-eM-wgl" customClass="MGSwipeTableCell">
@@ -740,13 +744,13 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="v2v-fG-n1D">
-                                <rect key="frame" x="16" y="153.66666666666666" width="343" height="46"/>
+                                <rect key="frame" x="16" y="153.66666666666666" width="343" height="58"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="jUu-qv-3Dc" userLabel="요일스택">
-                                        <rect key="frame" x="0.0" y="0.0" width="325" height="27"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="225" height="27"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="SNp-9R-GWW" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="52" height="27"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="32" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="월요일"/>
                                                 <userDefinedRuntimeAttributes>
@@ -766,7 +770,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="Bx7-T5-DnV" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="59" y="0.0" width="52" height="27"/>
+                                                <rect key="frame" x="39" y="0.0" width="32" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="화요일"/>
                                                 <userDefinedRuntimeAttributes>
@@ -786,7 +790,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="BBH-aw-aIr" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="118" y="0.0" width="52" height="27"/>
+                                                <rect key="frame" x="78" y="0.0" width="32" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="수요일"/>
                                                 <userDefinedRuntimeAttributes>
@@ -806,7 +810,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="grY-i7-p9C" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="177" y="0.0" width="52" height="27"/>
+                                                <rect key="frame" x="117" y="0.0" width="32" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="목요일"/>
                                                 <userDefinedRuntimeAttributes>
@@ -826,7 +830,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="02r-7C-adh" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="236" y="0.0" width="52" height="27"/>
+                                                <rect key="frame" x="156" y="0.0" width="32" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="금요일"/>
                                                 <userDefinedRuntimeAttributes>
@@ -846,7 +850,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="jAk-c7-bps" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="295" y="0.0" width="30" height="27"/>
+                                                <rect key="frame" x="195" y="0.0" width="30" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="주말"/>
                                                 <userDefinedRuntimeAttributes>
@@ -868,10 +872,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="S7v-NA-cFp" userLabel="과목스택">
-                                        <rect key="frame" x="0.0" y="31" width="333" height="15"/>
+                                        <rect key="frame" x="0.0" y="31" width="235" height="27"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="1z1-TL-cGs" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="49" height="15"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="과목A"/>
                                                 <userDefinedRuntimeAttributes>
@@ -891,7 +895,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="2wH-Mq-fYG" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="56" y="0.0" width="49" height="15"/>
+                                                <rect key="frame" x="37" y="0.0" width="30" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="과목B"/>
                                                 <userDefinedRuntimeAttributes>
@@ -911,7 +915,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="hOM-pe-HQj" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="112" y="0.0" width="50" height="15"/>
+                                                <rect key="frame" x="74" y="0.0" width="30" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="과목C"/>
                                                 <userDefinedRuntimeAttributes>
@@ -931,7 +935,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="RW7-po-zIr" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="169" y="0.0" width="50" height="15"/>
+                                                <rect key="frame" x="111" y="0.0" width="30" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="과목D"/>
                                                 <userDefinedRuntimeAttributes>
@@ -951,7 +955,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="GsV-aZ-5sJ" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="226" y="0.0" width="107" height="15"/>
+                                                <rect key="frame" x="148" y="0.0" width="87" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="더더더더더더 보기"/>
                                                 <userDefinedRuntimeAttributes>
@@ -1002,71 +1006,6 @@
             </objects>
             <point key="canvasLocation" x="47" y="1534"/>
         </scene>
-        <!--Add Schedule Controller-->
-        <scene sceneID="LDs-4l-FC3">
-            <objects>
-                <viewController id="jRK-v1-tum" customClass="AddScheduleController" customModule="recordingApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QT3-zD-VwL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B5m-KJ-JIU">
-                                <rect key="frame" x="0.0" y="134" width="375" height="295"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="Syb-yh-UBe"/>
-                                    <constraint firstAttribute="height" constant="295" id="Z9P-sa-0au"/>
-                                </constraints>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="YejinCell" id="2pK-CX-gd1">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.333332061767578"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2pK-CX-gd1" id="aEh-Uc-w6C">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.333332061767578"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNq-pH-XYW">
-                                                    <rect key="frame" x="318" y="10.999999999999998" width="42" height="21.333333333333329"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="hNq-pH-XYW" secondAttribute="bottom" id="8aW-au-yBo"/>
-                                                <constraint firstItem="hNq-pH-XYW" firstAttribute="trailing" secondItem="aEh-Uc-w6C" secondAttribute="trailingMargin" id="WWJ-L1-Bl8"/>
-                                                <constraint firstItem="hNq-pH-XYW" firstAttribute="top" secondItem="aEh-Uc-w6C" secondAttribute="topMargin" id="bBn-I3-kXE"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" tag="99" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="datePickerCell" id="SK5-no-Hu0">
-                                        <rect key="frame" x="0.0" y="71.333332061767578" width="375" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="99" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SK5-no-Hu0" id="t8u-i6-sob">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="B5m-KJ-JIU" firstAttribute="centerX" secondItem="QT3-zD-VwL" secondAttribute="centerX" id="o2n-s7-Msb"/>
-                            <constraint firstItem="B5m-KJ-JIU" firstAttribute="top" secondItem="WPa-5R-jhl" secondAttribute="top" constant="90" id="qmZ-eQ-D4m"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="WPa-5R-jhl"/>
-                    </view>
-                    <connections>
-                        <outlet property="dateTableHeightConstraint" destination="Z9P-sa-0au" id="zRe-pf-aYf"/>
-                        <outlet property="stackTopConstraint" destination="qmZ-eQ-D4m" id="mLF-1s-UbC"/>
-                        <outlet property="tableView" destination="B5m-KJ-JIU" id="cds-2z-kzE"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5aB-Qb-Cfk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1126" y="1534"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="Hge-pv-l3e">
             <objects>
@@ -1075,8 +1014,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="앱 정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBE-ou-ngb">
-                                <rect key="frame" x="50" y="119" width="99" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="의견보내기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBE-ou-ngb">
+                                <rect key="frame" x="50" y="119" width="152" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <nil key="textColor"/>
@@ -1108,7 +1047,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FAM-Js-c8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2146" y="1534"/>
+            <point key="canvasLocation" x="5441" y="-5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="prg-BT-MJ5">
+            <objects>
+                <viewController id="LOz-OO-KAj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZAg-AT-plQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="앱 정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYO-py-l0o">
+                                <rect key="frame" x="58" y="109" width="99" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="hGc-EB-Qmn"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qXa-dG-KLa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6238" y="-1"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="Wz9-ld-nOZ">
@@ -1129,7 +1092,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GsD-en-YoK">
-                                                    <rect key="frame" x="10" y="15.333333333333334" width="355" height="18.333333333333329"/>
+                                                    <rect key="frame" x="10" y="15.333333333333334" width="580" height="18.333333333333329"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="support" translatesAutoresizingMaskIntoConstraints="NO" id="Zrx-PY-Vau">
                                                             <rect key="frame" x="0.0" y="0.0" width="35" height="18.333333333333332"/>
@@ -1139,7 +1102,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="도움말" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAj-rU-qc4">
-                                                            <rect key="frame" x="43" y="0.0" width="312" height="18.333333333333332"/>
+                                                            <rect key="frame" x="43" y="0.0" width="537" height="18.333333333333332"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1162,7 +1125,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="364-es-VTJ">
-                                                    <rect key="frame" x="10" y="15.333333333333334" width="355" height="18.333333333333329"/>
+                                                    <rect key="frame" x="10" y="15.333333333333334" width="580" height="18.333333333333329"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notification" translatesAutoresizingMaskIntoConstraints="NO" id="hM5-W4-TSI">
                                                             <rect key="frame" x="0.0" y="0.0" width="35" height="18.333333333333332"/>
@@ -1172,7 +1135,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rxq-ig-vsL">
-                                                            <rect key="frame" x="48" y="0.0" width="307" height="18.333333333333332"/>
+                                                            <rect key="frame" x="48" y="0.0" width="532" height="18.333333333333332"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1195,7 +1158,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="eG7-CW-sIw">
-                                                    <rect key="frame" x="10" y="15.333333333333334" width="355" height="18.333333333333329"/>
+                                                    <rect key="frame" x="10" y="15.666666666666666" width="355" height="18.333333333333336"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customer_support" translatesAutoresizingMaskIntoConstraints="NO" id="sG7-RA-Px6">
                                                             <rect key="frame" x="0.0" y="0.0" width="35" height="18.333333333333332"/>
@@ -1228,7 +1191,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ET7-JR-i6M">
-                                                    <rect key="frame" x="10" y="9.6666666666666643" width="355" height="24"/>
+                                                    <rect key="frame" x="10" y="10" width="355" height="24"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope" translatesAutoresizingMaskIntoConstraints="NO" id="S5C-Id-l0V">
                                                             <rect key="frame" x="0.0" y="0.0" width="35" height="24"/>
@@ -1261,7 +1224,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="xZc-in-0LF">
-                                                    <rect key="frame" x="10" y="15.333333333333334" width="355" height="18.333333333333329"/>
+                                                    <rect key="frame" x="10" y="15.666666666666666" width="355" height="18.333333333333336"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="information-white" translatesAutoresizingMaskIntoConstraints="NO" id="vXU-aa-DWz">
                                                             <rect key="frame" x="0.0" y="0.0" width="35" height="18.333333333333332"/>
@@ -1358,6 +1321,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oiM-WQ-Ujj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3104.8000000000002" y="-5.1724137931034484"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="HLd-ne-ReI">
+            <objects>
+                <viewController id="lfN-kE-q6P" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SAO-OM-fSM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="알림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed1-Zc-Khn">
+                                <rect key="frame" x="54" y="117" width="61" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="wUy-AH-reo"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DTj-Tz-eSf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3906" y="-5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="WFh-Nb-ECs">
+            <objects>
+                <viewController id="oFK-qD-2OQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xph-K6-zgP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="커스터마이징" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0M8-nK-aRq">
+                                <rect key="frame" x="30" y="132" width="182" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="zpv-g9-m8M"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O7N-K3-sYS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4652" y="-5"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="fQi-3P-8Nk">

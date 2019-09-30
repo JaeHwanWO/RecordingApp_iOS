@@ -9,7 +9,7 @@
 
 import UIKit
 
-class AddTimeTableVCViewController: UIViewController {
+class AddTimeTableViewController: UIViewController {
 
   @IBOutlet weak var registerButton: UIButton!
   
