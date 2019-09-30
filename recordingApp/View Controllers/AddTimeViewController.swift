@@ -43,6 +43,13 @@ class AddTimeViewController: UITableViewController {
     datePickerForEndTime.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    NotificationCenter.defaultCenter.addObserver(self,
+                                                 selector: "didTapRegister",
+                                                 name:"register",
+                                                 object: nil)
+  }
+  
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     var heightForRow:CGFloat = 43.67
     if (indexPath.row == 2 && isDatePicker1Clicked == false){
@@ -93,7 +100,7 @@ class AddTimeViewController: UITableViewController {
     }
   }
   func returnDay() -> UIButton{
-    var button2: UIButton
+    var button2: UIButton = UIButton()
     daysArray.forEach { (button) in
       if button.isSelected{
         button2 = button
@@ -118,7 +125,9 @@ class AddTimeViewController: UITableViewController {
     else if  button.titleLabel?.text == "금"{
       return .fri
     }
+    else { return .mon }
   }
+  
   func dateToOrdinaryTime(_ date:Date) -> OrdinaryTime {
     var new = OrdinaryTime(hour: Calendar.current.component(.hour, from: date),
                            min: Calendar.current.component(.minute, from: date))
