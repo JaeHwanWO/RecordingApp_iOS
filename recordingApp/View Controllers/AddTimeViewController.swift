@@ -45,24 +45,28 @@ class AddTimeViewController: UITableViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     NotificationCenter.default.addObserver(self,
-                                                 selector: "didTapRegister",
-                                                 name:NSNotification.Name(rawValue: "register"),
-                                                 object: nil)
+                                           selector: "didTapRegister",
+                                           name:NSNotification.Name(rawValue: "register"),
+                                           object: nil)
+  }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+    self.view.endEditing(true)
   }
   
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     var heightForRow:CGFloat = 43.67
-    if (indexPath.row == 2 && isDatePicker1Clicked == false){
+    if (indexPath.row == 3 && isDatePicker1Clicked == false){
       heightForRow = 0.0
     }
-    else if (indexPath.row == 2 && isDatePicker1Clicked == true){
+    else if (indexPath.row == 3 && isDatePicker1Clicked == true){
       heightForRow = 163
       datePickerForStartTime.isHidden = false
     }
-    else if (indexPath.row == 4 && isDatePicker2Clicked == false){
+    else if (indexPath.row == 5 && isDatePicker2Clicked == false){
       heightForRow = 0.0
     }
-    else if (indexPath.row == 4 && isDatePicker2Clicked == true){
+    else if (indexPath.row == 5 && isDatePicker2Clicked == true){
       heightForRow = 163
       datePickerForEndTime.isHidden = false
     }
