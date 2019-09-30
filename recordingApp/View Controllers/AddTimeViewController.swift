@@ -44,9 +44,9 @@ class AddTimeViewController: UITableViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    NotificationCenter.defaultCenter.addObserver(self,
+    NotificationCenter.default.addObserver(self,
                                                  selector: "didTapRegister",
-                                                 name:"register",
+                                                 name:NSNotification.Name(rawValue: "register"),
                                                  object: nil)
   }
   

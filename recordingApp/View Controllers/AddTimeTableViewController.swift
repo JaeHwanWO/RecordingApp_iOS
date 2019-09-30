@@ -19,7 +19,7 @@ class AddTimeTableViewController: UIViewController {
   }
   
   @IBAction func didTapRegister(_ sender: Any) {
-    //NotificationCenter.default.post(name: Notification, object: nil)
+    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "register"), object: nil)
   }
   
   @IBAction func returnBtnClicked(_ sender: Any) {
