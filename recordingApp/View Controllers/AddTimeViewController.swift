@@ -43,11 +43,18 @@ class AddTimeViewController: UITableViewController {
     datePickerForEndTime.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
   }
   
+  func fromParent(){
+    print("hi, son")
+    if let addTimeTableVC = self.parent as? AddTimeTableViewController {
+      addTimeTableVC.callbackFromChild()
+    }
+  }
+  
   override func viewWillAppear(_ animated: Bool) {
-    NotificationCenter.default.addObserver(self,
+    /*NotificationCenter.default.addObserver(self,
                                            selector: "didTapRegister",
                                            name:NSNotification.Name(rawValue: "register"),
-                                           object: nil)
+                                           object: nil)*/
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){

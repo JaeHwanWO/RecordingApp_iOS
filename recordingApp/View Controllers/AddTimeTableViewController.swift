@@ -19,7 +19,15 @@ class AddTimeTableViewController: UIViewController {
   }
   
   @IBAction func didTapRegister(_ sender: Any) {
-    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "register"), object: nil)
+    //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "register"), object: nil)
+    if let addTimeVC = self.children.first as? AddTimeViewController {
+      addTimeVC.fromParent()
+    }
+    
+  }
+  
+  func callbackFromChild(){
+    print("hello, parent")
   }
   
   @IBAction func returnBtnClicked(_ sender: Any) {

@@ -404,7 +404,6 @@
                                         </state>
                                         <connections>
                                             <action selector="didTapRegister:" destination="mcl-kB-9Ca" eventType="touchUpInside" id="BSg-ta-7Kb"/>
-                                            <action selector="registerButton:" destination="mcl-kB-9Ca" eventType="touchUpInside" id="W8T-jd-c7J"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -494,7 +493,7 @@
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
                                                     <state key="selected">
-                                                        <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eQ-Lo-APx">
@@ -504,7 +503,7 @@
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <state key="selected">
-                                                        <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIi-tL-CdK">
@@ -514,7 +513,7 @@
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <state key="selected">
-                                                        <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLu-1N-qp9">
@@ -524,7 +523,7 @@
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <state key="selected">
-                                                        <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llc-Ia-mAk">
@@ -534,7 +533,7 @@
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
                                                     <state key="selected">
-                                                        <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAg-SF-Zoh">
@@ -544,7 +543,7 @@
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
                                                     <state key="selected">
-                                                        <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                 </button>
                                             </subviews>
@@ -753,7 +752,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4NY-gP-g8z">
-                                <rect key="frame" x="0.0" y="209.66666666666669" width="375" height="514.33333333333326"/>
+                                <rect key="frame" x="0.0" y="221.66666666666666" width="375" height="502.33333333333337"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="programmaticCell" id="bbp-eM-wgl" customClass="MGSwipeTableCell">
@@ -795,13 +794,13 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="v2v-fG-n1D">
-                                <rect key="frame" x="16" y="153.66666666666666" width="343" height="46"/>
+                                <rect key="frame" x="16" y="153.66666666666666" width="343" height="58"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="jUu-qv-3Dc" userLabel="요일스택">
-                                        <rect key="frame" x="0.0" y="0.0" width="325" height="27"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="225" height="27"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="SNp-9R-GWW" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="52" height="27"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="32" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="월요일"/>
                                                 <userDefinedRuntimeAttributes>
@@ -821,7 +820,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="Bx7-T5-DnV" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="59" y="0.0" width="52" height="27"/>
+                                                <rect key="frame" x="39" y="0.0" width="32" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="화요일"/>
                                                 <userDefinedRuntimeAttributes>
@@ -841,7 +840,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="BBH-aw-aIr" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="118" y="0.0" width="52" height="27"/>
+                                                <rect key="frame" x="78" y="0.0" width="32" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="수요일"/>
                                                 <userDefinedRuntimeAttributes>
@@ -861,7 +860,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="grY-i7-p9C" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="177" y="0.0" width="52" height="27"/>
+                                                <rect key="frame" x="117" y="0.0" width="32" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="목요일"/>
                                                 <userDefinedRuntimeAttributes>
@@ -881,7 +880,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="02r-7C-adh" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="236" y="0.0" width="52" height="27"/>
+                                                <rect key="frame" x="156" y="0.0" width="32" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="금요일"/>
                                                 <userDefinedRuntimeAttributes>
@@ -901,7 +900,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="jAk-c7-bps" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="295" y="0.0" width="30" height="27"/>
+                                                <rect key="frame" x="195" y="0.0" width="30" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="주말"/>
                                                 <userDefinedRuntimeAttributes>
@@ -923,10 +922,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="S7v-NA-cFp" userLabel="과목스택">
-                                        <rect key="frame" x="0.0" y="31" width="333" height="15"/>
+                                        <rect key="frame" x="0.0" y="31" width="235" height="27"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="1z1-TL-cGs" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="49" height="15"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="과목A"/>
                                                 <userDefinedRuntimeAttributes>
@@ -946,7 +945,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="2wH-Mq-fYG" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="56" y="0.0" width="49" height="15"/>
+                                                <rect key="frame" x="37" y="0.0" width="30" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="과목B"/>
                                                 <userDefinedRuntimeAttributes>
@@ -966,7 +965,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="hOM-pe-HQj" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="112" y="0.0" width="50" height="15"/>
+                                                <rect key="frame" x="74" y="0.0" width="30" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="과목C"/>
                                                 <userDefinedRuntimeAttributes>
@@ -986,7 +985,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="RW7-po-zIr" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="169" y="0.0" width="50" height="15"/>
+                                                <rect key="frame" x="111" y="0.0" width="30" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="과목D"/>
                                                 <userDefinedRuntimeAttributes>
@@ -1006,7 +1005,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="GsV-aZ-5sJ" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                                <rect key="frame" x="226" y="0.0" width="107" height="15"/>
+                                                <rect key="frame" x="148" y="0.0" width="87" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="더더더더더더 보기"/>
                                                 <userDefinedRuntimeAttributes>
