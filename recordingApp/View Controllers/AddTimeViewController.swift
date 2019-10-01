@@ -74,7 +74,7 @@ class AddTimeViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if (indexPath.row == 1){
+    if (indexPath.row == 2){
       if (isDatePicker1Clicked == true){
         isDatePicker1Clicked = false
       }
@@ -82,7 +82,7 @@ class AddTimeViewController: UITableViewController {
         isDatePicker1Clicked = true
       }
     }
-    else if (indexPath.row == 3){
+    else if (indexPath.row == 4){
       if (isDatePicker2Clicked == true){
         isDatePicker2Clicked = false
       }

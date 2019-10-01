@@ -18,6 +18,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
   //현재 시각, 강의명 라벨들
   @IBOutlet weak var currentTimeLabel: UILabel!
   @IBOutlet weak var currentClassNameLabel: UILabel!
+  @IBOutlet weak var guideTextLabel: UILabel!
   
   //녹음을 위한 버튼
   @IBOutlet weak var recordingTimeLabel: UILabel!
@@ -79,6 +80,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     swipeMeLabel.isHidden = true
     currentTimeLabel.isHidden = true
     currentClassNameLabel.isHidden = true
+    guideTextLabel.isHidden = true
     
     setupRecorder()
     audioRecorder.record()
@@ -100,6 +102,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     swipeMeLabel.isHidden = false
     currentTimeLabel.isHidden = false
     currentClassNameLabel.isHidden = false
+    guideTextLabel.isHidden = false
     finishAudioRecording(success: true)
     isRecordingOn = false
   }
