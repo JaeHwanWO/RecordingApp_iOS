@@ -43,13 +43,6 @@ class AddTimeViewController: UITableViewController {
     datePickerForEndTime.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    NotificationCenter.default.addObserver(self,
-                                           selector: "didTapRegister",
-                                           name:NSNotification.Name(rawValue: "register"),
-                                           object: nil)
-  }
-  
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
     self.view.endEditing(true)
   }
@@ -132,23 +125,30 @@ class AddTimeViewController: UITableViewController {
     else { return .mon }
   }
   
+  @IBAction func didTapDayButton(sender: UIButton){
+    sender.backgroundColor = .black
+    sender.setTitleColor(.white, for: .normal)
+  }
+  
+  
   func dateToOrdinaryTime(_ date:Date) -> OrdinaryTime {
-    var new = OrdinaryTime(hour: Calendar.current.component(.hour, from: date),
+    let new = OrdinaryTime(hour: Calendar.current.component(.hour, from: date),
                            min: Calendar.current.component(.minute, from: date))
     return new
   }
   
   func didTapRegister(){
     let returnedDay = returnDay()
-    var lectureTime = LectureTime(day: ButtonToLectureDay(button: returnedDay),
+    let lectureTime = LectureTime(day: ButtonToLectureDay(button: returnedDay),
                                   startTime: dateToOrdinaryTime(datePickerForStartTime!.date),
                                   endTime: dateToOrdinaryTime(datePickerForEndTime!.date))
-    var lecture = Lecture(name: classNameLabel.text!,
+    let lecture = Lecture(name: classNameLabel.text!,
                           time: lectureTime,
                           professor:professorNameLabel.text,
                           room: placeLabel.text,
                           memo: memoLabel.text)
     StateStore.shared.classArray.append(lecture)
+    StateStore.registerPushAlarm(lecture: lecture)
   }
 }
 

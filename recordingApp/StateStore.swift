@@ -22,8 +22,8 @@ class StateStore {
     content.body = String(describing: lecture.time!.startTime!.hour ) + ":" + String(describing: lecture.time!.startTime!.min) + "~" + String(describing: lecture.time?.endTime!.hour) + ":" + String(describing: lecture.time!.endTime!.min) + lecture.name
     content.sound = .default
     var date = DateComponents()
-    date.hour = 10
-    date.minute = 58
+    date.hour = lecture.time!.startTime!.hour
+    date.minute = lecture.time!.startTime!.min
     let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
     let request = UNNotificationRequest(identifier: lecture.name, content: content, trigger: trigger)
     UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)

@@ -412,7 +412,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aXh-gN-CaI">
-                                <rect key="frame" x="16" y="100" width="382" height="487"/>
+                                <rect key="frame" x="16" y="100" width="382" height="638"/>
                                 <connections>
                                     <segue destination="i7c-Rl-Tbh" kind="embed" id="xgc-BQ-O2f"/>
                                 </connections>
@@ -426,6 +426,7 @@
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
+                                            <action selector="didTapCancel:" destination="mcl-kB-9Ca" eventType="touchUpInside" id="DN9-iE-EgL"/>
                                             <action selector="returnBtnClicked:" destination="mcl-kB-9Ca" eventType="touchUpInside" id="5Zz-bo-sx3"/>
                                         </connections>
                                     </button>
@@ -436,7 +437,6 @@
                                         </state>
                                         <connections>
                                             <action selector="didTapRegister:" destination="mcl-kB-9Ca" eventType="touchUpInside" id="BSg-ta-7Kb"/>
-                                            <action selector="registerButton:" destination="mcl-kB-9Ca" eventType="touchUpInside" id="W8T-jd-c7J"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -449,7 +449,7 @@
                             <constraint firstItem="77V-Ht-sQw" firstAttribute="bottom" secondItem="MhP-mp-PT5" secondAttribute="bottom" constant="10" id="Hsy-y8-LBz"/>
                             <constraint firstItem="77V-Ht-sQw" firstAttribute="trailing" secondItem="MhP-mp-PT5" secondAttribute="trailing" constant="20" id="NJO-SM-og9"/>
                             <constraint firstItem="aXh-gN-CaI" firstAttribute="top" secondItem="3Ma-5d-iWV" secondAttribute="bottom" constant="8" id="O0n-Eb-Lgn"/>
-                            <constraint firstAttribute="bottom" secondItem="aXh-gN-CaI" secondAttribute="bottom" constant="255" id="Qbk-k0-kU7"/>
+                            <constraint firstItem="MhP-mp-PT5" firstAttribute="top" secondItem="aXh-gN-CaI" secondAttribute="bottom" constant="30" id="Qbk-k0-kU7"/>
                             <constraint firstItem="3Ma-5d-iWV" firstAttribute="leading" secondItem="77V-Ht-sQw" secondAttribute="leading" constant="53" id="U6T-jC-nRE"/>
                             <constraint firstItem="3Ma-5d-iWV" firstAttribute="top" secondItem="77V-Ht-sQw" secondAttribute="top" constant="50" id="l8o-Z2-HTQ"/>
                             <constraint firstItem="aXh-gN-CaI" firstAttribute="leading" secondItem="77V-Ht-sQw" secondAttribute="leading" constant="16" id="yfs-Cd-9Xa"/>
@@ -518,6 +518,9 @@
                                                     <state key="normal" title="월">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didTapDayButtonWithSender:" destination="i7c-Rl-Tbh" eventType="touchUpInside" id="GTf-Sw-ckM"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmv-wG-i1g">
                                                     <rect key="frame" x="139" y="6" width="30" height="30"/>
@@ -528,6 +531,9 @@
                                                     <state key="selected">
                                                         <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didTapDayButtonWithSender:" destination="i7c-Rl-Tbh" eventType="touchUpInside" id="C3M-Fv-tVV"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eQ-Lo-APx">
                                                     <rect key="frame" x="172" y="6" width="30" height="30"/>
@@ -538,6 +544,9 @@
                                                     <state key="selected">
                                                         <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didTapDayButtonWithSender:" destination="i7c-Rl-Tbh" eventType="touchUpInside" id="udN-aQ-PGa"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIi-tL-CdK">
                                                     <rect key="frame" x="206" y="6" width="30" height="30"/>
@@ -548,6 +557,9 @@
                                                     <state key="selected">
                                                         <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didTapDayButtonWithSender:" destination="i7c-Rl-Tbh" eventType="touchUpInside" id="b0e-pM-UIv"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLu-1N-qp9">
                                                     <rect key="frame" x="238" y="6" width="30" height="30"/>
@@ -558,6 +570,9 @@
                                                     <state key="selected">
                                                         <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didTapDayButtonWithSender:" destination="i7c-Rl-Tbh" eventType="touchUpInside" id="JAP-JV-cIS"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llc-Ia-mAk">
                                                     <rect key="frame" x="275" y="6" width="30" height="30"/>
@@ -568,6 +583,9 @@
                                                     <state key="selected">
                                                         <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didTapDayButtonWithSender:" destination="i7c-Rl-Tbh" eventType="touchUpInside" id="zWh-Yg-6gB"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAg-SF-Zoh">
                                                     <rect key="frame" x="313" y="6" width="30" height="30"/>
@@ -578,6 +596,9 @@
                                                     <state key="selected">
                                                         <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didTapDayButtonWithSender:" destination="i7c-Rl-Tbh" eventType="touchUpInside" id="SXI-io-9XQ"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -1236,7 +1257,7 @@
             <objects>
                 <tableViewController id="wPn-8I-yfj" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Z1Z-7x-bsE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="292"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="384"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>

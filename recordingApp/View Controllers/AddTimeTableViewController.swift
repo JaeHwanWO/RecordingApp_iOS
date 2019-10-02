@@ -18,8 +18,19 @@ class AddTimeTableViewController: UIViewController {
     super.viewDidLoad()
   }
   
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+    self.view.endEditing(true)
+  }
+  
+  @IBAction func didTapCancel(_ sender: Any) {
+    self.dismiss(animated: true, completion: nil)
+  }
+  
   @IBAction func didTapRegister(_ sender: Any) {
-    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "register"), object: nil)
+    if let addTimeVC = self.children.first as? AddTimeViewController{
+      addTimeVC.didTapRegister()
+      self.dismiss(animated: true, completion: nil)
+    }
   }
   
   @IBAction func returnBtnClicked(_ sender: Any) {
