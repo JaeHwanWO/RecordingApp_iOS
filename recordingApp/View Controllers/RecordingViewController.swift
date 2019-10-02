@@ -109,6 +109,18 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     pauseButton.isHidden = true
   }
   
+  var isPause: Bool = true
+  @IBAction func didTapPauseAndResume(_ sender: Any) {
+    isPause = !isPause
+    if isPause {
+      print("about to resume")
+      resume() }
+    else {
+      print("about to pause")
+      pause()
+    }
+  }
+  
   @objc func updateAudioMeter(_ timer: Timer) {
     if audioRecorder.isRecording {
       let hr = Int((audioRecorder.currentTime / 60) / 60)
@@ -212,12 +224,17 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
   
   func pause(){
     // 백그라운드 세팅 해주기
-    view.backgroundColor = UIColor(red: 5, green: 83, blue: 212, alpha: 1)
+    view.backgroundColor = UIColor(red: 5/255, green: 83/255, blue: 212/255, alpha: 1)
     audioRecorder.pause()
+    meterTimer.invalidate()
+    pauseButton.setTitle("재개하기", for: .normal)
+    
   }
   
   func resume(){
+    view.backgroundColor = UIColor.red
     audioRecorder.record()
+    meterTimer = Timer.scheduledTimer(timeInterval: 0.1, target:self, selector: #selector(updateAudioMeter(_:)), userInfo:nil, repeats:true)
   }
   
   //swipe gesture을 감지하는 코드를 짜 보자!
