@@ -88,7 +88,7 @@ import UIKit
   
   func _init() {
     clipsToBounds = true
-    self.titleLabel!.textColor = setTextColor
+    setTitleColor(setTextColor, for: .normal)
     layer.borderColor = borderColor.cgColor
     layer.cornerRadius = cornerRadius
     layer.borderWidth = borderWidth
