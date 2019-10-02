@@ -98,6 +98,12 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhB-dp-zLJ">
+                                <rect key="frame" x="161.66666666666666" y="633" width="52" height="30"/>
+                                <state key="normal" title="일시정지">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -116,6 +122,8 @@
                             <constraint firstItem="caM-Ve-evA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ac3-Ye-A4O"/>
                             <constraint firstItem="caM-Ve-evA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kt5-ro-YSz"/>
                             <constraint firstItem="nMF-38-s78" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="l2F-kq-qNZ"/>
+                            <constraint firstItem="QhB-dp-zLJ" firstAttribute="top" secondItem="PxO-Bo-kHM" secondAttribute="bottom" constant="60" id="qn4-Qr-prN"/>
+                            <constraint firstItem="QhB-dp-zLJ" firstAttribute="centerX" secondItem="PxO-Bo-kHM" secondAttribute="centerX" id="wFw-aG-t7S"/>
                             <constraint firstItem="Hy5-A5-Gmq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="yqP-5J-Sau"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -1421,6 +1429,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7N-K3-sYS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4652" y="-5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pY7-mz-PTX">
+            <objects>
+                <viewController id="dBm-xf-Bss" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9RZ-VZ-7c6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tkE-O3-E5a">
+                                <rect key="frame" x="61" y="52" width="264" height="329"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AF9-kX-vN7" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
+                                        <rect key="frame" x="76" y="252" width="66" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSelectable" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isIconIncluded" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="setBackgroundColor">
+                                                <color key="value" red="0.43921568630000002" green="0.43921568630000002" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="fbL-w4-aNC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bch-qG-9yE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4626.3999999999996" y="876.35467980295573"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="fQi-3P-8Nk">

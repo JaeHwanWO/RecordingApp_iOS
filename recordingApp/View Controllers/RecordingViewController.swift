@@ -208,6 +208,10 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     }
   }
   
+  func pause(){
+    
+  }
+  
   //swipe gesture을 감지하는 코드를 짜 보자!
   @IBAction func swipe(_ sender: UISwipeGestureRecognizer) {
     //performSegueWithIdentifier로 처리하면 될 듯!
