@@ -8,6 +8,8 @@
 
 import Foundation
 import UserNotifications
+import NotificationCenter
+
 
 class StateStore {
   static let shared = StateStore()
@@ -18,7 +20,7 @@ class StateStore {
   static func registerPushAlarm(lecture: Lecture){
     let content = UNMutableNotificationContent()
     content.title = "🎙✨강의 녹음할 시간이에요🎙✨"
-    content.subtitle = "지금은 " + lecture.name + "수업을 녹음할 시간입니다! 시험기간을 위해서 미리 녹음해주세요😚"
+    content.subtitle = "지금은 " + lecture.name + "수업을 녹음할 시간입니다! 시험기간을 위해!!😚"
     content.body = String(describing: lecture.time!.startTime!.hour ) + ":" + String(describing: lecture.time!.startTime!.min) + "~" + String(describing: lecture.time?.endTime!.hour) + ":" + String(describing: lecture.time!.endTime!.min) + lecture.name
     content.sound = .default
     var date = DateComponents()

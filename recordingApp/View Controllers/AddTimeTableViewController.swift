@@ -9,6 +9,7 @@
 
 import UIKit
 import NotificationCenter
+import UserNotifications
 
 class AddTimeTableViewController: UIViewController {
   
@@ -29,6 +30,7 @@ class AddTimeTableViewController: UIViewController {
   @IBAction func didTapRegister(_ sender: Any) {
     if let addTimeVC = self.children.first as? AddTimeViewController{
       addTimeVC.didTapRegister()
+      print(StateStore.shared.classArray)
       self.dismiss(animated: true, completion: nil)
     }
   }
