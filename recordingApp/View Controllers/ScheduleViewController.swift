@@ -26,13 +26,6 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
   }
   
   @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
-//    // swipe up은 세그가 없으므로, dismiss해준다!
-//    let transition = CATransition()
-//    transition.duration = 0.5
-//    transition.type = CATransitionType.push
-//    transition.subtype = CATransitionSubtype.fromBottom
-//    view.window!.layer.add(transition, forKey: kCATransition)
-//    self.dismiss(animated: true, completion: nil)
     print("swipe up")
   }
   
@@ -46,10 +39,10 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
   }
   
   @IBAction func downButtonPressed(_ sender: Any) {
+    self.performSegue(withIdentifier: "swipeDown", sender: self)
   }
   
   @IBAction func addSchedule(_ sender: Any) {
-    print("add button pressed!")
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -75,17 +68,11 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    //reloadSections같은 함수
-    let 미적분학: Lecture = Lecture(name: "미적분학",
-                                        time: LectureTime(day: .mon,
-                                                          startTime: OrdinaryTime(hour: 9, min: 0),
-                                                          endTime: OrdinaryTime(hour: 11, min: 0)),
-                                        professor: "박성민",
-                                        room: "310관 728호",
-                                        memo: nil)
-    let 미적분학2: Lecture = Lecture(name: "미적분학", time: nil, professor: "박성민", room: "310관 728호", memo: nil)
-    lectureArray.append(미적분학)
-    lectureArray.append(미적분학2)
+  
+    let data = StateStore.shared.classArray
+    data.forEach(){ (oneData) in
+      lectureArray.append(oneData)
+    }
     
     let cellWidth : CGFloat = monLabel.bounds.width
     let cellheight : CGFloat = timeTable.frame.size.height/5 - 5
@@ -99,6 +86,23 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
     //    layout.minimumInteritemSpacing = 3.0
     timeTable.setCollectionViewLayout(layout, animated: true)
     timeTable.reloadData()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    let data = StateStore.shared.classArray
+       data.forEach(){ (oneData) in
+         lectureArray.append(oneData)
+       }
+       
+       let cellWidth : CGFloat = monLabel.bounds.width
+       let cellheight : CGFloat = timeTable.frame.size.height/5 - 5
+       let cellSize = CGSize(width: cellWidth , height:cellheight)
+       
+       let layout = UICollectionViewFlowLayout()
+       layout.scrollDirection = .vertical //.horizontal
+       layout.itemSize = cellSize
+       timeTable.setCollectionViewLayout(layout, animated: true)
+       timeTable.reloadData()
   }
 }
 
