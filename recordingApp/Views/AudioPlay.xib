@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AudioPlayViewController" customModule="recordingApp" customModuleProvider="target">
             <connections>
+                <outlet property="fastnessButton" destination="O7w-w4-55G" id="OCb-Uf-buy"/>
+                <outlet property="playButton" destination="p5t-gx-XIc" id="lh7-Ud-SQN"/>
                 <outlet property="progressBar" destination="sWw-Ah-GlB" id="Abp-0l-j3B"/>
                 <outlet property="view" destination="iN0-l3-epB" id="yiB-SC-SIs"/>
             </connections>
@@ -25,36 +27,45 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HVh-UZ-cnZ">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="albumArt" translatesAutoresizingMaskIntoConstraints="NO" id="HVh-UZ-cnZ">
                     <rect key="frame" x="0.0" y="82" width="414" height="414"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="HVh-UZ-cnZ" secondAttribute="height" multiplier="414:414" id="WAu-p1-6vB"/>
                     </constraints>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eMs-Xh-TY3">
-                    <rect key="frame" x="181" y="668" width="52" height="70"/>
+                    <rect key="frame" x="171" y="668" width="72" height="78"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuT-CH-V2s" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="52" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="72" height="34"/>
                             <state key="normal" title="수정하기"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="10"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                    <real key="value" value="0.0"/>
+                                    <real key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="verticalInset">
-                                    <real key="value" value="0.0"/>
+                                    <real key="value" value="8"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSelectable" value="NO"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="setTextColor">
+                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="horizontalInset">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="didTapModifyButton:" destination="-1" eventType="touchUpInside" id="sDx-dM-Ab4"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULb-8C-q5v" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="40" width="52" height="30"/>
+                            <rect key="frame" x="0.0" y="44" width="72" height="34"/>
                             <state key="normal" title="공유하기"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -64,12 +75,18 @@
                                     <real key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="verticalInset">
-                                    <real key="value" value="0.0"/>
+                                    <real key="value" value="8"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="horizontalInset">
-                                    <real key="value" value="0.0"/>
+                                    <real key="value" value="10"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSelectable" value="NO"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="setTextColor">
+                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="didTapShareButton:" destination="-1" eventType="touchUpInside" id="Nok-6X-xzp"/>
@@ -128,6 +145,25 @@
                         <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="rCW-UI-ZGL"/>
                     </connections>
                 </slider>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7w-w4-55G" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
+                    <rect key="frame" x="192" y="786" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="1x"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="setTextColor">
+                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -151,6 +187,7 @@
         </view>
     </objects>
     <resources>
+        <image name="albumArt" width="1024" height="1024"/>
         <image name="fastBackword" width="1024" height="1024"/>
         <image name="fastPlay" width="1024" height="1024"/>
         <image name="stop" width="1024" height="1024"/>

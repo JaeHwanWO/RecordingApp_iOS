@@ -14,7 +14,10 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
   var isPlaying: Bool = false
   var player: AVAudioPlayer!
   var updater: CADisplayLink! = nil
+  
   @IBOutlet weak var progressBar: UISlider!
+  @IBOutlet weak var playButton: UIButton!
+  @IBOutlet weak var fastnessButton: RoundedBorderButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,6 +50,7 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
   
   func play(){
     player.play()
+    playButton.setImage(UIImage(named:"stop"), for: .normal)
   }
   
   @objc func trackAudio() {
@@ -55,6 +59,7 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
   
   func pause(){
     player.stop()
+    playButton.setImage(UIImage(named:"play"), for: .normal)
   }
   func goForward(){
     // 다음곡으로 간다

@@ -14,6 +14,7 @@
 		DD5F5AD42344A9C300F46F5F /* CustomizingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F5AD32344A9C300F46F5F /* CustomizingViewController.swift */; };
 		DD5F5AD62344A9DA00F46F5F /* SendOpinionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F5AD52344A9DA00F46F5F /* SendOpinionViewController.swift */; };
 		DD5F5AD82344A9EB00F46F5F /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F5AD72344A9EB00F46F5F /* InformationViewController.swift */; };
+		DD5F5ADB2344AFB700F46F5F /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F5ADA2344AFB700F46F5F /* CircleButton.swift */; };
 		DD69FA7C23338BBF006310B6 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69FA7B23338BBF006310B6 /* Lecture.swift */; };
 		DD69FA7E233397E9006310B6 /* AudioPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69FA7D233397E9006310B6 /* AudioPlayViewController.swift */; };
 		DD69FA802333986E006310B6 /* AudioPlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD69FA7F2333986E006310B6 /* AudioPlay.xib */; };
@@ -43,6 +44,7 @@
 		DD5F5AD32344A9C300F46F5F /* CustomizingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizingViewController.swift; sourceTree = "<group>"; };
 		DD5F5AD52344A9DA00F46F5F /* SendOpinionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendOpinionViewController.swift; sourceTree = "<group>"; };
 		DD5F5AD72344A9EB00F46F5F /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
+		DD5F5ADA2344AFB700F46F5F /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		DD69FA7B23338BBF006310B6 /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		DD69FA7D233397E9006310B6 /* AudioPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayViewController.swift; sourceTree = "<group>"; };
 		DD69FA7F2333986E006310B6 /* AudioPlay.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioPlay.xib; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				DDF25304227F712400E78A22 /* RoundedBorderButton.swift */,
+				DD5F5ADA2344AFB700F46F5F /* CircleButton.swift */,
 				DD6F200F227DF0E00016FF74 /* CollectionViewCell.swift */,
 				DD69FA7F2333986E006310B6 /* AudioPlay.xib */,
 				DD69FA812333A97F006310B6 /* BottomPlayerBar.xib */,
@@ -303,6 +306,7 @@
 				DD81369323336C2F0012692D /* AppDelegate.swift in Sources */,
 				DD81368B23336C280012692D /* RecordingViewController.swift in Sources */,
 				DD5F5AD22344A9A700F46F5F /* AlarmViewController.swift in Sources */,
+				DD5F5ADB2344AFB700F46F5F /* CircleButton.swift in Sources */,
 				DD81368D23336C280012692D /* AddTimeViewController.swift in Sources */,
 				DD81368E23336C280012692D /* AddTimeTableViewController.swift in Sources */,
 				DD5F5AD42344A9C300F46F5F /* CustomizingViewController.swift in Sources */,
