@@ -24,6 +24,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
   @IBOutlet weak var recordingTimeLabel: UILabel!
   @IBOutlet weak var recordingBtn: UIButton!
   @IBOutlet weak var settingBtn: UIButton!
+  @IBOutlet weak var pauseButton: RoundedBorderButton!
   
   //오디오 녹음을 위한 변수들
   var recordingSession: AVAudioSession!
@@ -56,9 +57,8 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
       //User가 Notification을 Allow하는지 물어보는 곳
       print(didAllow)
     })
-
     checkRecordPermission()
-    
+    pauseButton.isHidden = true
     // 녹음 버튼에 사진 넣기
     if (isRecordingOn == false){
       recordingTimeLabel.text = "지금 바로 녹음을 시작하세요!"
@@ -87,6 +87,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     meterTimer = Timer.scheduledTimer(timeInterval: 0.1, target:self, selector: #selector(updateAudioMeter(_:)), userInfo:nil, repeats:true)
     recordingTimeLabel.textColor = UIColor.white
     isRecordingOn = true
+    pauseButton.isHidden = false
   }
   
   func turnRecordingOff(){
@@ -105,6 +106,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     guideTextLabel.isHidden = false
     finishAudioRecording(success: true)
     isRecordingOn = false
+    pauseButton.isHidden = true
   }
   
   @objc func updateAudioMeter(_ timer: Timer) {
@@ -209,7 +211,13 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
   }
   
   func pause(){
-    
+    // 백그라운드 세팅 해주기
+    view.backgroundColor = UIColor(red: 5, green: 83, blue: 212, alpha: 1)
+    audioRecorder.pause()
+  }
+  
+  func resume(){
+    audioRecorder.record()
   }
   
   //swipe gesture을 감지하는 코드를 짜 보자!

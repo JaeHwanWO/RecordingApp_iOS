@@ -33,10 +33,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caM-Ve-evA">
-                                <rect key="frame" x="83.666666666666671" y="319.66666666666669" width="207.66666666666663" height="173"/>
+                                <rect key="frame" x="90.333333333333329" y="319.66666666666669" width="194.33333333333337" height="173"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="173" id="Dab-nR-Uce"/>
-                                    <constraint firstAttribute="width" secondItem="caM-Ve-evA" secondAttribute="height" multiplier="787:655" id="YFp-0r-9gv"/>
+                                    <constraint firstAttribute="width" secondItem="caM-Ve-evA" secondAttribute="height" multiplier="787:700" id="YFp-0r-9gv"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button" image="recordingButton_red"/>
@@ -98,11 +98,30 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhB-dp-zLJ">
-                                <rect key="frame" x="161.66666666666666" y="633" width="52" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhB-dp-zLJ" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
+                                <rect key="frame" x="141.66666666666666" y="633" width="92" height="32"/>
                                 <state key="normal" title="일시정지">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="setBackgroundColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="setTextColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSelectable" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isIconIncluded" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="verticalInset">
+                                        <real key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="horizontalInset">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -135,6 +154,7 @@
                         <outlet property="currentClassNameLabel" destination="Rxm-mc-5MA" id="XIn-yW-fxG"/>
                         <outlet property="currentTimeLabel" destination="7Ao-6J-yHp" id="MtO-Dz-oOx"/>
                         <outlet property="guideTextLabel" destination="nMF-38-s78" id="SJN-84-G4e"/>
+                        <outlet property="pauseButton" destination="QhB-dp-zLJ" id="A3j-Am-ouL"/>
                         <outlet property="recordingBtn" destination="caM-Ve-evA" id="r9Q-JZ-xbA"/>
                         <outlet property="recordingTimeLabel" destination="PxO-Bo-kHM" id="7gt-3K-wJo"/>
                         <outlet property="settingBtn" destination="hAk-kr-drf" id="5a2-7U-1Rf"/>
@@ -1429,45 +1449,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7N-K3-sYS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4652" y="-5"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="pY7-mz-PTX">
-            <objects>
-                <viewController id="dBm-xf-Bss" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9RZ-VZ-7c6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tkE-O3-E5a">
-                                <rect key="frame" x="61" y="52" width="264" height="329"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AF9-kX-vN7" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                        <rect key="frame" x="76" y="252" width="66" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSelectable" value="NO"/>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isIconIncluded" value="NO"/>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="setBackgroundColor">
-                                                <color key="value" red="0.43921568630000002" green="0.43921568630000002" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="fbL-w4-aNC"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bch-qG-9yE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4626.3999999999996" y="876.35467980295573"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="fQi-3P-8Nk">

@@ -65,7 +65,7 @@ import UIKit
   
   @IBInspectable dynamic var setTextColor: UIColor = .white {
     didSet{
-      self.titleLabel?.textColor = setTextColor
+      self.titleLabel!.textColor = setTextColor
     }
   }
   
@@ -88,7 +88,7 @@ import UIKit
   
   func _init() {
     clipsToBounds = true
-    self.titleLabel?.textColor = setTextColor
+    self.titleLabel!.textColor = setTextColor
     layer.borderColor = borderColor.cgColor
     layer.cornerRadius = cornerRadius
     layer.borderWidth = borderWidth
