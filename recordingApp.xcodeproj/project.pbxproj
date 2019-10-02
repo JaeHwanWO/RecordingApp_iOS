@@ -25,7 +25,6 @@
 		DD81369023336C280012692D /* RecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1FEA227C8D600016FF74 /* RecordListViewController.swift */; };
 		DD81369123336C280012692D /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1FE8227C8D2B0016FF74 /* ScheduleViewController.swift */; };
 		DD81369323336C2F0012692D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1FD1227C6BCE0016FF74 /* AppDelegate.swift */; };
-		DD81369423336C2F0012692D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF382852285CD2700B6172F /* Notification.swift */; };
 		DD89FF30233DB74A002FB5E7 /* Boogie On & On.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD89FF2F233DB74A002FB5E7 /* Boogie On & On.mp3 */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +52,6 @@
 		DD89FF2F233DB74A002FB5E7 /* Boogie On & On.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Boogie On & On.mp3"; sourceTree = "<group>"; };
 		DDC568C6227EA59D003245D9 /* AddTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeViewController.swift; sourceTree = "<group>"; };
 		DDF25304227F712400E78A22 /* RoundedBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderButton.swift; sourceTree = "<group>"; };
-		DDF382852285CD2700B6172F /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +104,6 @@
 		DD6F1FD0227C6BCE0016FF74 /* recordingApp */ = {
 			isa = PBXGroup;
 			children = (
-				DDF382852285CD2700B6172F /* Notification.swift */,
 				DD482C95233CA16D00251AE1 /* StateStore.swift */,
 				DD813656233366D80012692D /* Models */,
 				DD813655233366AE0012692D /* Views */,
@@ -281,7 +278,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD81369323336C2F0012692D /* AppDelegate.swift in Sources */,
-				DD81369423336C2F0012692D /* Notification.swift in Sources */,
 				DD81368B23336C280012692D /* RecordingViewController.swift in Sources */,
 				DD81368D23336C280012692D /* AddTimeViewController.swift in Sources */,
 				DD81368E23336C280012692D /* AddTimeTableViewController.swift in Sources */,

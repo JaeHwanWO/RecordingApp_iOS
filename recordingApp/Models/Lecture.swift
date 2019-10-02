@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Lecture {
+struct Lecture: Codable {
   var name: String = "미적분학"
   var time: LectureTime?
   var professor: String?
@@ -16,7 +16,7 @@ struct Lecture {
   var memo: String?
 }
 
-class LectureTime {
+class LectureTime: Codable {
   var day : LectureDay?
   var startTime : OrdinaryTime?
   var endTime : OrdinaryTime?
@@ -25,7 +25,7 @@ class LectureTime {
     self.startTime = startTime
     self.endTime = endTime
   }
-  enum LectureDay: String {
+  enum LectureDay: String, Codable {
     case mon
     case tue
     case wed
@@ -34,7 +34,7 @@ class LectureTime {
   }
 }
 
-struct OrdinaryTime {
+struct OrdinaryTime: Codable {
   var hour: Int
   var min: Int
   init(hour: Int, min: Int){
