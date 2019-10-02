@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
+	<key>UIFileSharingEnabled</key>
+	<true/>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>수업을 녹음하기 위해서 마이크를 켜도 될까요☺️?</string>
 	<key>CFBundleDevelopmentRegion</key>

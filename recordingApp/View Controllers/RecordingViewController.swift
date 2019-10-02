@@ -168,15 +168,9 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
   }
   
   func getFileUrl() -> URL {
-    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-    var newStr: String = ""
-    let documentsDirectory = paths[0]
-    let filename = "190927_티스토리_0900_1100"
-    let filePath = documentsDirectory.appendingPathComponent(filename)
-    //print(filePath)
-    
-    newStr = NSString(string: filePath.lastPathComponent).removingPercentEncoding!
-    print(newStr)
+    let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    let filename = "1901002_미적분학_0900_1100.m4a"
+    let filePath = documentsURL.appendingPathComponent(filename)
     return filePath
   }
   
