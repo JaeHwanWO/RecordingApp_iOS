@@ -81,6 +81,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     currentTimeLabel.isHidden = true
     currentClassNameLabel.isHidden = true
     guideTextLabel.isHidden = true
+    pauseButton.setTitleColor(.black, for: .normal)
     
     setupRecorder()
     audioRecorder.record()
@@ -169,7 +170,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
   
   func getFileUrl() -> URL {
     let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    let filename = "1901002_미적분학_0900_1100.m4a"
+    let filename = "1901002_미적분학_0900_1102.m4a"
     let filePath = documentsURL.appendingPathComponent(filename)
     return filePath
   }
@@ -222,11 +223,13 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     audioRecorder.pause()
     meterTimer.invalidate()
     pauseButton.setTitle("재개하기", for: .normal)
+    pauseButton.setTitleColor(.black, for: .normal)
     
   }
   
   func resume(){
     view.backgroundColor = UIColor.red
+    pauseButton.setTitleColor(.black, for: .normal)
     audioRecorder.record()
     meterTimer = Timer.scheduledTimer(timeInterval: 0.1, target:self, selector: #selector(updateAudioMeter(_:)), userInfo:nil, repeats:true)
   }

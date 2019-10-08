@@ -13,36 +13,54 @@ import MGSwipeTableCell
 class RecordListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MGSwipeTableCellDelegate {
   
   // dummy data
-  var list: [String] = ["190504_미적분학_1200_1300",
-                        "190511_미적분학_1200_1300",
-                        "190518_미적분학_1200_1300",
-                        "190504_미적분학_1200_1300",
-                        "190602_미적분학_1200_1300"]
+  var listWithFullURL: [String] = []
+  var listWithFileName: [String] = []
   
   @IBOutlet weak var recordListTableView: UITableView!
   @IBOutlet weak var upBtn: UIButton!
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return list.count
+    return listWithFileName.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let reuseIdentifier = "programmaticCell"
-    var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! MGSwipeTableCell
-    
-    cell.textLabel!.text = list[indexPath.row]
+    let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! MGSwipeTableCell
+    cell.textLabel!.text = listWithFileName[indexPath.row]
     cell.delegate = self //optional
-    
     //configure right buttons
     cell.rightButtons = [MGSwipeButton(title: "삭제",backgroundColor: .red),
                          MGSwipeButton(title: "공유", backgroundColor: .blue)]
     cell.rightSwipeSettings.transition = .drag
-    
     return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    // 오디오를 선택하면 플레이하는 뷰가 init되고, 음악이 재생된다(추후 기능 추가)
+    let audioPlayScene = AudioPlayViewController(nibName: "AudioPlay", bundle: nil)
+    // 선택된 파일 명을 넘겨준다
+    audioPlayScene.selectedFileName = listWithFullURL[indexPath.row]
+    self.present(audioPlayScene, animated: true, completion: nil)
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    getFilesFromLocal()
+  }
+  
+  func getFilesFromLocal(){
+    // 기존 녹음 파일 리스트 받아오기
+    let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    do{
+      let items = try FileManager.default.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
+      print(items.count)
+      for item in items{
+        listWithFullURL.append(item.absoluteString)
+        listWithFileName.append(item.lastPathComponent)
+      }
+    } catch{
+      NSLog(error as! String)
+    }
   }
   
   @IBAction func upBtnPressed(_ sender: Any) {
@@ -52,12 +70,6 @@ class RecordListViewController: UIViewController, UITableViewDelegate, UITableVi
     transition.subtype = CATransitionSubtype.fromBottom
     view.window!.layer.add(transition, forKey: kCATransition)
     self.dismiss(animated: true, completion: nil)
-  }
-  
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    // 오디오를 선택하면 플레이하는 뷰가 init되고, 음악이 재생된다(추후 기능 추가)
-    let audioPlayScene = AudioPlayViewController(nibName: "AudioPlay", bundle: nil)
-    self.present(audioPlayScene, animated: true, completion: nil)
   }
   
 }

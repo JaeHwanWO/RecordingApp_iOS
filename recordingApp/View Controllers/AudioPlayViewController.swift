@@ -18,6 +18,9 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
   @IBOutlet weak var progressBar: UISlider!
   @IBOutlet weak var playButton: UIButton!
   @IBOutlet weak var fastnessButton: RoundedBorderButton!
+  @IBOutlet weak var songNameTitleLabel: UILabel!
+  
+  var selectedFileName:String = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,7 +28,6 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
     guard let path = Bundle.main.path(forResource:"Boogie On & On", ofType: "mp3") else { return }
     let url = URL(fileURLWithPath : path)
     do {
-      
       player = try AVAudioPlayer(contentsOf: url)
       updater = CADisplayLink(target: self, selector: #selector(self.trackAudio))
       updater.preferredFramesPerSecond = 1
@@ -37,6 +39,8 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
     catch {
       print(error)
     }
+    print(selectedFileName)
+    songNameTitleLabel.text = URL(string:selectedFileName)?.lastPathComponent
   }
   
   @IBAction func sliderValueChanged(_ sender: UISlider) {
