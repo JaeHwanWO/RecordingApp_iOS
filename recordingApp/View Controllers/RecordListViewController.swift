@@ -39,7 +39,7 @@ class RecordListViewController: UIViewController, UITableViewDelegate, UITableVi
     // 오디오를 선택하면 플레이하는 뷰가 init되고, 음악이 재생된다(추후 기능 추가)
     let audioPlayScene = AudioPlayViewController(nibName: "AudioPlay", bundle: nil)
     // 선택된 파일 명을 넘겨준다
-    audioPlayScene.selectedFileName = listWithFullURL[indexPath.row]
+    audioPlayScene.selectedFileName = listWithFileName[indexPath.row]
     self.present(audioPlayScene, animated: true, completion: nil)
   }
   

@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-// AVAudioPlayer을 쓰기 위해서!
 
 class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
   var isPlaying: Bool = false
@@ -25,8 +24,12 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     // todo: 앨범 아트 세팅하기
-    guard let path = Bundle.main.path(forResource:"Boogie On & On", ofType: "mp3") else { return }
-    let url = URL(fileURLWithPath : path)
+    // todo: 받아온 파일 플레이하기
+    let path = selectedFileName
+    let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    let url = documentsURL.appendingPathComponent(path)
+
+      //Bundle.main.path(forResource:"Boogie On & On", ofType: "mp3") else { return }
     do {
       player = try AVAudioPlayer(contentsOf: url)
       updater = CADisplayLink(target: self, selector: #selector(self.trackAudio))
@@ -40,7 +43,7 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
       print(error)
     }
     print(selectedFileName)
-    songNameTitleLabel.text = URL(string:selectedFileName)?.lastPathComponent
+    songNameTitleLabel.text = selectedFileName
   }
   
   @IBAction func sliderValueChanged(_ sender: UISlider) {

@@ -53,6 +53,11 @@ import UIKit
     didSet {
       if isIconIncluded{
         // 세팅을 해준다. 근데 이미지 어케 받을지 모르겠음 ;;
+//        그게 아니라
+//        버튼에 이미지가 있으면 이 값을 true로 해주고 이미지 쓰려고 했는데
+//        그런 설정이 IBInspectable에 없어서
+//        아직 못하는중ㅋㅋㅋㅋㅋㅋ
+//        
       }
     }
   }
@@ -63,10 +68,12 @@ import UIKit
     }
   }
   
-  @IBInspectable dynamic var setTextColor: UIColor = .white {
+  @IBInspectable dynamic var setTextColor: UIColor = .black {
     didSet{
       self.titleLabel!.textColor = setTextColor
     }
+    // 흰색으로 해놔도 되어야되는거 아닌가...
+    
   }
   
   // 스토리보드로 만든 버튼용
