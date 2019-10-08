@@ -18,6 +18,7 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
   @IBOutlet weak var playButton: UIButton!
   @IBOutlet weak var fastnessButton: RoundedBorderButton!
   @IBOutlet weak var songNameTitleLabel: UILabel!
+  var url_2 = URL(string: "")
   
   var selectedFileName:String = ""
   
@@ -28,6 +29,7 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
     let path = selectedFileName
     let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     let url = documentsURL.appendingPathComponent(path)
+    url_2 = url
 
       //Bundle.main.path(forResource:"Boogie On & On", ofType: "mp3") else { return }
     do {
@@ -91,9 +93,10 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
   }
   @IBAction func didTapShareButton(_ sender: Any) {
     // todo: UIActivityViewController 이용해서 공유하는 기능 만들기.
-    let text = "내가 공유할 텍스트⭐️"
-    let textToShare = [text]
-    let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+    // todo: 텍스트가 아니라 파일 공유하게 만들기
+    
+    let textToShare = [url_2]
+    let activityViewController = UIActivityViewController(activityItems: textToShare as [Any], applicationActivities: nil)
     activityViewController.popoverPresentationController?.sourceView = self.view
     self.present(activityViewController, animated: true, completion: nil)
   }
