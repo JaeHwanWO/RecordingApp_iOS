@@ -155,7 +155,7 @@ class AddTimeViewController: UITableViewController {
 extension Date {
   static let formatter: DateFormatter = {
     let formatter = DateFormatter()
-    formatter.dateFormat = "HH:mm:ss Z"
+    formatter.dateFormat = "HH:mm"
     return formatter
   }()
   var formatted: String {

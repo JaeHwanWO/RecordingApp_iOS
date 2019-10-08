@@ -61,48 +61,38 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
   }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
+    // 셀 골랐을 때 보여질 뷰 만들고, 보여주
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return 0
   }
   
   @IBOutlet weak var monLabel: UILabel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-  
     let data = StateStore.shared.classArray
     data.forEach(){ (oneData) in
       lectureArray.append(oneData)
     }
     
     let cellWidth : CGFloat = monLabel.bounds.width
-    let cellheight : CGFloat = timeTable.frame.size.height/5 - 5
+    let cellheight : CGFloat = timeTable.frame.size.height/5
     let cellSize = CGSize(width: cellWidth , height:cellheight)
     
-    let layout = UICollectionViewFlowLayout()
-    layout.scrollDirection = .vertical //.horizontal
-    layout.itemSize = cellSize
-    //    layout.sectionInset = UIEdgeInsets(top: 3, left: 3, bottom: 10, right: 3)
-    //    layout.minimumLineSpacing = 8.0
-    //    layout.minimumInteritemSpacing = 3.0
+    let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+    layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+    layout.itemSize = CGSize(width: cellWidth, height: cellheight)
+    layout.minimumInteritemSpacing = 0
+    layout.minimumLineSpacing = 0
+    timeTable.collectionViewLayout = layout
+    
     timeTable.setCollectionViewLayout(layout, animated: true)
     timeTable.reloadData()
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    let data = StateStore.shared.classArray
-       data.forEach(){ (oneData) in
-         lectureArray.append(oneData)
-       }
-       
-       let cellWidth : CGFloat = monLabel.bounds.width
-       let cellheight : CGFloat = timeTable.frame.size.height/5 - 5
-       let cellSize = CGSize(width: cellWidth , height:cellheight)
-       
-       let layout = UICollectionViewFlowLayout()
-       layout.scrollDirection = .vertical //.horizontal
-       layout.itemSize = cellSize
-       timeTable.setCollectionViewLayout(layout, animated: true)
-       timeTable.reloadData()
   }
 }
 
