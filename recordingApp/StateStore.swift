@@ -12,10 +12,30 @@ import NotificationCenter
 
 
 class StateStore {
+  
+  // TODO : UserDefaults가 나의 custom class를 지원하도록 수정해보자
+  // classArray를 NsData로 바꿔보기
+  let encoder = JSONEncoder()
+  let decoder = JSONDecoder()
   static let shared = StateStore()
-  var classArray: [Lecture] = []
+  
+  var classArray: [Lecture] {
+    get{
+      let decoded = try! decoder.decode([Lecture].self, from:  UserDefaults.standard.object(forKey: "classArray") as! Data)
+      return decoded
+    }
+    set(newValue){
+      let encoded = try! encoder.encode(newValue)
+      UserDefaults.standard.setValue(encoded, forKey: "classArray")
+    }
+  }
 
-  init() {}
+  init() {
+    // 처음 앱이 켜졌을 때, UserDefaults 데이터를 불러와서 담아준다.
+    let decoded = try! decoder.decode([Lecture].self, from:  UserDefaults.standard.object(forKey: "classArray") as! Data)
+    classArray = decoded
+    print(classArray)
+  }
   
   static func registerPushAlarm(lecture: Lecture){
     let content = UNMutableNotificationContent()

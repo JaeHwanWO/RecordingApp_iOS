@@ -72,4 +72,14 @@ class RecordListViewController: UIViewController, UITableViewDelegate, UITableVi
     self.dismiss(animated: true, completion: nil)
   }
   
+  func getSumOf(array:[Int], handler: ((Int)->Void)) {
+    //step 2
+    var sum: Int = 0
+    for value in array {
+      sum += value
+    }
+    //step 3
+    handler(sum)
+  }
+  
 }

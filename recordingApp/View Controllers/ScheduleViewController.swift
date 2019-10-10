@@ -72,6 +72,7 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     let data = StateStore.shared.classArray
     data.forEach(){ (oneData) in
       lectureArray.append(oneData)
