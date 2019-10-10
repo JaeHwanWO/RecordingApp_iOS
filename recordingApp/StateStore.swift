@@ -29,12 +29,16 @@ class StateStore {
       UserDefaults.standard.setValue(encoded, forKey: "classArray")
     }
   }
-
+  
   init() {
     // 처음 앱이 켜졌을 때, UserDefaults 데이터를 불러와서 담아준다.
-    let decoded = try! decoder.decode([Lecture].self, from:  UserDefaults.standard.object(forKey: "classArray") as! Data)
+    let data = UserDefaults.standard.object(forKey: "classArray")
+    var decoded: [Lecture] = []
+    if data != nil{
+      decoded = try! decoder.decode([Lecture].self, from: data as! Data)
+    }
     classArray = decoded
-    print(classArray)
+    
   }
   
   static func registerPushAlarm(lecture: Lecture){
