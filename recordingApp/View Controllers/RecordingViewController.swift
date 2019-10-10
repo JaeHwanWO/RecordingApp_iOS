@@ -239,4 +239,9 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     //performSegueWithIdentifier로 처리하면 될 듯!
     performSegue(withIdentifier: "SetScheduleVC", sender: sender)
   }
+  
+  // TODO: 현재 타임을 트랙킹 해서, StateStore에 있는 시간의 범위 내에 있으면, 라벨이 바뀌어야 한다!
+  // 현 시간 트랙킹은 이 VC에서 해줘도 될듯.
+  // 시간이 10분 전, 현재 이면 라벨이 녹음하세요! 가 되는거고 나머지 시간에는 현 시간을 보여주던지 하는게 좋을듯
+  
 }
