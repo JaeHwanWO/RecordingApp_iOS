@@ -48,7 +48,7 @@
                                 <constraint firstAttribute="width" secondItem="p5t-gx-XIc" secondAttribute="height" multiplier="55:52" id="Isb-lt-mu0"/>
                                 <constraint firstAttribute="width" constant="35" id="zbf-p8-uWD"/>
                             </constraints>
-                            <state key="normal" title="Button" image="stop"/>
+                            <state key="normal" title="Button" image="play"/>
                             <connections>
                                 <action selector="didTapPlayOrPauseButton:" destination="-1" eventType="touchUpInside" id="7Du-0m-MUd"/>
                             </connections>
@@ -192,6 +192,6 @@
         <image name="albumArt" width="1024" height="1024"/>
         <image name="fastBackword" width="1024" height="1024"/>
         <image name="fastPlay" width="1024" height="1024"/>
-        <image name="stop" width="1024" height="1024"/>
+        <image name="play" width="78" height="90"/>
     </resources>
 </document>

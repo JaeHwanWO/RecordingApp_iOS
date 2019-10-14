@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
   var isPlaying: Bool = false
@@ -18,22 +19,38 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
   @IBOutlet weak var playButton: UIButton!
   @IBOutlet weak var fastnessButton: RoundedBorderButton!
   @IBOutlet weak var songNameTitleLabel: UILabel!
-  var url_2 = URL(string: "")
-  
+  var urlOfFile = URL(string: "")
   var selectedFileName:String = ""
+  
+  func setupNowPlayingInfoCenter(){
+    UIApplication.shared.beginReceivingRemoteControlEvents()
+    MPRemoteCommandCenter.shared().playCommand.addTarget {event in
+      self.play()
+      return .success
+    }
+    MPRemoteCommandCenter.shared().pauseCommand.addTarget {event in
+      self.pause()
+      return .success
+    }
+    MPRemoteCommandCenter.shared().nextTrackCommand.addTarget {event in
+      self.goForward()
+      return .success
+    }
+    MPRemoteCommandCenter.shared().previousTrackCommand.addTarget {event in
+      self.goBackward()
+      return .success
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // todo: 앨범 아트 세팅하기
-    // todo: 받아온 파일 플레이하기
+    
     let path = selectedFileName
     let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    let url = documentsURL.appendingPathComponent(path)
-    url_2 = url
-
-      //Bundle.main.path(forResource:"Boogie On & On", ofType: "mp3") else { return }
+    urlOfFile = documentsURL.appendingPathComponent(path)
+    
     do {
-      player = try AVAudioPlayer(contentsOf: url)
+      player = try AVAudioPlayer(contentsOf: urlOfFile!)
       updater = CADisplayLink(target: self, selector: #selector(self.trackAudio))
       updater.preferredFramesPerSecond = 1
       updater.add(to: RunLoop.current, forMode: RunLoop.Mode.common)
@@ -44,8 +61,20 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
     catch {
       print(error)
     }
-    print(selectedFileName)
+    
+    setupNowPlayingInfoCenter()
+    MPNowPlayingInfoCenter.default().nowPlayingInfo = [
+      MPMediaItemPropertyTitle: selectedFileName,
+      MPMediaItemPropertyArtist: "self"
+    ]
+    
     songNameTitleLabel.text = selectedFileName
+    let session = AVAudioSession.sharedInstance()
+    do{
+      try session.setCategory(AVAudioSession.Category.playback)
+    }
+    catch{
+    }
   }
   
   @IBAction func sliderValueChanged(_ sender: UISlider) {
@@ -59,7 +88,7 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
   
   func play(){
     player.play()
-    playButton.setImage(UIImage(named:"stop"), for: .normal)
+    playButton.setImage(UIImage(named:"stop")!, for: .normal)
   }
   
   @objc func trackAudio() {
@@ -68,13 +97,18 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
   
   func pause(){
     player.stop()
-    playButton.setImage(UIImage(named:"play"), for: .normal)
+    playButton.setImage(UIImage(named:"play")!, for: .normal)
   }
   func goForward(){
     // 다음곡으로 간다
   }
   func goBackward(){
     // 이 음악의 처음으로 간다, 이미 처음이면 이전곡으로 간다.
+  }
+  
+  func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+    isPlaying = !isPlaying
+    pause()
   }
   
   @IBAction func didTapPlayOrPauseButton(_ sender: Any) {
@@ -92,11 +126,8 @@ class AudioPlayViewController: UIViewController, AVAudioPlayerDelegate {
   @IBAction func didTapModifyButton(_ sender: Any) {
   }
   @IBAction func didTapShareButton(_ sender: Any) {
-    // todo: UIActivityViewController 이용해서 공유하는 기능 만들기.
-    // todo: 텍스트가 아니라 파일 공유하게 만들기
-    
-    let textToShare = [url_2]
-    let activityViewController = UIActivityViewController(activityItems: textToShare as [Any], applicationActivities: nil)
+    let audioToShare = [urlOfFile]
+    let activityViewController = UIActivityViewController(activityItems: audioToShare as [Any], applicationActivities: nil)
     activityViewController.popoverPresentationController?.sourceView = self.view
     self.present(activityViewController, animated: true, completion: nil)
   }
