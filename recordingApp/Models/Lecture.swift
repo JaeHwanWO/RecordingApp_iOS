@@ -9,36 +9,44 @@
 import Foundation
 
 struct Lecture : Codable {
-  var name: String = "미적분학"
-  var time: LectureTime?
+  var name: String
+  var time: LectureTime
   var professor: String?
   var room: String?
   var memo: String?
+  func returnTimeString(lecture: Lecture)->String{
+    let _timeStringOfStartTime = "\(lecture.time.startTime.hour)"
+      + ":"
+      + "\(lecture.time.startTime.min)"
+    let _timeStringOfEndTime = "\(lecture.time.endTime.hour)"
+      + ":"
+      + "\(lecture.time.endTime.min)"
+    return _timeStringOfStartTime
+      + "~"
+      + _timeStringOfEndTime
+  }
 }
 
 class LectureTime: Codable {
-  var day : LectureDay?
-  var startTime : OrdinaryTime?
-  var endTime : OrdinaryTime?
-  init(day: LectureDay?, startTime: OrdinaryTime?, endTime: OrdinaryTime?){
-    self.day = day
+  // day는 월요일부터 1일이다.
+  var weekDay : Int
+  var startTime : OrdinaryTime
+  var endTime : OrdinaryTime
+  init(weekDay: Int, startTime: OrdinaryTime, endTime: OrdinaryTime){
+    self.weekDay = weekDay
     self.startTime = startTime
     self.endTime = endTime
-  }
-  enum LectureDay: String, Codable {
-    case mon
-    case tue
-    case wed
-    case thu
-    case fri
   }
 }
 
 struct OrdinaryTime: Codable {
+  // 24시간 체계를 따른다.
   var hour: Int
   var min: Int
   init(hour: Int, min: Int){
     self.hour = hour
     self.min = min
   }
+  
+  // TODO: 9:00 ~ 11:00 를 리턴해주는 함수 만들기
 }

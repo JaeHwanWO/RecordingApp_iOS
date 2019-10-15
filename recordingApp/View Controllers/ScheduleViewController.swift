@@ -53,10 +53,7 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
     
-    cell.displayContent(className: lectureArray[indexPath.row].name,
-                        classTime: lectureArray[indexPath.row].time,
-                        classProfessor: lectureArray[indexPath.row].professor,
-                        classRoom: lectureArray[indexPath.row].room)
+    cell.displayContent(lecture: lectureArray[indexPath.row])
     return cell
   }
   

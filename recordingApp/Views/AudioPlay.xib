@@ -73,10 +73,10 @@
                     </constraints>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eMs-Xh-TY3" userLabel="수정 및 공유 버튼 스택">
-                    <rect key="frame" x="110.66666666666669" y="629" width="154" height="34"/>
+                    <rect key="frame" x="130.66666666666666" y="629" width="114" height="30"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuT-CH-V2s" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="72" height="34"/>
+                            <rect key="frame" x="0.0" y="0.0" width="52" height="30"/>
                             <state key="normal" title="수정하기"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -104,7 +104,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULb-8C-q5v" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                            <rect key="frame" x="81.999999999999986" y="0.0" width="72.000000000000014" height="34"/>
+                            <rect key="frame" x="62" y="0.0" width="52" height="30"/>
                             <state key="normal" title="공유하기"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -147,7 +147,7 @@
                     </connections>
                 </slider>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7w-w4-55G" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                    <rect key="frame" x="170" y="673" width="35" height="28"/>
+                    <rect key="frame" x="172.66666666666666" y="669" width="30" height="30"/>
                     <state key="normal" title="1x"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

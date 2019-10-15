@@ -106,23 +106,23 @@ class AddTimeViewController: UITableViewController {
   }
   
   // TODO: 월요일 버튼을 받으면 OrdinaryTime의 월요일 리턴해주기.
-  func ButtonToLectureDay(button: UIButton) -> LectureTime.LectureDay{
+  func ButtonToLectureDay(button: UIButton) -> Int {
     if button.titleLabel?.text == "월"{
-      return .mon
+      return 1
     }
     else if button.titleLabel?.text == "화"{
-      return .tue
+      return 2
     }
     else if button.titleLabel?.text == "수"{
-      return .wed
+      return 3
     }
     else if button.titleLabel?.text == "목"{
-      return .thu
+      return 4
     }
     else if  button.titleLabel?.text == "금"{
-      return .fri
+      return 5
     }
-    else { return .mon }
+    else { return 1 }
   }
   
   @IBAction func didTapDayButton(sender: UIButton){
@@ -139,7 +139,8 @@ class AddTimeViewController: UITableViewController {
   
   func didTapRegister(){
     let returnedDay = returnDay()
-    let lectureTime = LectureTime(day: ButtonToLectureDay(button: returnedDay),
+    let lectureTime = LectureTime(
+      weekDay: ButtonToLectureDay(button: returnedDay),
                                   startTime: dateToOrdinaryTime(datePickerForStartTime!.date),
                                   endTime: dateToOrdinaryTime(datePickerForEndTime!.date))
     let lecture = Lecture(name: classNameLabel.text!,

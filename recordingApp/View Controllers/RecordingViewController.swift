@@ -13,7 +13,8 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
   
   var isAudioRecordingGranted:Bool!
   var isRecordingOn:Bool = false
-  var meterTimer:Timer!
+  var meterTimer: Timer!
+  var backgroundTimer: Timer!
   
   //현재 시각, 강의명 라벨들
   @IBOutlet weak var currentTimeLabel: UILabel!
@@ -29,6 +30,10 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
   //오디오 녹음을 위한 변수들
   var recordingSession: AVAudioSession!
   var audioRecorder: AVAudioRecorder!
+  
+  // 시간을 트랙킹하기 위한 변수들
+  var currentDate = Date()
+  var currentCalendar = Calendar.current
   
   @IBOutlet weak var swipeMeLabel: UILabel!
   @IBOutlet weak var swipeButton: UIButton!
@@ -53,6 +58,11 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    backgroundTimer = Timer.scheduledTimer(timeInterval: 0.1,
+               target: self,
+               selector: #selector(displayIfNowIsClassTime),
+               userInfo: nil,
+               repeats: true)
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound], completionHandler: {didAllow,Error in
       //User가 Notification을 Allow하는지 물어보는 곳
       print(didAllow)
@@ -85,7 +95,11 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     
     setupRecorder()
     audioRecorder.record()
-    meterTimer = Timer.scheduledTimer(timeInterval: 0.1, target:self, selector: #selector(updateAudioMeter(_:)), userInfo:nil, repeats:true)
+    meterTimer = Timer.scheduledTimer(timeInterval: 0.1,
+                                      target:self,
+                                      selector: #selector(updateAudioMeter(_:)),
+                                      userInfo:nil,
+                                      repeats:true)
     recordingTimeLabel.textColor = UIColor.white
     isRecordingOn = true
     pauseButton.isHidden = false
@@ -142,7 +156,9 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
       // TODO: save
     }
     else {
-      displayAlert(msg_title: "에러!", msg_desc: "녹음 저장에 실패했습니다😭😭 왜지...", action_title: "확인이염")
+      displayAlert(msg_title: "에러!",
+                   msg_desc: "녹음 저장에 실패했습니다😭😭 왜지...",
+                   action_title: "확인이염")
     }
   }
   
@@ -168,15 +184,46 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     }
   }
   
+  @objc func displayIfNowIsClassTime(){
+    // 현재 시간 라벨
+    currentDate = Date()
+    currentCalendar = Calendar.current
+    
+    let weekDay = currentCalendar.component(.weekday, from: currentDate)
+    let hour = currentCalendar.component(.hour, from: currentDate)
+    let minutes = currentCalendar.component(.minute, from: currentDate)
+    // 라벨 디스플레이까지 해준다!
+    for lecture in StateStore.shared.classArray {
+      // 요일이 같고, 시간이 10분 전까지 이면
+      let _a: Bool = (lecture.time.weekDay == weekDay)
+      let _b: Bool = ((lecture.time.startTime.hour * 60 + lecture.time.startTime.min) >= (hour * 60 + minutes + 10))
+      let _c: Bool = ((lecture.time.endTime.hour * 60 + lecture.time.endTime.min) < (hour * 60 + minutes))
+      if _a && _b && _c{
+        currentTimeLabel.text = lecture.returnTimeString(lecture: lecture)
+        currentClassNameLabel.text = "\(lecture.name)" + " 시간입니다"
+        guideTextLabel.text = "지금 바로 녹음을 시작하세요!"
+      }
+      else{
+        // 지금은 수업이 없는 시간~~
+        currentTimeLabel.text = currentDate.description
+        currentClassNameLabel.text = "쉴때는 열심히 쉬라구!"
+        guideTextLabel.text = "아 집에 가고싶다"
+      }
+    }
+  }
+  
   func getFileUrl() -> URL {
-    let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    let documentsURL = FileManager.default.urls(for: .documentDirectory,
+                                                in: .userDomainMask)[0]
     let filename = "1901002_미적분학_0900_1103.m4a"
     let filePath = documentsURL.appendingPathComponent(filename)
     return filePath
   }
   
   func displayAlert(msg_title : String, msg_desc : String, action_title : String) {
-    let ac = UIAlertController(title: msg_title, message: msg_desc, preferredStyle: .alert)
+    let ac = UIAlertController(title: msg_title,
+                               message: msg_desc,
+                               preferredStyle: .alert)
     ac.addAction(UIAlertAction(title: action_title, style: .default) { (result : UIAlertAction) -> Void in
       _ = self.navigationController?.popViewController(animated: true)
     })
@@ -189,7 +236,8 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
       let session = AVAudioSession.sharedInstance()
       do
       {
-        try session.setCategory(AVAudioSession.Category.playAndRecord, options: .defaultToSpeaker)
+        try session.setCategory(AVAudioSession.Category.playAndRecord,
+                                options: .defaultToSpeaker)
         try session.setActive(true)
         let settings = [
           AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -231,7 +279,11 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     view.backgroundColor = UIColor.red
     pauseButton.setTitleColor(.black, for: .normal)
     audioRecorder.record()
-    meterTimer = Timer.scheduledTimer(timeInterval: 0.1, target:self, selector: #selector(updateAudioMeter(_:)), userInfo:nil, repeats:true)
+    meterTimer = Timer.scheduledTimer(timeInterval: 0.1,
+                                      target:self,
+                                      selector: #selector(updateAudioMeter(_:)),
+                                      userInfo:nil,
+                                      repeats:true)
   }
   
   //swipe gesture을 감지하는 코드를 짜 보자!
@@ -239,9 +291,4 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     //performSegueWithIdentifier로 처리하면 될 듯!
     performSegue(withIdentifier: "SetScheduleVC", sender: sender)
   }
-  
-  // TODO: 현재 타임을 트랙킹 해서, StateStore에 있는 시간의 범위 내에 있으면, 라벨이 바뀌어야 한다!
-  // 현 시간 트랙킹은 이 VC에서 해줘도 될듯.
-  // 시간이 10분 전, 현재 이면 라벨이 녹음하세요! 가 되는거고 나머지 시간에는 현 시간을 보여주던지 하는게 좋을듯
-  
 }
