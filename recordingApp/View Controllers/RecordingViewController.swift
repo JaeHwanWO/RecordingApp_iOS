@@ -193,11 +193,17 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     let hour = currentCalendar.component(.hour, from: currentDate)
     let minutes = currentCalendar.component(.minute, from: currentDate)
     // 라벨 디스플레이까지 해준다!
+
     for lecture in StateStore.shared.classArray {
+      print(StateStore.shared.classArray.count)
       // 요일이 같고, 시간이 10분 전까지 이면
       let _a: Bool = (lecture.time.weekDay == weekDay)
-      let _b: Bool = ((lecture.time.startTime.hour * 60 + lecture.time.startTime.min) >= (hour * 60 + minutes + 10))
-      let _c: Bool = ((lecture.time.endTime.hour * 60 + lecture.time.endTime.min) < (hour * 60 + minutes))
+      let _b: Bool = ((lecture.time.startTime.hour * 60 + lecture.time.startTime.min) - 10 <= (hour * 60 + minutes))
+      let _c: Bool = ((lecture.time.endTime.hour * 60 + lecture.time.endTime.min) > (hour * 60 + minutes))
+      
+      print(lecture.time.weekDay)
+      print(weekDay)
+      
       if _a && _b && _c{
         currentTimeLabel.text = lecture.returnTimeString(lecture: lecture)
         currentClassNameLabel.text = "\(lecture.name)" + " 시간입니다"

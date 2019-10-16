@@ -96,6 +96,7 @@ class AddTimeViewController: UITableViewController {
       endTimeLabel.text  = (datePicker.date.formatted)
     }
   }
+  
   func returnDay() -> UIButton{
     var button2: UIButton = UIButton()
     daysArray.forEach { (button) in
@@ -106,21 +107,22 @@ class AddTimeViewController: UITableViewController {
   }
   
   // TODO: 월요일 버튼을 받으면 OrdinaryTime의 월요일 리턴해주기.
-  func ButtonToLectureDay(button: UIButton) -> Int {
+  // TODO: 항상 1이 오는거 수정하기
+  func selectButtonReturnsLectureDay(button: UIButton) -> Int {
     if button.titleLabel?.text == "월"{
-      return 1
-    }
-    else if button.titleLabel?.text == "화"{
       return 2
     }
-    else if button.titleLabel?.text == "수"{
+    else if button.titleLabel?.text == "화"{
       return 3
     }
-    else if button.titleLabel?.text == "목"{
+    else if button.titleLabel?.text == "수"{
       return 4
     }
-    else if  button.titleLabel?.text == "금"{
+    else if button.titleLabel?.text == "목"{
       return 5
+    }
+    else if  button.titleLabel?.text == "금"{
+      return 6
     }
     else { return 1 }
   }
@@ -128,8 +130,8 @@ class AddTimeViewController: UITableViewController {
   @IBAction func didTapDayButton(sender: UIButton){
     sender.backgroundColor = .black
     sender.setTitleColor(.white, for: .normal)
+    sender.isSelected = true
   }
-  
   
   func dateToOrdinaryTime(_ date:Date) -> OrdinaryTime {
     let new = OrdinaryTime(hour: Calendar.current.component(.hour, from: date),
@@ -140,7 +142,7 @@ class AddTimeViewController: UITableViewController {
   func didTapRegister(){
     let returnedDay = returnDay()
     let lectureTime = LectureTime(
-      weekDay: ButtonToLectureDay(button: returnedDay),
+                                  weekDay: selectButtonReturnsLectureDay(button: returnedDay),
                                   startTime: dateToOrdinaryTime(datePickerForStartTime!.date),
                                   endTime: dateToOrdinaryTime(datePickerForEndTime!.date))
     let lecture = Lecture(name: classNameLabel.text!,
