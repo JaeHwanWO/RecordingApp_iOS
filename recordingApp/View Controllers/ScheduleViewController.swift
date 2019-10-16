@@ -57,8 +57,19 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
     return cell
   }
   
+  // 셀을 선택해서 수정할 때, 세그에 정보를 담아서 보내기 위해서 만드는 중.
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.destination is AddTimeViewController{
+      let vc = segue.destination as? AddTimeViewController
+      vc?.modifyingLecture = lectureToSend
+    }
+  }
+  
+  var lectureToSend: Lecture?
+  
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    // 셀 골랐을 때 보여질 뷰 만들고, 보여주
+    lectureToSend = lectureArray[indexPath.row]
+    performSegue(withIdentifier: "editTimeTableViewSegue", sender: self)
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

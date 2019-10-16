@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9AC5795B1DDEE416A5B57C50 /* Pods_recordingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DBD23617819D4E494D4BEF /* Pods_recordingApp.framework */; };
 		DD482C96233CA16D00251AE1 /* StateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD482C95233CA16D00251AE1 /* StateStore.swift */; };
+		DD51E72F2356E90900FDC32B /* EditTimeTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD51E72E2356E90900FDC32B /* EditTimeTableView.xib */; };
 		DD5F5AD02344A94900F46F5F /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F5ACF2344A94900F46F5F /* FAQViewController.swift */; };
 		DD5F5AD22344A9A700F46F5F /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F5AD12344A9A700F46F5F /* AlarmViewController.swift */; };
 		DD5F5AD42344A9C300F46F5F /* CustomizingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F5AD32344A9C300F46F5F /* CustomizingViewController.swift */; };
@@ -38,6 +39,7 @@
 		94FE09A537989EC2EA455407 /* Pods-recordingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordingApp.debug.xcconfig"; path = "Target Support Files/Pods-recordingApp/Pods-recordingApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A0DBD23617819D4E494D4BEF /* Pods_recordingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_recordingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD482C95233CA16D00251AE1 /* StateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateStore.swift; sourceTree = "<group>"; };
+		DD51E72E2356E90900FDC32B /* EditTimeTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditTimeTableView.xib; sourceTree = "<group>"; };
 		DD5F5ACF2344A94900F46F5F /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		DD5F5AD12344A9A700F46F5F /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		DD5F5AD32344A9C300F46F5F /* CustomizingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizingViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				DD6F200F227DF0E00016FF74 /* CollectionViewCell.swift */,
 				DD69FA7F2333986E006310B6 /* AudioPlay.xib */,
 				DD69FA812333A97F006310B6 /* BottomPlayerBar.xib */,
+				DD51E72E2356E90900FDC32B /* EditTimeTableView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				DD6F1FDF227C6BCF0016FF74 /* LaunchScreen.storyboard in Resources */,
 				DD6F1FDC227C6BCF0016FF74 /* Assets.xcassets in Resources */,
 				DD69FA802333986E006310B6 /* AudioPlay.xib in Resources */,
+				DD51E72F2356E90900FDC32B /* EditTimeTableView.xib in Resources */,
 				DD6F1FD7227C6BCE0016FF74 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

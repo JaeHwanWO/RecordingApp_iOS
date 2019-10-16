@@ -36,11 +36,25 @@ class AddTimeViewController: UITableViewController {
   var isDatePicker1Clicked:Bool = false
   var isDatePicker2Clicked:Bool = false
   
+  // 수정을 위해서, lecture 받아오기
+  var modifyingLecture: Lecture?
+  
   override func viewDidLoad() {
     self.tableView.delegate = self
     self.tableView.dataSource = self
     datePickerForStartTime.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
     datePickerForEndTime.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
+    
+    if let modifyingLecture = modifyingLecture{
+      // fill out
+      classNameLabel.text = modifyingLecture.name
+      //TODO: 요일 바꾸는 기능...? weekDayToButton(a: modifyingLecture.time.weekDay)
+      startTimeLabel.text = modifyingLecture.time.startTime.returnTimeString()
+      endTimeLabel.text = modifyingLecture.time.endTime.returnTimeString()
+      professorNameLabel.text = modifyingLecture.professor
+      placeLabel.text = modifyingLecture.room
+      memoLabel.text = modifyingLecture.memo
+    }
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -104,6 +118,22 @@ class AddTimeViewController: UITableViewController {
         button2 = button
       }}
     return button2
+  }
+  
+  func weekDayToButton(a: Int) -> UIButton{
+    if a == 2{
+      return daysArray[0]
+    } else if a == 3{
+      return daysArray[1]
+    } else if a == 4{
+      return daysArray[2]
+    } else if a == 5{
+      return daysArray[3]
+    } else if a == 6{
+      return daysArray[4]
+    } else {
+      return UIButton()
+    }
   }
   
   // TODO: 월요일 버튼을 받으면 OrdinaryTime의 월요일 리턴해주기.

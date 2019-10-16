@@ -47,6 +47,7 @@ struct OrdinaryTime: Codable {
     self.hour = hour
     self.min = min
   }
-  
-  // TODO: 9:00 ~ 11:00 를 리턴해주는 함수 만들기
+  func returnTimeString()->String{
+    return "\(hour)" + ":" + "\(min)"
+  }
 }
