@@ -24,14 +24,14 @@ class AddTimeTableViewController: UIViewController {
   }
   
   @IBAction func didTapCancel(_ sender: Any) {
-    self.dismiss(animated: true, completion: nil)
+    navigationController?.popViewController(animated: true)
   }
   
   @IBAction func didTapRegister(_ sender: Any) {
     if let addTimeVC = self.children.first as? AddTimeViewController{
       addTimeVC.didTapRegister()
-      self.dismiss(animated: true, completion: nil)
     }
+    navigationController?.popViewController(animated: true)
   }
   
   @IBAction func returnBtnClicked(_ sender: Any) {

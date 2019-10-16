@@ -65,6 +65,27 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
     }
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    lectureArray = []
+    let data = StateStore.shared.classArray
+      data.forEach(){ (oneData) in
+        lectureArray.append(oneData)
+      }
+      
+      let cellWidth : CGFloat = monLabel.bounds.width
+      let cellheight : CGFloat = timeTable.frame.size.height/5
+      let cellSize = CGSize(width: cellWidth , height:cellheight)
+      
+      let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+      layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+      layout.itemSize = cellSize
+      layout.minimumInteritemSpacing = 0
+      layout.minimumLineSpacing = 0
+      timeTable.collectionViewLayout = layout
+      timeTable.setCollectionViewLayout(layout, animated: true)
+      timeTable.reloadData()
+  }
+  
   var lectureToSend: Lecture?
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -80,28 +101,6 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    let data = StateStore.shared.classArray
-    data.forEach(){ (oneData) in
-      lectureArray.append(oneData)
-    }
-    
-    let cellWidth : CGFloat = monLabel.bounds.width
-    let cellheight : CGFloat = timeTable.frame.size.height/5
-    let cellSize = CGSize(width: cellWidth , height:cellheight)
-    
-    let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-    layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
-    layout.itemSize = CGSize(width: cellWidth, height: cellheight)
-    layout.minimumInteritemSpacing = 0
-    layout.minimumLineSpacing = 0
-    timeTable.collectionViewLayout = layout
-    
-    timeTable.setCollectionViewLayout(layout, animated: true)
-    timeTable.reloadData()
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
   }
 }
 

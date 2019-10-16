@@ -99,7 +99,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhB-dp-zLJ" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                <rect key="frame" x="161" y="675" width="92" height="32"/>
+                                <rect key="frame" x="181" y="675" width="52" height="30"/>
                                 <state key="normal" title="일시정지">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -413,7 +413,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <containerView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aXh-gN-CaI">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aXh-gN-CaI">
                                 <rect key="frame" x="16" y="100" width="382" height="638"/>
                                 <connections>
                                     <segue destination="i7c-Rl-Tbh" kind="embed" id="xgc-BQ-O2f"/>
@@ -471,7 +471,7 @@
             <objects>
                 <tableViewController id="i7c-Rl-Tbh" customClass="AddTimeViewController" customModule="recordingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lh0-MD-26H">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="646"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
@@ -1189,10 +1189,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="xh0-QK-KmU">
-                                <rect key="frame" x="5" y="253" width="404" height="81"/>
+                                <rect key="frame" x="5" y="257" width="404" height="77"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWn-WG-Crp" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                        <rect key="frame" x="151" y="0.0" width="102" height="32"/>
+                                        <rect key="frame" x="161" y="0.0" width="82" height="30"/>
                                         <state key="normal" title="프로버전 구매"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -1210,7 +1210,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tY-8l-IZt" customClass="RoundedBorderButton" customModule="recordingApp" customModuleProvider="target">
-                                        <rect key="frame" x="134" y="49" width="136" height="32"/>
+                                        <rect key="frame" x="144" y="47" width="116" height="30"/>
                                         <state key="normal" title="이 앱을 만든 사람들"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -1674,6 +1674,6 @@
         <image name="uparrow_black" width="1297" height="720"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="A0j-co-zp9"/>
+        <segue reference="xgc-BQ-O2f"/>
     </inferredMetricsTieBreakers>
 </document>
