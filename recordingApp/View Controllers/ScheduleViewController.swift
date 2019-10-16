@@ -8,14 +8,32 @@
 
 import UIKit
 
-class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ScheduleViewController: UIViewController {
   
   var lectureArray = [Lecture]()
+  var lectureToSend: Lecture?
+
+  // 계획!
+  
+  /*
+   
+  한시간은 collection view 높이 / 10 정도로 하고,
+   collection view는 위아래 스크롤 가능하게 한다.
+   
+   공백은 자기 셀 높이! 안에서 해결한다. inner공백으로! 여백을 따로 주면 안됨.
+  
+  셀을 요일별로 분류한다.
+  월~금 제일 빠른 시간 중, 가장 빠른 시간을 찾는다.
+  월요일부터, 방금 찾은 가장 빠른 시간 기준으로 채우기 시작한다.
+  공강 길이 만큼 채운다. 없는 시간은 흰색 칸으로 채운다.
+  월~금 중 제일 늦은 시간까지 채우면 끝!
+  */
   
   @IBOutlet weak var upButton: UIButton!
   @IBOutlet weak var downButton: UIButton!
   @IBOutlet weak var timeTable: UICollectionView!
-  
+  @IBOutlet weak var monLabel: UILabel!
+
   @IBAction func upButtonPressed(_ sender: Any) {
     let transition = CATransition()
     transition.duration = 0.5
@@ -42,21 +60,6 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
     self.performSegue(withIdentifier: "swipeDown", sender: self)
   }
   
-  @IBAction func addSchedule(_ sender: Any) {
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    print(lectureArray.count)
-    return lectureArray.count
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
-    
-    cell.displayContent(lecture: lectureArray[indexPath.row])
-    return cell
-  }
-  
   // 셀을 선택해서 수정할 때, 세그에 정보를 담아서 보내기 위해서 만드는 중.
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.destination is AddTimeViewController{
@@ -65,71 +68,57 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
     }
   }
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
+  
   override func viewWillAppear(_ animated: Bool) {
     lectureArray = []
     let data = StateStore.shared.classArray
       data.forEach(){ (oneData) in
-        lectureArray.append(oneData)
-      }
-      
-      let cellWidth : CGFloat = monLabel.bounds.width
-      let cellheight : CGFloat = timeTable.frame.size.height/5
-      let cellSize = CGSize(width: cellWidth , height:cellheight)
-      
-      let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-      layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
-      layout.itemSize = cellSize
-      layout.minimumInteritemSpacing = 0
-      layout.minimumLineSpacing = 0
-      timeTable.collectionViewLayout = layout
-      timeTable.setCollectionViewLayout(layout, animated: true)
+        lectureArray.append(oneData)}
       timeTable.reloadData()
   }
-  
-  var lectureToSend: Lecture?
+}
+
+// 콜렉션 뷰 관련 처리
+extension ScheduleViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return lectureArray.count
+  }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     lectureToSend = lectureArray[indexPath.row]
     performSegue(withIdentifier: "editTimeTableViewSegue", sender: self)
   }
   
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return 0
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
+    cell.displayContent(lecture: lectureArray[indexPath.row])
+    return cell
   }
-  
-  @IBOutlet weak var monLabel: UILabel!
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
-}
 
-public extension UINavigationController {
-  
-  func pushViewControllerFromTop(viewController vc: UIViewController) {
-    vc.view.alpha = 0
-    self.present(vc, animated: false) { () -> Void in
-      vc.view.frame = CGRect(x: 0, y: -vc.view.frame.height, width: vc.view.frame.width, height: vc.view.frame.height)
-      vc.view.alpha = 1
-      UIView.animate(withDuration: 1,
-                     animations: { () -> Void in
-                      vc.view.frame = CGRect(x: 0, y: 0, width: vc.view.frame.width, height: vc.view.frame.height)
-      },
-                     completion: nil)
-    }
+  // layout 관련
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let cellWidth : CGFloat = monLabel.bounds.size.width
+    let cellheight : CGFloat = timeTable.frame.size.height / 5
+    let cellSize = CGSize(width: cellWidth , height:cellheight)
+    return cellSize
   }
   
-  func dismissViewControllerToTop() {
-    if let vc = self.presentedViewController {
-      UIView.animate(withDuration: 1,
-                     animations: { () -> Void in
-                      vc.view.frame = CGRect(x: 0, y: -vc.view.frame.height, width: vc.view.frame.width, height: vc.view.frame.height)
-      },
-                     completion: { complete -> Void in
-                      if complete {
-                        self.dismiss(animated: false, completion: nil)
-                      }
-      })
-    }
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      insetForSectionAt section: Int) -> UIEdgeInsets {
+    // 셀들, 헤더, 푸터 사이의 spacing을 Return 해준다.
+    return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    // 레이아웃에서 각 줄에서 한 줄 사이사이의 공백을 관리한다.
+    return ((collectionView.frame.width - 5 * monLabel.frame.width)/4)
   }
 }

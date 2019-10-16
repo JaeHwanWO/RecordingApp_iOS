@@ -59,3 +59,32 @@ class StateStore {
     UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [lecture.name])
   }
 }
+
+public extension UINavigationController {
+  func pushViewControllerFromTop(viewController vc: UIViewController) {
+    vc.view.alpha = 0
+    self.present(vc, animated: false) { () -> Void in
+      vc.view.frame = CGRect(x: 0, y: -vc.view.frame.height, width: vc.view.frame.width, height: vc.view.frame.height)
+      vc.view.alpha = 1
+      UIView.animate(withDuration: 1,
+                     animations: { () -> Void in
+                      vc.view.frame = CGRect(x: 0, y: 0, width: vc.view.frame.width, height: vc.view.frame.height)
+      },
+                     completion: nil)
+    }
+  }
+  
+  func dismissViewControllerToTop() {
+    if let vc = self.presentedViewController {
+      UIView.animate(withDuration: 1,
+                     animations: { () -> Void in
+                      vc.view.frame = CGRect(x: 0, y: -vc.view.frame.height, width: vc.view.frame.width, height: vc.view.frame.height)
+      },
+                     completion: { complete -> Void in
+                      if complete {
+                        self.dismiss(animated: false, completion: nil)
+                      }
+      })
+    }
+  }
+}
