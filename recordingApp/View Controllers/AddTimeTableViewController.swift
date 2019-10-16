@@ -24,16 +24,17 @@ class AddTimeTableViewController: UIViewController {
   }
   
   @IBAction func didTapCancel(_ sender: Any) {
-    navigationController?.popViewController(animated: true)
+    self.dismiss(animated: true, completion: nil)
   }
   
   @IBAction func didTapRegister(_ sender: Any) {
     if let addTimeVC = self.children.first as? AddTimeViewController{
       addTimeVC.didTapRegister()
     }
-    navigationController?.popViewController(animated: true)
+    self.dismiss(animated: true, completion: nil)
   }
   
+  // 애니메이션 확인해보고 삭제하기
   @IBAction func returnBtnClicked(_ sender: Any) {
     let transition = CATransition()
     transition.duration = 0.5
@@ -41,5 +42,11 @@ class AddTimeTableViewController: UIViewController {
     transition.subtype = CATransitionSubtype.fromBottom
     view.window!.layer.add(transition, forKey: kCATransition)
     self.dismiss(animated: true, completion: nil)
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    if let view = self.presentingViewController as? ScheduleViewController{
+      view.viewWillAppear(true)
+    }
   }
 }
