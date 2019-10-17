@@ -112,12 +112,7 @@ class AddTimeViewController: UITableViewController {
   }
   
   func returnDay() -> UIButton{
-    var button2: UIButton = UIButton()
-    daysArray.forEach { (button) in
-      if button.isSelected{
-        button2 = button
-      }}
-    return button2
+    return daysArray.filter({$0.isSelected}).first ?? UIButton()
   }
   
   func weekDayToButton(a: Int) -> UIButton{
