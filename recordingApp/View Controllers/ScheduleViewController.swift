@@ -12,31 +12,31 @@ class ScheduleViewController: UIViewController {
   
   var lectureArray = [Lecture]()
   var lectureToSend: Lecture?
-
+  
   // 계획!
   
   /*
-  한시간은 collection view 높이 / 10 정도로 하고,
+   한시간은 collection view 높이 / 10 정도로 하고,
    collection view는 위아래 스크롤 가능하게 한다.
    
-  공백은 자기 셀 높이! 안에서 해결한다. inner공백으로! 여백을 따로 주면 안됨.
-  
-  셀을 요일별로 분류한다.
-  월~금 제일 빠른 시간 중, 가장 빠른 시간을 찾는다.
-  월요일부터, 방금 찾은 가장 빠른 시간 기준으로 채우기 시작한다.
-  공강 길이 만큼 채운다. 없는 시간은 흰색 칸으로 채운다.
-  월~금 중 제일 늦은 시간까지 채우면 끝!
-  */
+   공백은 자기 셀 높이! 안에서 해결한다. inner공백으로! 여백을 따로 주면 안됨.
+   
+   셀을 요일별로 분류한다.
+   월~금 제일 빠른 시간 중, 가장 빠른 시간을 찾는다.
+   월요일부터, 방금 찾은 가장 빠른 시간 기준으로 채우기 시작한다.
+   공강 길이 만큼 채운다. 없는 시간은 흰색 칸으로 채운다.
+   월~금 중 제일 늦은 시간까지 채우면 끝!
+   */
   
   let colorBlue = [UIColor(named: "Blue_1"), UIColor(named:"Blue_2")]
   let colorGreen = [UIColor(named:"Green_1"), UIColor(named:"Green_2")]
   let colorOrange = [UIColor(named:"Orange_1"), UIColor(named:"Orange_2")]
-
+  
   @IBOutlet weak var upButton: UIButton!
   @IBOutlet weak var downButton: UIButton!
   @IBOutlet weak var timeTable: UICollectionView!
   @IBOutlet weak var monLabel: UILabel!
-
+  
   @IBAction func upButtonPressed(_ sender: Any) {
     let transition = CATransition()
     transition.duration = 0.5
@@ -78,9 +78,25 @@ class ScheduleViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     lectureArray = []
     let data = StateStore.shared.classArray
-      data.forEach(){ (oneData) in
-        lectureArray.append(oneData)}
-      timeTable.reloadData()
+    let earliestLecture = findEarliestLecture(lectureArray: lectureArray)
+    
+    
+    data.forEach(){ (oneData) in
+      lectureArray.append(oneData) }
+    timeTable.reloadData()
+  }
+  
+  func findEarliestLecture(lectureArray: [Lecture]) -> Int {
+    var lecture: Lecture = lectureArray.first ?? Lecture()
+    var lectureIndex: Int = -1
+    for (index, item) in lectureArray.enumerated(){
+      if (item.time.startTime.hour * 60 + item.time.startTime.min) <= (lecture.time.startTime.hour * 60 + lecture.time.startTime.min){
+        // lecture보다 i가 작으면
+        lecture = item
+        lectureIndex = index
+      }
+    }
+    return lectureIndex
   }
 }
 
@@ -100,7 +116,7 @@ extension ScheduleViewController: UICollectionViewDataSource, UICollectionViewDe
     cell.displayContent(lecture: lectureArray[indexPath.row])
     return cell
   }
-
+  
   // layout 관련
   func collectionView(_ collectionView: UICollectionView,
                       layout collectionViewLayout: UICollectionViewLayout,

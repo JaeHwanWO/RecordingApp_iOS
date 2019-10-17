@@ -25,6 +25,17 @@ struct Lecture : Codable {
       + "~"
       + _timeStringOfEndTime
   }
+  init() {
+    name = ""
+    time = LectureTime()
+  }
+  init(name: String, time: LectureTime, professor: String?, room: String?, memo: String?){
+    self.name = name
+    self.time = time
+    self.professor = professor
+    self.room = room
+    self.memo = memo
+  }
 }
 
 class LectureTime: Codable {
@@ -37,6 +48,11 @@ class LectureTime: Codable {
     self.startTime = startTime
     self.endTime = endTime
   }
+  init() {
+    weekDay = -1
+    startTime = OrdinaryTime()
+    endTime = OrdinaryTime()
+  }
 }
 
 struct OrdinaryTime: Codable {
@@ -46,6 +62,10 @@ struct OrdinaryTime: Codable {
   init(hour: Int, min: Int){
     self.hour = hour
     self.min = min
+  }
+  init(){
+    hour = -1
+    min = -1
   }
   func returnTimeString()->String{
     return "\(hour)" + ":" + "\(min)"
