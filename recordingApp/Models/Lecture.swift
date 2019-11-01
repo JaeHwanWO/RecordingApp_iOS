@@ -31,7 +31,7 @@ struct Lecture : Codable {
   }
   init (time: LectureTime){
     name = ""
-    time = time
+    self.time = time
   }
   init(name: String, time: LectureTime, professor: String?, room: String?, memo: String?){
     self.name = name

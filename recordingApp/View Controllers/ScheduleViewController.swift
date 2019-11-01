@@ -91,14 +91,14 @@ class ScheduleViewController: UIViewController {
     var wedArray = makeDaysArray(lectureArray: data, day: 1)
     var thuArray = makeDaysArray(lectureArray: data, day: 1)
     var friArray = makeDaysArray(lectureArray: data, day: 1)
-    let earliestLectureIndex = findEarliestLecture(lectureArray: lectureArray)
-    let latiestLectureIndex = findLatiestLecture(lectureArray: lectureArray)
+//    let earliestLectureIndex = findEarliestLecture(lectureArray: lectureArray)
+//    let latiestLectureIndex = findLatiestLecture(lectureArray: lectureArray)
     
-    let startHr = lectureArray[earliestLectureIndex].time.startTime.hour
-    let startMin = lectureArray[earliestLectureIndex].time.startTime.min
-    
-    let finishHr = lectureArray[latiestLectureIndex].time.startTime.hour
-    let finishMin = lectureArray[latiestLectureIndex].time.startTime.min
+//    let startHr = lectureArray[earliestLectureIndex].time.startTime.hour
+//    let startMin = lectureArray[earliestLectureIndex].time.startTime.min
+//
+//    let finishHr = lectureArray[latiestLectureIndex].time.startTime.hour
+//    let finishMin = lectureArray[latiestLectureIndex].time.startTime.min
     
     monArray = sortInTimeOrder(lectureArray: monArray)
     tueArray = sortInTimeOrder(lectureArray: tueArray)
@@ -133,15 +133,16 @@ class ScheduleViewController: UIViewController {
     var count = argument.count
     // URGENT TODO: 여기 배열 잘 돌아가는지 확인하기. 
     var i: Int = 0
-    while(i < count){
-      if ((argument[i+1].time.startTime.hour) * 60 + argument[i+1].time.startTime.min > (argument[i].time.endTime.hour) * 60 + argument[i].time.endTime.min) {
+    while(i < count && i != 1 && i != 0){
+      // index range
+      if ((_argument[i+1].time.startTime.hour) * 60 + _argument[i+1].time.startTime.min > (_argument[i].time.endTime.hour) * 60 + _argument[i].time.endTime.min) {
         // 빈 곳에 fillInTimes
         // temporary 월요일(1)로 설정해둠. -> 나중에 고치기. weekDay도 받는 함수로 만들자!
         _argument.insert(Lecture.init(time: LectureTime.init(weekDay: weekDay,
-                                                             startTime: OrdinaryTime(hour: argument[i].time.endTime.hour,
-                                                                                     min: argument[i].time.endTime.min),
-                                                             endTime: OrdinaryTime(hour: argument[i+1].time.startTime.hour,
-                                                                                   min: argument[i+1].time.startTime.min))), at: i)
+                                                             startTime: OrdinaryTime(hour: _argument[i].time.endTime.hour,
+                                                                                     min: _argument[i].time.endTime.min),
+                                                             endTime: OrdinaryTime(hour: _argument[i+1].time.startTime.hour,
+                                                                                   min: _argument[i+1].time.startTime.min))), at: i)
         count += 1
       }
       i += 1
