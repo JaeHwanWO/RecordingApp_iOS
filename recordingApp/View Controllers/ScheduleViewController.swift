@@ -106,44 +106,47 @@ class ScheduleViewController: UIViewController {
     thuArray = sortInTimeOrder(lectureArray: thuArray)
     friArray = sortInTimeOrder(lectureArray: friArray)
     
-    /*
-     월요일부터, 방금 찾은 가장 빠른 시간 기준으로 채우기 시작한다.
-     (Lecture.swift의 sortInTimeOrder함수 쓰기)
-       공강 길이 만큼 채운다. 없는 시간은 흰색 칸으로 채운다.
-       월~금 중 제일 늦은 시간까지 채우면 끝! Lecture에 투명한지 bool값을 만들어서 넣어둬야하나?
-     */
-   
+    monArray = addEmptyLecture(monArray, 요일: 1)
+    tueArray = addEmptyLecture(tueArray, 요일: 2)
+    wedArray = addEmptyLecture(wedArray, 요일: 3)
+    thuArray = addEmptyLecture(thuArray, 요일: 4)
+    friArray = addEmptyLecture(friArray, 요일: 5)
     
-    // TODO: 가짜 흰색 셀들을 더해줘야 함. fillInTimes
-    if monArray[0].time.startTime.hour > startHr {
-      // 빈 칸 만들어서 넣어준다.
-      
-      
-    }
-    
-    // 필요한 함수: 최초 시간 /  분, 끝 시간 / 분 받아와서 빈칸을 다 채워주는 기능.
     // 해결할 문제: 빈 칸이랑, 일반 셀이랑 색깔 구분하는 기능.
     
-    timeTable.reloadData()
+    lectureArray = []
+    let allDaysArray = [monArray, tueArray, wedArray, thuArray, friArray]
+    let countArray = [monArray.count, tueArray.count, wedArray.count, thuArray.count, friArray.count]
+    let max = countArray.max()!
     
-  }
-  
-  func addEmptyLecture(_ argument: [Lecture]) -> [Lecture] {
-    var argument = argument
-    
-    // URGENT TODO: 여기 배열 잘 돌아가는지 확인하기. 
-    for i in 0...argument.count{
-      if ((argument[i+1].time.startTime.hour) * 60 + argument[i+1].time.startTime.min > (argument[i].time.endTime.hour) * 60 + argument[i].time.endTime.min) {
-        // 빈 곳에 fillInTimes
-        // temporary 월요일(1)로 설정해둠.
-        argument.insert(Lecture.init(time: LectureTime.init(weekDay: 1,
-                                                            startTime: OrdinaryTime(hour: argument[i].time.endTime.hour,
-                                                                                    min: argument[i].time.endTime.min),
-                                                            endTime: OrdinaryTime(hour: argument[i+1].time.startTime.hour,
-                                                                                  min: argument[i+1].time.startTime.min))), at: i)
+    for i in 0..<max{
+      for j in 1...allDaysArray.count{
+        if (i < countArray[j]){ lectureArray.append(allDaysArray[i][j]) }
       }
     }
-    return argument
+    
+    timeTable.reloadData()
+  }
+  
+  func addEmptyLecture(_ argument: [Lecture], 요일 weekDay: Int) -> [Lecture] {
+    var _argument = argument
+    var count = argument.count
+    // URGENT TODO: 여기 배열 잘 돌아가는지 확인하기. 
+    var i: Int = 0
+    while(i < count){
+      if ((argument[i+1].time.startTime.hour) * 60 + argument[i+1].time.startTime.min > (argument[i].time.endTime.hour) * 60 + argument[i].time.endTime.min) {
+        // 빈 곳에 fillInTimes
+        // temporary 월요일(1)로 설정해둠. -> 나중에 고치기. weekDay도 받는 함수로 만들자!
+        _argument.insert(Lecture.init(time: LectureTime.init(weekDay: weekDay,
+                                                             startTime: OrdinaryTime(hour: argument[i].time.endTime.hour,
+                                                                                     min: argument[i].time.endTime.min),
+                                                             endTime: OrdinaryTime(hour: argument[i+1].time.startTime.hour,
+                                                                                   min: argument[i+1].time.startTime.min))), at: i)
+        count += 1
+      }
+      i += 1
+    }
+    return _argument
   }
   
   func findEarliestLecture(lectureArray: [Lecture]) -> Int {
@@ -177,11 +180,11 @@ class ScheduleViewController: UIViewController {
   }
   
   // MARK:- [lecture]을 받아서, 시간 순서대로 배열해서 내보냅니다.
-   func sortInTimeOrder(lectureArray: [Lecture]) -> [Lecture]{
+  func sortInTimeOrder(lectureArray: [Lecture]) -> [Lecture]{
     var array = lectureArray
     array.sort { $0.time.startTime.hour < $1.time.startTime.hour }
     return array
-   }
+  }
   
 }
 // 콜렉션 뷰 관련 처리
@@ -198,7 +201,7 @@ extension ScheduleViewController: UICollectionViewDataSource, UICollectionViewDe
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
     
-    // MARK:- cell 안에 넣을 내용 고르는 곳. 
+    // MARK:- cell 안에 넣을 내용 고르는 곳.
     cell.displayContent(lecture: lectureArray[indexPath.row])
     return cell
   }
