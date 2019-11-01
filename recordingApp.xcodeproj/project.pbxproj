@@ -32,6 +32,7 @@
 		DD81369023336C280012692D /* RecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1FEA227C8D600016FF74 /* RecordListViewController.swift */; };
 		DD81369123336C280012692D /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1FE8227C8D2B0016FF74 /* ScheduleViewController.swift */; };
 		DD81369323336C2F0012692D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1FD1227C6BCE0016FF74 /* AppDelegate.swift */; };
+		DDF21A172366E40600C8CF24 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF21A162366E40600C8CF24 /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		DD6F1FEC227C91130016FF74 /* RecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
 		DD6F200F227DF0E00016FF74 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		DDC568C6227EA59D003245D9 /* AddTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeViewController.swift; sourceTree = "<group>"; };
+		DDF21A162366E40600C8CF24 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		DDF25304227F712400E78A22 /* RoundedBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				DD482C95233CA16D00251AE1 /* StateStore.swift */,
+				DDF21A152366E3F100C8CF24 /* Agents */,
 				DD813656233366D80012692D /* Models */,
 				DD813655233366AE0012692D /* Views */,
 				DD8136542333667A0012692D /* View Controllers */,
@@ -183,6 +186,14 @@
 				DD69FA7B23338BBF006310B6 /* Lecture.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DDF21A152366E3F100C8CF24 /* Agents */ = {
+			isa = PBXGroup;
+			children = (
+				DDF21A162366E40600C8CF24 /* Functions.swift */,
+			);
+			path = Agents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +325,7 @@
 				DD81368F23336C280012692D /* SettingViewController.swift in Sources */,
 				DD81369023336C280012692D /* RecordListViewController.swift in Sources */,
 				DD81369123336C280012692D /* ScheduleViewController.swift in Sources */,
+				DDF21A172366E40600C8CF24 /* Functions.swift in Sources */,
 				DD69FA7C23338BBF006310B6 /* Lecture.swift in Sources */,
 				DD482C96233CA16D00251AE1 /* StateStore.swift in Sources */,
 				DD81368A23336C230012692D /* CollectionViewCell.swift in Sources */,

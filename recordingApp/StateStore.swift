@@ -10,7 +10,6 @@ import Foundation
 import UserNotifications
 import NotificationCenter
 
-
 class StateStore {
   
   // TODO : UserDefaults가 나의 custom class를 지원하도록 수정해보자
@@ -38,7 +37,6 @@ class StateStore {
       decoded = try! decoder.decode([Lecture].self, from: data as! Data)
     }
     classArray = decoded
-    
   }
   
   static func registerPushAlarm(lecture: Lecture){
