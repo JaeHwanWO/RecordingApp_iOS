@@ -120,8 +120,8 @@ class ScheduleViewController: UIViewController {
     let max = countArray.max()!
     
     for i in 0..<max{
-      for j in 1...allDaysArray.count{
-        if (i < countArray[j]){ lectureArray.append(allDaysArray[i][j]) }
+      for j in 0..<allDaysArray.count{
+        if (i < countArray[j]){ lectureArray.append(allDaysArray[j][i]) }
       }
     }
     
