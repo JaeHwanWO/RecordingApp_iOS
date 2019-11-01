@@ -13,30 +13,6 @@ class ScheduleViewController: UIViewController {
   var lectureArray = [Lecture]()
   var lectureToSend: Lecture?
   
-  /*
-   한 시간은 (collection view 높이 / 10) 정도로 하고,
-   collection view는 위아래 스크롤 가능하게 한다.
-   
-   공백은 자기 셀 높이! 안에서 해결한다. inner공백으로! 여백을 따로 주면 안됨.
-   
-   셀을 요일별로 분류한다.
-   월~금 제일 빠른 시간 중, 가장 빠른 시간을 찾는다.
-   
-   그럼 제일 빠른 시간이, Lecture 타입으로 리턴된다.
-   
-   전체 lectureArray를 정렬한다.
-   월, 화, 수, 목, 금 array를 만들어서 넣는다.
-   
-   월요일부터, 방금 찾은 가장 빠른 시간 기준으로 채우기 시작한다.
-   
-   공강 길이 만큼 채운다. 없는 시간은 흰색 칸으로 채운다.
-   월~금 중 제일 늦은 시간까지 채우면 끝!
-   */
-  
-  let colorBlue = [UIColor(named: "Blue_1"), UIColor(named:"Blue_2")]
-  let colorGreen = [UIColor(named:"Green_1"), UIColor(named:"Green_2")]
-  let colorOrange = [UIColor(named:"Orange_1"), UIColor(named:"Orange_2")]
-  
   @IBOutlet weak var upButton: UIButton!
   @IBOutlet weak var downButton: UIButton!
   @IBOutlet weak var timeTable: UICollectionView!
