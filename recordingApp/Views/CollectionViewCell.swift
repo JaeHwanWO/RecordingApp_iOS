@@ -23,10 +23,10 @@ class CollectionViewCell: UICollectionViewCell {
     
     // 배경색 그라디언트 지정해주기
     let gradient: CAGradientLayer = CAGradientLayer()
-    gradient.colors = [colorBlue[0]!, colorBlue[1]!]
+    gradient.colors = [colorBlue[0]?.cgColor, colorBlue[1]?.cgColor]
     gradient.locations = [0.0 , 1.0]
-    gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
-    gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+    gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+    gradient.endPoint = CGPoint(x: 0.0, y: 1.0)
     gradient.frame = CGRect(x: 0.0, y: 0.0, width: self.contentView.frame.size.width, height: self.contentView.frame.size.height)
     self.contentView.layer.insertSublayer(gradient, at: 0)
     

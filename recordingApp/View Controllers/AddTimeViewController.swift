@@ -135,19 +135,19 @@ class AddTimeViewController: UITableViewController {
   // TODO: 항상 1이 오는거 수정하기
   func selectButtonReturnsLectureDay(button: UIButton) -> Int {
     if button.titleLabel?.text == "월"{
-      return 2
+      return 1
     }
     else if button.titleLabel?.text == "화"{
-      return 3
+      return 2
     }
     else if button.titleLabel?.text == "수"{
-      return 4
+      return 3
     }
     else if button.titleLabel?.text == "목"{
-      return 5
+      return 4
     }
     else if  button.titleLabel?.text == "금"{
-      return 6
+      return 5
     }
     else { return 1 }
   }

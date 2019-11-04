@@ -60,35 +60,41 @@ class ScheduleViewController: UIViewController {
     lectureArray = []
     let data = StateStore.shared.classArray
     data.forEach(){ (oneData) in
-      lectureArray.append(oneData) }
+      lectureArray.append(oneData)
+    }
     
     var monArray = makeDaysArray(lectureArray: data, day: 1)
-    var tueArray = makeDaysArray(lectureArray: data, day: 1)
-    var wedArray = makeDaysArray(lectureArray: data, day: 1)
-    var thuArray = makeDaysArray(lectureArray: data, day: 1)
-    var friArray = makeDaysArray(lectureArray: data, day: 1)
-//    let earliestLectureIndex = findEarliestLecture(lectureArray: lectureArray)
-//    let latiestLectureIndex = findLatiestLecture(lectureArray: lectureArray)
+    var tueArray = makeDaysArray(lectureArray: data, day: 2)
+    var wedArray = makeDaysArray(lectureArray: data, day: 3)
+    var thuArray = makeDaysArray(lectureArray: data, day: 4)
+    var friArray = makeDaysArray(lectureArray: data, day: 5)
     
-//    let startHr = lectureArray[earliestLectureIndex].time.startTime.hour
-//    let startMin = lectureArray[earliestLectureIndex].time.startTime.min
-//
-//    let finishHr = lectureArray[latiestLectureIndex].time.startTime.hour
-//    let finishMin = lectureArray[latiestLectureIndex].time.startTime.min
-    
-    monArray = sortInTimeOrder(lectureArray: monArray)
-    tueArray = sortInTimeOrder(lectureArray: tueArray)
-    wedArray = sortInTimeOrder(lectureArray: wedArray)
-    thuArray = sortInTimeOrder(lectureArray: thuArray)
-    friArray = sortInTimeOrder(lectureArray: friArray)
-    
-    monArray = addEmptyLecture(monArray, 요일: 1)
-    tueArray = addEmptyLecture(tueArray, 요일: 2)
-    wedArray = addEmptyLecture(wedArray, 요일: 3)
-    thuArray = addEmptyLecture(thuArray, 요일: 4)
-    friArray = addEmptyLecture(friArray, 요일: 5)
+    // 0이면 터짐;;
+    if (lectureArray.count > 0){
+      let earliestLectureIndex = findEarliestLecture(lectureArray: lectureArray)
+      let latiestLectureIndex = findLatiestLecture(lectureArray: lectureArray)
+      
+      let startHr = lectureArray[earliestLectureIndex].time.startTime.hour
+      let startMin = lectureArray[earliestLectureIndex].time.startTime.min
+      
+      let finishHr = lectureArray[latiestLectureIndex].time.endTime.hour
+      let finishMin = lectureArray[latiestLectureIndex].time.endTime.min
+      
+      monArray = sortInTimeOrder(lectureArray: monArray)
+      tueArray = sortInTimeOrder(lectureArray: tueArray)
+      wedArray = sortInTimeOrder(lectureArray: wedArray)
+      thuArray = sortInTimeOrder(lectureArray: thuArray)
+      friArray = sortInTimeOrder(lectureArray: friArray)
+      
+      monArray = addEmptyLecture(monArray, 요일: 1, startHr, startMin, finishHr, finishMin)
+      tueArray = addEmptyLecture(tueArray, 요일: 2, startHr, startMin, finishHr, finishMin)
+      wedArray = addEmptyLecture(wedArray, 요일: 3, startHr, startMin, finishHr, finishMin)
+      thuArray = addEmptyLecture(thuArray, 요일: 4, startHr, startMin, finishHr, finishMin)
+      friArray = addEmptyLecture(friArray, 요일: 5, startHr, startMin, finishHr, finishMin)
+    }
     
     // 해결할 문제: 빈 칸이랑, 일반 셀이랑 색깔 구분하는 기능.
+    // 왜 빈칸이 안들어갔을까? -> 요일별로 더해줘서!
     
     lectureArray = []
     let allDaysArray = [monArray, tueArray, wedArray, thuArray, friArray]
@@ -97,38 +103,79 @@ class ScheduleViewController: UIViewController {
     
     for i in 0..<max{
       for j in 0..<allDaysArray.count{
-        if (i < countArray[j]){ lectureArray.append(allDaysArray[j][i]) }
+        if (i < countArray[j]){
+          lectureArray.append(allDaysArray[j][i])
+        }
       }
     }
-    
     timeTable.reloadData()
   }
   
-  func addEmptyLecture(_ argument: [Lecture], 요일 weekDay: Int) -> [Lecture] {
+  func addEmptyLecture(_ argument: [Lecture], 요일 weekDay: Int, _ startHr: Int, _ startMin: Int, _ finishHr: Int, _ finishMin: Int) -> [Lecture] {
     var _argument = argument
     var count = argument.count
     // URGENT TODO: 여기 배열 잘 돌아가는지 확인하기. 
     var i: Int = 0
-    while(i < count && i != 1 && i != 0){
-      // index range
-      if ((_argument[i+1].time.startTime.hour) * 60 + _argument[i+1].time.startTime.min > (_argument[i].time.endTime.hour) * 60 + _argument[i].time.endTime.min) {
-        // 빈 곳에 fillInTimes
-        // temporary 월요일(1)로 설정해둠. -> 나중에 고치기. weekDay도 받는 함수로 만들자!
+    // 맨 처음 칸 insert
+    
+    // 하루종일 하나도 없을 때!
+    
+    if (count == 0){
+      // 처음부터 끝까지 셀 추가.
+      _argument.insert(Lecture.init(time: LectureTime.init(weekDay: weekDay,
+                                                           startTime: OrdinaryTime(hour: startHr,
+                                                                                   min: startMin),
+                                                           endTime: OrdinaryTime(hour: finishHr,
+                                                                                 min: finishMin))), at: 0)
+      count += 1
+    }
+    else {
+      if ((_argument[0].time.startTime.hour) * 60 + _argument[0].time.startTime.min > startHr * 60 + startMin){
+        // 맨 앞 칸에 insert를 해준다.
         _argument.insert(Lecture.init(time: LectureTime.init(weekDay: weekDay,
-                                                             startTime: OrdinaryTime(hour: _argument[i].time.endTime.hour,
-                                                                                     min: _argument[i].time.endTime.min),
-                                                             endTime: OrdinaryTime(hour: _argument[i+1].time.startTime.hour,
-                                                                                   min: _argument[i+1].time.startTime.min))), at: i)
+                                                             startTime: OrdinaryTime(hour: startHr,
+                                                                                     min: startMin),
+                                                             
+                                                             endTime: OrdinaryTime(hour: _argument[0].time.startTime.hour,
+                                                                                   min: _argument[0].time.startTime.min))), at: 0)
         count += 1
       }
-      i += 1
+      
+      // 맨 뒷 칸 insert
+      if ((_argument[count-1].time.endTime.hour) * 60 + _argument[count-1].time.endTime.min < finishHr * 60 + finishMin){
+        // 맨 뒤 칸에 insert를 해준다.
+        _argument.insert(Lecture.init(time: LectureTime.init(weekDay: weekDay,
+                                                             startTime: OrdinaryTime(hour: _argument[count-1].time.endTime.hour,
+                                                                                     min: _argument[count-1].time.endTime.min),
+                                                             
+                                                             endTime: OrdinaryTime(hour: finishHr,
+                                                                                   min: finishMin))), at: _argument.endIndex)
+        
+        count += 1
+      }
+      
+      while(i < count - 1 && count > 1){
+        // index range
+        if ((_argument[i+1].time.startTime.hour) * 60 + _argument[i+1].time.startTime.min > (_argument[i].time.endTime.hour) * 60 + _argument[i].time.endTime.min) {
+          // 빈 곳에 fillInTimes
+          _argument.insert(Lecture.init(time: LectureTime.init(weekDay: weekDay,
+                                                               startTime: OrdinaryTime(hour: _argument[i].time.endTime.hour,
+                                                                                       min: _argument[i].time.endTime.min),
+                                                               endTime: OrdinaryTime(hour: _argument[i+1].time.startTime.hour,
+                                                                                     min: _argument[i+1].time.startTime.min))), at: i)
+          count += 1
+        }
+        i += 1
+      }
+      
     }
     return _argument
   }
   
+  // 문제: -1을 리턴함;;
   func findEarliestLecture(lectureArray: [Lecture]) -> Int {
     var lecture: Lecture = lectureArray.first ?? Lecture()
-    var lectureIndex: Int = -1
+    var lectureIndex: Int = 0
     for (index, item) in lectureArray.enumerated(){
       if (item.time.startTime.hour * 60 + item.time.startTime.min) <= (lecture.time.startTime.hour * 60 + lecture.time.startTime.min){
         // lecture보다 i가 작으면
@@ -141,7 +188,7 @@ class ScheduleViewController: UIViewController {
   
   func findLatiestLecture(lectureArray: [Lecture]) -> Int {
     var lecture: Lecture = lectureArray.first ?? Lecture()
-    var lectureIndex: Int = -1
+    var lectureIndex: Int = 0
     for (index, item) in lectureArray.enumerated(){
       if (item.time.startTime.hour * 60 + item.time.startTime.min) > (lecture.time.startTime.hour * 60 + lecture.time.startTime.min){
         // lecture보다 i가 작으면
