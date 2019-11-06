@@ -54,7 +54,11 @@ class ScheduleViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    if let layout = timeTable?.collectionViewLayout as? TimeTableLayout {
+      layout.delegate = self
+    }
   }
+  
   
   override func viewWillAppear(_ animated: Bool) {
     lectureArray = []
@@ -69,7 +73,6 @@ class ScheduleViewController: UIViewController {
     var thuArray = makeDaysArray(lectureArray: data, day: 4)
     var friArray = makeDaysArray(lectureArray: data, day: 5)
     
-    // 0이면 터짐;;
     if (lectureArray.count > 0){
       let earliestLectureIndex = findEarliestLecture(lectureArray: lectureArray)
       let latiestLectureIndex = findLatiestLecture(lectureArray: lectureArray)
@@ -114,12 +117,7 @@ class ScheduleViewController: UIViewController {
   func addEmptyLecture(_ argument: [Lecture], 요일 weekDay: Int, _ startHr: Int, _ startMin: Int, _ finishHr: Int, _ finishMin: Int) -> [Lecture] {
     var _argument = argument
     var count = argument.count
-    // URGENT TODO: 여기 배열 잘 돌아가는지 확인하기. 
     var i: Int = 0
-    // 맨 처음 칸 insert
-    
-    // 하루종일 하나도 없을 때!
-    
     if (count == 0){
       // 처음부터 끝까지 셀 추가.
       _argument.insert(Lecture.init(time: LectureTime.init(weekDay: weekDay,
@@ -172,7 +170,6 @@ class ScheduleViewController: UIViewController {
     return _argument
   }
   
-  // 문제: -1을 리턴함;;
   func findEarliestLecture(lectureArray: [Lecture]) -> Int {
     var lecture: Lecture = lectureArray.first ?? Lecture()
     var lectureIndex: Int = 0
@@ -191,7 +188,6 @@ class ScheduleViewController: UIViewController {
     var lectureIndex: Int = 0
     for (index, item) in lectureArray.enumerated(){
       if (item.time.startTime.hour * 60 + item.time.startTime.min) > (lecture.time.startTime.hour * 60 + lecture.time.startTime.min){
-        // lecture보다 i가 작으면
         lecture = item
         lectureIndex = index
       }
@@ -252,5 +248,15 @@ extension ScheduleViewController: UICollectionViewDataSource, UICollectionViewDe
                       minimumLineSpacingForSectionAt section: Int) -> CGFloat {
     // 레이아웃에서 각 줄에서 한 줄 사이사이의 공백을 관리한다.
     return ((collectionView.frame.width - 5 * monLabel.frame.width)/4)
+  }
+  
+}
+
+extension ScheduleViewController: TimeTableLayoutDelegate {
+  func collectionView(_ collectionView: UICollectionView, heightForLectureAtIndexPath indexPath: IndexPath) -> CGFloat {
+    
+    let finishTime = lectureArray[indexPath.row].time.endTime.hour * 60 + lectureArray[indexPath.row].time.endTime.min
+    let startTime = lectureArray[indexPath.row].time.startTime.hour * 60 + lectureArray[indexPath.row].time.startTime.min
+    return CGFloat((finishTime - startTime))
   }
 }

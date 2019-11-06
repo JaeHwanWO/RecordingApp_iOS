@@ -53,7 +53,7 @@ class RecordListViewController: UIViewController, UITableViewDelegate, UITableVi
     let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     do{
       let items = try FileManager.default.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
-      print(items.count)
+      
       for item in items{
         listWithFullURL.append(item.absoluteString)
         listWithFileName.append(item.lastPathComponent)

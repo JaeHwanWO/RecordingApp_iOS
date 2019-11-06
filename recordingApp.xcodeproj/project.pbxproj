@@ -32,6 +32,7 @@
 		DD81369023336C280012692D /* RecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1FEA227C8D600016FF74 /* RecordListViewController.swift */; };
 		DD81369123336C280012692D /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1FE8227C8D2B0016FF74 /* ScheduleViewController.swift */; };
 		DD81369323336C2F0012692D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1FD1227C6BCE0016FF74 /* AppDelegate.swift */; };
+		DDD65FDC237160F10012D62A /* TimeTableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD65FDB237160F10012D62A /* TimeTableLayout.swift */; };
 		DDF21A172366E40600C8CF24 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF21A162366E40600C8CF24 /* Functions.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		DD6F1FEC227C91130016FF74 /* RecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
 		DD6F200F227DF0E00016FF74 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		DDC568C6227EA59D003245D9 /* AddTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeViewController.swift; sourceTree = "<group>"; };
+		DDD65FDB237160F10012D62A /* TimeTableLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimeTableLayout.swift; path = recordingApp/Views/TimeTableLayout.swift; sourceTree = SOURCE_ROOT; };
 		DDF21A162366E40600C8CF24 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		DDF25304227F712400E78A22 /* RoundedBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +175,7 @@
 				DDF25304227F712400E78A22 /* RoundedBorderButton.swift */,
 				DD5F5ADA2344AFB700F46F5F /* CircleButton.swift */,
 				DD6F200F227DF0E00016FF74 /* CollectionViewCell.swift */,
+				DDD65FDB237160F10012D62A /* TimeTableLayout.swift */,
 				DD69FA7F2333986E006310B6 /* AudioPlay.xib */,
 				DD69FA812333A97F006310B6 /* BottomPlayerBar.xib */,
 				DD51E72E2356E90900FDC32B /* EditTimeTableView.xib */,
@@ -331,6 +334,7 @@
 				DD81368A23336C230012692D /* CollectionViewCell.swift in Sources */,
 				DD81368923336C1E0012692D /* RoundedBorderButton.swift in Sources */,
 				DD69FA7E233397E9006310B6 /* AudioPlayViewController.swift in Sources */,
+				DDD65FDC237160F10012D62A /* TimeTableLayout.swift in Sources */,
 				DD5F5AD62344A9DA00F46F5F /* SendOpinionViewController.swift in Sources */,
 				DD5F5AD82344A9EB00F46F5F /* InformationViewController.swift in Sources */,
 			);

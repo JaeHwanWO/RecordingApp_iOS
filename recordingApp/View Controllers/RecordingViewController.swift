@@ -44,7 +44,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
   }
   
   @IBAction func settingBtn(_ sender: Any) {
-    print("setting btn pushed, change to SettingVC")
+    
   }
   
   @IBAction func recordingOnAndOff(_ sender: Any) {
@@ -65,7 +65,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
                repeats: true)
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound], completionHandler: {didAllow,Error in
       //User가 Notification을 Allow하는지 물어보는 곳
-      print(didAllow)
+      
     })
     checkRecordPermission()
     pauseButton.isHidden = true
@@ -76,7 +76,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
       recordingTimeLabel.textAlignment = .center
     }
     else {
-      print("error: 처음 앱 켰는데 녹음중이다")
+      
     }
   }
   
@@ -200,9 +200,6 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
       let _a: Bool = (lecture.time.weekDay == weekDay)
       let _b: Bool = ((lecture.time.startTime.hour * 60 + lecture.time.startTime.min) - 10 <= (hour * 60 + minutes))
       let _c: Bool = ((lecture.time.endTime.hour * 60 + lecture.time.endTime.min) > (hour * 60 + minutes))
-      
-      print(lecture.time.weekDay)
-      print(weekDay)
       
       if _a && _b && _c{
         currentTimeLabel.text = lecture.returnTimeString(lecture: lecture)

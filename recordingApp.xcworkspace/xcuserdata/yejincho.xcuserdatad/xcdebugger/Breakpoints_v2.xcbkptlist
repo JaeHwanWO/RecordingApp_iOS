@@ -7,32 +7,140 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D6EFDD75-83B3-4B55-9475-4B2A569683EA"
+            uuid = "14DF4527-8B11-4FF0-8C32-D5C19DAC423A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "recordingApp/View Controllers/ScheduleViewController.swift"
+            filePath = "recordingApp/Views/TimeTableLayout.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "collectionView(_:heightForLectureAtIndexPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7A46B8BE-616A-4CD3-B4F8-6D3E2613D666"
+            uuid = "C01A95B5-8D7B-49AC-95CD-6FAE14A7A0C3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "recordingApp/Views/TimeTableLayout.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "TimeTableLayout"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "C01A95B5-8D7B-49AC-95CD-6FAE14A7A0C3 - 1b12cfae0abc1c2a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "recordingApp.TimeTableLayout.delegate.getter : Swift.Optional&lt;recordingApp.TimeTableLayoutDelegate&gt;"
+                  moduleName = "recordingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yejincho/Desktop/RecordingApp/RecordingApp_iOS/recordingApp/Views/TimeTableLayout.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "C01A95B5-8D7B-49AC-95CD-6FAE14A7A0C3 - d755672643084b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "recordingApp.TimeTableLayout.delegate.setter : Swift.Optional&lt;recordingApp.TimeTableLayoutDelegate&gt;"
+                  moduleName = "recordingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yejincho/Desktop/RecordingApp/RecordingApp_iOS/recordingApp/Views/TimeTableLayout.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "C01A95B5-8D7B-49AC-95CD-6FAE14A7A0C3 - 17c628c836628a4d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "recordingApp.TimeTableLayout.delegate.modify : Swift.Optional&lt;recordingApp.TimeTableLayoutDelegate&gt;"
+                  moduleName = "recordingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yejincho/Desktop/RecordingApp/RecordingApp_iOS/recordingApp/Views/TimeTableLayout.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "C01A95B5-8D7B-49AC-95CD-6FAE14A7A0C3 - be3040d360de4ca8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "recordingApp.TimeTableLayout.delegate.modify : Swift.Optional&lt;recordingApp.TimeTableLayoutDelegate&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "recordingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yejincho/Desktop/RecordingApp/RecordingApp_iOS/recordingApp/Views/TimeTableLayout.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "C01A95B5-8D7B-49AC-95CD-6FAE14A7A0C3 - bd0bbc23b588d48"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "recordingApp.TimeTableLayout.init() -&gt; recordingApp.TimeTableLayout"
+                  moduleName = "recordingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yejincho/Desktop/RecordingApp/RecordingApp_iOS/recordingApp/Views/TimeTableLayout.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "C01A95B5-8D7B-49AC-95CD-6FAE14A7A0C3 - f69a2763b98756b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "recordingApp.TimeTableLayout.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;recordingApp.TimeTableLayout&gt;"
+                  moduleName = "recordingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yejincho/Desktop/RecordingApp/RecordingApp_iOS/recordingApp/Views/TimeTableLayout.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "345B488C-3940-42ED-88A4-2CC2A703E545"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "recordingApp/View Controllers/ScheduleViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
+            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
